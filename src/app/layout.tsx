@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Lexend } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
-import { NavigationMenuBar } from "@/components/navigation-menu-bar";
 
 const inter = Lexend({ subsets: ["latin", "latin-ext"] });
 
@@ -20,7 +19,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <NavigationMenuBar/>
         {children}
         <Toaster />
       </body>

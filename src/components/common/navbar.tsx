@@ -18,7 +18,7 @@ import { ImageConstants } from "@/constants/image-constants";
 import Image from "next/image";
 import { TextConstants } from "@/constants/text-constants";
 import { SvgConstants } from "@/constants/svg-constants";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -58,7 +58,7 @@ const components: { title: string; href: string; description: string }[] = [
   },
 ];
 
-export function NavigationMenuBar() {
+export function Navbar() {
   return (
     <nav className="w-full h-20 bg-blue-400 bg-opacity-15 backdrop-filter backdrop-blur-3xl p-2 sticky top-0 border-blue-300 border-b flex justify-between items-center px-10">
       <Image

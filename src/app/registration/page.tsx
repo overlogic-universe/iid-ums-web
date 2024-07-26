@@ -3,7 +3,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { NavigationMenuBar } from "@/components/navigation-menu-bar";
 import {
   Form,
   FormControl,
@@ -21,10 +20,13 @@ import { toast } from "@/components/ui/use-toast";
 import { ToastAction } from "@/components/ui/toast";
 import { TextConstants } from "@/constants/text-constants";
 import { ZodConstants } from "@/constants/zod-constants";
+import { NextPage } from "next";
 
 const formSchema = ZodConstants.formSchema;
 
-export default function Registration() {
+interface Props {}
+
+const RegistrationPage: NextPage<Props> = ({}) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: ZodConstants.formDefaulValue,
@@ -53,7 +55,7 @@ export default function Registration() {
   return (
     <div className="flex items-center justify-center flex-col">
       <div className="py-4">
-        <Form {...form}>
+        {/* <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             {Object.keys(formSchema.shape).map((key) => (
               <FormField
@@ -77,8 +79,10 @@ export default function Registration() {
             ))}
             <Button type="submit">{TextConstants.en.submit}</Button>
           </form>
-        </Form>
+        </Form> */}
       </div>
     </div>
   );
-}
+};
+
+export default RegistrationPage;
