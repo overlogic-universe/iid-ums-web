@@ -67,3 +67,32 @@
     @apply bg-background text-foreground;
   }
 }
+
+.section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 80px;
+}
+
+.blue-shadow:hover {
+  box-shadow: 0 3px 15px 0 rgb(30, 143, 255);
+}
+
+.white-shadow:hover {
+  box-shadow: 0 0px 20px 0 rgb(255, 255, 255);
+}
+
+.registration-box{
+  height: 450px;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 20px 20px;
+  }
+  .registration-box{
+    height: 400px;
+  }
+}

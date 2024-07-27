@@ -3,14 +3,20 @@
  */
 
 const registrationSuccessTitle = "Congratulations";
-const registrationSucessDescription =
-  "Congratulations you have successfully registered as a member of International Innovation Day 2024, make sure you always update the latest information from us, good luck!";
+const registrationSucessDescription = "Congratulations you have successfully registered as a member of International Innovation Day 2024, make sure you always update the latest information from us, good luck!";
 const registrationFailedTitle = "Failed to register for the IID competition";
-const registrationFailedDescription =
-  "Make sure your internet is stable and try again for a while, if the problem persists contact the committee.";
+const registrationFailedDescription = "Make sure your internet is stable and try again for a while, if the problem persists contact the committee.";
+const header = "Header";
+const headerTitle1 = "What is UMS International ";
+const headerTitle2 = "Innovation ";
+const headerTitle3 = "Day?";
+const headerDescription =
+"UMS International Innovation Day is an annual event hosted by Universitas Muhammadiyah Surakarta (UMS) to celebrate creativity and technological advancements. It brings together students, researchers, entrepreneurs, and industry professionals to showcase innovative projects, exchange ideas, and foster collaborations.";
+const eventRegistrationTitle = "YOU ARE THE NEXT SPECIAL PERSON";
 const close = "Close";
 const submit = "Submit";
-const registration = "Registration";
+const registration = "Register";
+const registerNow = "REGISTER NOW";
 export const TextConstants = {
   en: {
     registrationSuccessTitle,
@@ -20,5 +26,12 @@ export const TextConstants = {
     close,
     submit,
     registration,
+    registerNow, 
+    header,
+    headerTitle1,
+    headerTitle2,
+    headerTitle3,
+    headerDescription,
+    eventRegistrationTitle
   },
 };
