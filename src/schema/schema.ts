@@ -3,12 +3,14 @@ import {
   serial,
   timestamp,
   varchar,
+  numeric
 } from "drizzle-orm/pg-core";
 
 export const registrationTable = pgTable("registration", {
   id: serial("id").primaryKey(),
   createdAt: timestamp("created_at"),
   competitionCategory: varchar("competition_category", { length: 64 }),
+  competitionBatch: numeric("competition_batch"),
   nameOfInventor: varchar("name_of_inventor", { length: 64 }),
   institution: varchar("institution", { length: 128 }),
   email: varchar("email", { length: 64 }),

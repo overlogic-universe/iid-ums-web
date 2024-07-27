@@ -8,6 +8,6 @@ export default defineConfig({
   out: './src/supabase/migrations',
   dialect: 'postgresql',
   dbCredentials: {
-    url: process.env.NEXT_PRIVATE_SUPABASE_URL!,
+    url: process.env.NEXT_PUBLIC_SUPABASE_URL!,
   },
 });
