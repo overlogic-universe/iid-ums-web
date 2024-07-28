@@ -8,7 +8,7 @@ const inter = Lexend({ subsets: ["latin", "latin-ext"] });
 export const metadata: Metadata = {
   title: "Home IID 2024 - UMS",
   description:
-    "The Creative Synergy of Young Investors Encourage Innovation for Human Life and Well-being - International Innovation Day 2024 - UMS",
+    "The Creative Synergy of Young Investors Encourage Innovation for Human Life and Well-being - International Innovation Day 2024 - UMS", 
 };
 
 export default function RootLayout({

@@ -17,6 +17,7 @@ const close = "Close";
 const submit = "Submit";
 const registration = "Register";
 const registerNow = "REGISTER NOW";
+const eventRecap =  "Event Recap";
 export const TextConstants = {
   en: {
     registrationSuccessTitle,
@@ -32,6 +33,7 @@ export const TextConstants = {
     headerTitle2,
     headerTitle3,
     headerDescription,
-    eventRegistrationTitle
+    eventRegistrationTitle,
+    eventRecap,
   },
 };

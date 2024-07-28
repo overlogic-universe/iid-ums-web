@@ -65,6 +65,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
   }
 }
 
@@ -76,6 +77,30 @@
   padding: 40px 80px;
 }
 
+.section-box {
+  width: 100%;
+  border-radius: 1.5rem;
+}
+
+.title-section {
+  font-size: 3rem;
+  line-height: 1;
+  text-decoration: underline;
+  font-weight: bold;
+  color: #0000cb;
+  margin-bottom: 40px;
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
+}
+
+.title-section-span {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, #0000cb, #6eacda, #0000cb);
+}
+
 .blue-shadow:hover {
   box-shadow: 0 3px 15px 0 rgb(30, 143, 255);
 }
@@ -84,15 +109,24 @@
   box-shadow: 0 0px 20px 0 rgb(255, 255, 255);
 }
 
-.registration-box{
+.registration-box {
   height: 450px;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 20px;
+  color: white;
 }
 
 @media (max-width: 768px) {
   .section {
     padding: 20px 20px;
   }
-  .registration-box{
+  .registration-box {
     height: 400px;
+  }
+  .title-section {
+    font-size: 2.25rem;
   }
 }

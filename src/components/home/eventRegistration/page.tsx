@@ -10,8 +10,8 @@ interface Props {}
 const EventRegistrationSection: NextPage<Props> = ({}) => {
   return (
     <div className="section">
-      <div className="flex w-full rounded-3xl overflow-hidden shadow-lg registration-box">
-        <div className="lg:w-1/2 w-full text-center px-16 py-6 bg-blue-600 h-full text-white">
+      <div className="flex section-box overflow-hidden shadow-lg registration-box" data-aos="fade-up">
+        <div className="lg:w-1/2 w-full text-center px-16 py-6 bg-blue-600 h-full text-white" style={{ backgroundImage: `url(${SvgConstants.registrationDecoration2.src})` }}>
           <div className="rounded-2xl px-5 py-2 md:mx-10 bg-white lg:flex items-center justify-center text-center">
             <Image className="mx-auto" src={SvgConstants.logo} alt={TextConstants.en.registration} height={70} />
           </div>

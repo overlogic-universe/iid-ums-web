@@ -27,7 +27,7 @@ const config = {
           DEFAULT: "#4b00fc",
           600: "#4500cc",
           primary: '#0000CB',
-          secondary: '#D6DCF0',
+          secondary: '#e0e8ff',
           white: '#FFFFFF',
         },
         border: "hsl(var(--border))",
