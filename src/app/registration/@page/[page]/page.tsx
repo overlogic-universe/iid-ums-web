@@ -140,7 +140,7 @@ const Page: NextPage<Props> = ({ params }) => {
         title: TextConstants.en.registrationSuccessTitle,
         description: TextConstants.en.registrationSucessDescription,
         action: (
-          <ToastAction altText="Close">TextConstants.en.close</ToastAction>
+          <ToastAction altText="Close">{TextConstants.en.close}</ToastAction>
         ),
       });
     } catch (error) {
@@ -148,7 +148,7 @@ const Page: NextPage<Props> = ({ params }) => {
         title: TextConstants.en.registrationFailedTitle,
         description: TextConstants.en.registrationFailedDescription,
         action: (
-          <ToastAction altText="Close">TextConstants.en.close</ToastAction>
+          <ToastAction altText="Close">{TextConstants.en.close}</ToastAction>
         ),
       });
     }
@@ -261,10 +261,10 @@ const Page: NextPage<Props> = ({ params }) => {
                   }
                 })}
                 {currentPage == 5 ? (
-                  <FileUpload title="Abstract of Invention" />
+                  <FileUpload title="Abstract of Invention" url={()=>{}} accept="images/*"/>
                 ) : null}
                 {currentPage == 6 ? (
-                  <FileUpload title="Design of Invention" />
+                  <FileUpload title="Design of Invention" url={()=>{}} accept="images/*"/>
                 ) : null}
                 {currentPage == 7 ? <Confirmation /> : null}
               </form>

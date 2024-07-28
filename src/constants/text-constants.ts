@@ -18,6 +18,8 @@ const submit = "Submit";
 const registration = "Register";
 const registerNow = "REGISTER NOW";
 const eventRecap =  "Event Recap";
+const fileUploadError = "Failed to upload the file";
+const uploadFileDescriptionError = "Failed to upload the file, please make sure the file is not too large or the file type is supported.";
 export const TextConstants = {
   en: {
     registrationSuccessTitle,
@@ -35,5 +37,7 @@ export const TextConstants = {
     headerDescription,
     eventRegistrationTitle,
     eventRecap,
+    fileUploadError,
+    uploadFileDescriptionError
   },
 };

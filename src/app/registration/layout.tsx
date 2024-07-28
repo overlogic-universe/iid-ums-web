@@ -7,7 +7,7 @@ interface Props {
   page: React.ReactNode;
 }
 
-const RegistrationLayout: NextPage<Props> = ({ page }) => {
+const RegistrationLayout: NextPage<Props> = ({ children }) => {
   return (
     <div className="relative">
       <Image
@@ -19,7 +19,7 @@ const RegistrationLayout: NextPage<Props> = ({ page }) => {
       <div className="pb-20 px-56 h-screen w-screen absolute flex flex-col items-center justify-center">
         <Image src={SvgConstants.logo} alt="Logo" className="my-"/>
         <div className="rounded-2xl bg-white w-full h-full flex justify-center z-20">
-          {page}
+          {children}
         </div>
       </div>
     </div>

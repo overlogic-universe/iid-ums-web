@@ -1,6 +1,6 @@
 {
-  "id": "61cb6037-2db4-4c60-ad7e-f5327c57776b",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "e7b1f59c-6d23-456e-ad23-4a1820f36335",
+  "prevId": "61cb6037-2db4-4c60-ad7e-f5327c57776b",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -13,6 +13,12 @@
           "type": "serial",
           "primaryKey": true,
           "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
         },
         "email": {
           "name": "email",
@@ -89,6 +95,12 @@
         "product_description": {
           "name": "product_description",
           "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "competition_batch": {
+          "name": "competition_batch",
+          "type": "numeric",
           "primaryKey": false,
           "notNull": false
         }
