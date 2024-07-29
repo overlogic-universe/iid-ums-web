@@ -17,6 +17,7 @@ import warningLineIcon from "@/assets/svgs/ic-warning-line.svg";
 import cancelOutlineIcon from "@/assets/svgs/ic-cancel-outline.svg";
 import fileOutlineIcon from "@/assets/svgs/ic-file-outline.svg";
 import cloudUploadIconDanger from "@/assets/svgs/ic-danger-cloud-upload.svg";
+import doneIcon from "@/assets/svgs/ic-done-line.svg"
 
 // SVG constants for use in the app.
 export const SvgConstants = {
@@ -34,5 +35,6 @@ export const SvgConstants = {
   warningLineIcon,
   cancelOutlineIcon,
   fileOutlineIcon,
-  cloudUploadIconDanger
+  cloudUploadIconDanger,
+  doneIcon,
 };

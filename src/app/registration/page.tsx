@@ -41,18 +41,22 @@ import FileUpload from "@/components/registraion/file-upload/file-upload";
 import Confirmation from "@/components/registraion/confirmation/confirmation";
 import Image from "next/image";
 import { SvgConstants } from "@/constants/svg-constants";
-import { getCookies, setCookies } from "@/lib/action/cookie-action";
+import {
+  getCookies,
+  getTotalCookies,
+  removeAllCookies,
+  removeCookies,
+  setCookies,
+} from "@/lib/action/cookies/cookie-action";
 import { useEffect, useState } from "react";
 import FormLoading from "@/components/registraion/form/form-loading";
+import SubmitedPage from "@/components/registraion/submited/submited";
 
 interface Props {
   params: {
     page: string;
   };
 }
-
-// Define a type for the keys of selectContent
-type SelectContentKeys = "competitionCategory" | "formOfInvention";
 
 // Define the selectContent object with the specified keys
 const selectContent: Record<SelectContentKeys, string[]> = {
@@ -73,22 +77,23 @@ const RegistrationPage: NextPage<Props> = () => {
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [fileUploadColor, setFileUploadColor] = useState("main");
+  const [isAgree, setIsAgree] = useState(false);
+  const [filled, setFilled] = useState(0);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: ZodConstants.formDefaulValue,
   });
-  const {
-    setValue,
-    getValues,
-    trigger,
-    formState: { errors },
-  } = form;
+  const { setValue, getValues, trigger } = form;
 
   const fetchCookies = async () => {
     setLoading(true);
+
     setFileUploadColor("main");
     const cookies = await getCookies();
+    console.log(cookies);
+
+    await Promise.all(cookies);
     if (cookies) {
       cookies.forEach((cookie) => {
         if (Object.keys(form.getValues()).includes(cookie.name)) {
@@ -98,6 +103,7 @@ const RegistrationPage: NextPage<Props> = () => {
           );
         }
       });
+      console.log(form.getValues());
     }
     setLoading(false);
   };
@@ -146,7 +152,9 @@ const RegistrationPage: NextPage<Props> = () => {
   };
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
+      setLoading(true);
       await insertRegistrationAction(values);
+      removeAllCookies();
       form.reset();
       toast({
         title: TextConstants.en.registrationSuccessTitle,
@@ -155,6 +163,7 @@ const RegistrationPage: NextPage<Props> = () => {
           <ToastAction altText="Close">{TextConstants.en.close}</ToastAction>
         ),
       });
+      setCurrentPage(currentPage + 1);
     } catch (error) {
       toast({
         title: TextConstants.en.registrationFailedTitle,
@@ -163,127 +172,26 @@ const RegistrationPage: NextPage<Props> = () => {
           <ToastAction altText="Close">{TextConstants.en.close}</ToastAction>
         ),
       });
+    } finally {
+      setLoading(false);
     }
   };
   return (
-    <div className="w-full h-full relative">
+    <div className="w-full relative">
       {loading ? <FormLoading /> : null}
       <div className="relative">
-        <div className="absolute top-0 right-0 ">
-          <p className="p-2 text-main font-light">{currentPage ?? 1}/13</p>
+        <div className="absolute top-0 right-0">
+          <p className="p-2 text-main font-light">{filled}/13</p>
         </div>
       </div>
-      <div className="relative h-full w-full px-28">
-        {currentPage >= 1 && currentPage <= 8 ? (
-          <div className="w-full absolute bottom-0 right-0 flex items-center justify-between pb-5 px-28 z-10">
-            {currentPage == 1 ? null : (
-              <Button
-                onClick={() => setCurrentPage(currentPage - 1)}
-                className="border-2 border-black w-40 rounded-xl h-14"
-                variant={"outline"}
-              >
-                Back
-              </Button>
-            )}
-            {currentPage == 8 ? (
-              <Dialog>
-                {
-                  (form.getValues("productDescription") != "" ? (
-                    <DialogTrigger asChild>
-                      <Button className="w-40 rounded-xl h-14">Submit</Button>
-                    </DialogTrigger>
-                  ) : (
-                    <Button className="w-40 rounded-xl h-14">Submit</Button>
-                  ))
-                }
-
-                <DialogContent className="bg-main-200 border-2 border-white flex items-center justify-center flex-col">
-                  <div className="flex justify-center items-center flex-col text-white">
-                    <Image
-                      src={SvgConstants.warningLineIcon}
-                      alt="Warning Line"
-                    />
-                    <p className="text-4xl">Are you sure ?</p>
-                    <p>Data that has been sent cannot be changed</p>
-                  </div>
-                  <DialogFooter className="sm:justify-start">
-                    <DialogClose asChild>
-                      <Button
-                        type="button"
-                        variant="secondary"
-                        className="border-2 rounded-2xl text-red-500 w-32 hover:bg-red-500 hover:bg-opacity-30 border-red-500 bg-transparent"
-                      >
-                        Cancel
-                      </Button>
-                    </DialogClose>
-                    <Button
-                    onClick={()=>{
-                      onSubmit(form.getValues());
-                    }}
-                      type="button"
-                      variant="secondary"
-                      className="border-2 rounded-2xl text-white w-32 hover:bg-white hover:bg-opacity-30 border-white bg-transparent"
-                    >
-                      Submit
-                    </Button>
-                  </DialogFooter>
-                </DialogContent>
-              </Dialog>
-            ) : (
-              <Button
-                onClick={async () => {
-                  let validForm = true;
-                  const formLocation = currentPage * 3;
-
-                  // Create an array of validation promises
-                  const validationPromises = Object.keys(formSchema.shape).map(
-                    async (key, index) => {
-                      if (
-                        index >= formLocation - 3 &&
-                        index < formLocation &&
-                        index <= 9
-                      ) {
-                        const validator = await trigger(
-                          key as keyof z.infer<typeof formSchema>
-                        );
-                        validForm = validForm && validator;
-                      } else if (currentPage == 5) {
-                        const validator = await trigger("scanStudentId");
-                        validForm = validForm && validator;
-                        if (!validForm) setFileUploadColor("red");
-                      } else if (currentPage == 6) {
-                        const validator = await trigger("abstract");
-                        validForm = validForm && validator;
-                        if (!validForm) setFileUploadColor("red");
-                      }
-                    }
-                  );
-
-                  // Wait for all validation promises to complete
-                  await Promise.all(validationPromises);
-
-                  if (validForm) {
-                    setCurrentPage(currentPage + 1);
-                  }
-                }}
-                className="w-40 rounded-xl h-14"
-              >
-                Next
-              </Button>
-            )}
-          </div>
-        ) : null}
-
+      <div className="w-full px-28 bg-white rounded-2xl">
         <p className="rows-span-1 text-main-600 font-bold text-2xl pt-4 text-center underline">
           Registration Form
         </p>
-        <div className="h-full">
-          <div className="h-full">
+        <div>
+          <div>
             <Form {...form}>
-              <form
-                onSubmit={form.handleSubmit(onSubmit)}
-                className="space-y-8 h-full"
-              >
+              <form className="space-y-8">
                 {Object.keys(formSchema.shape).map((key, index) => {
                   const label = key
                     .replace(/([A-Z])/g, " $1")
@@ -301,9 +209,11 @@ const RegistrationPage: NextPage<Props> = () => {
                         name={key as keyof z.infer<typeof formSchema>}
                         render={({ field }) => (
                           <FormItem
-                            onChange={(
+                            onChange={async (
                               e: React.ChangeEvent<HTMLInputElement>
-                            ) => setCookies(key, e.target.value)}
+                            ) => {
+                              setCookies(key, e.target.value);
+                            }}
                           >
                             <FormLabel>{label}</FormLabel>
                             <FormControl>
@@ -339,7 +249,7 @@ const RegistrationPage: NextPage<Props> = () => {
                     }}
                     title="Abstract (PDF)"
                     accept=".pdf"
-                    bucket="abstract_bucket"
+                    bucket="abstract"
                     contentType="application/pdf"
                     fileUrl={getValues("abstract")}
                   />
@@ -358,9 +268,151 @@ const RegistrationPage: NextPage<Props> = () => {
                     fileUrl={getValues("productDescription")}
                   />
                 ) : null}
-                {currentPage == 8 ? <Confirmation /> : null}
+                {currentPage == 8 ? (
+                  <Confirmation
+                    onChange={(agree: boolean) => setIsAgree(agree)}
+                  />
+                ) : null}
+                {currentPage == 9 ? <SubmitedPage /> : null}
               </form>
             </Form>
+            {currentPage >= 1 && currentPage <= 8 ? (
+              <div
+                className={`w-full flex ${
+                  currentPage == 1 ? "justify-end" : "justify-between"
+                } items-center py-5 z-10`}
+              >
+                {currentPage == 1 ? null : (
+                  <Button
+                    onClick={() => setCurrentPage(currentPage - 1)}
+                    className="border-2 border-black w-40 rounded-xl h-14"
+                    variant={"outline"}
+                  >
+                    Back
+                  </Button>
+                )}
+                {currentPage == 8 ? (
+                  <Dialog>
+                    {isAgree ? (
+                      <DialogTrigger asChild>
+                        <Button className="w-40 rounded-xl h-14">Submit</Button>
+                      </DialogTrigger>
+                    ) : (
+                      <Button
+                        onClick={() => {
+                          toast({
+                            title: TextConstants.en.confirmationTitleError,
+                            description:
+                              TextConstants.en.confirmationDescriptionError,
+                            variant: "destructive",
+                            action: (
+                              <ToastAction altText="Close">
+                                {TextConstants.en.close}
+                              </ToastAction>
+                            ),
+                          });
+                        }}
+                        className="w-40 rounded-xl h-14"
+                      >
+                        Submit
+                      </Button>
+                    )}
+
+                    <DialogContent className="bg-main-200 border-2 border-white flex items-center justify-center flex-col">
+                      <div className="flex justify-center items-center flex-col text-white">
+                        <Image
+                          src={SvgConstants.warningLineIcon}
+                          alt="Warning Line"
+                        />
+                        <p className="text-4xl">Are you sure ?</p>
+                        <p>Data that has been sent cannot be changed</p>
+                      </div>
+                      <DialogFooter className="sm:justify-start">
+                        <DialogClose asChild>
+                          <Button
+                            type="button"
+                            variant="secondary"
+                            className="border-2 rounded-2xl text-red-500 w-32 hover:bg-red-500 hover:bg-opacity-30 border-red-500 bg-transparent"
+                          >
+                            Cancel
+                          </Button>
+                        </DialogClose>
+                        <DialogClose>
+                          <Button
+                            onClick={() => {
+                              onSubmit(form.getValues());
+                            }}
+                            type="button"
+                            variant="secondary"
+                            className="border-2 rounded-2xl text-white w-32 hover:bg-white hover:bg-opacity-30 border-white bg-transparent"
+                          >
+                            Submit
+                          </Button>
+                        </DialogClose>
+                      </DialogFooter>
+                    </DialogContent>
+                  </Dialog>
+                ) : (
+                  <Button
+                    onClick={async () => {
+                      let validForm = true;
+                      const formLocation = currentPage * 3;
+
+                      const validationPromises = Object.keys(
+                        formSchema.shape
+                      ).map(async (key, index) => {
+                        if (
+                          index >= formLocation - 3 &&
+                          index < formLocation &&
+                          index <= 9
+                        ) {
+                          validForm =
+                            validForm &&
+                            (await trigger(
+                              key as keyof z.infer<typeof formSchema>
+                            ));
+                        } else if (currentPage == 5) {
+                          validForm =
+                            validForm && (await trigger("scanStudentId"));
+                          if (!validForm) setFileUploadColor("red");
+                        } else if (currentPage == 6) {
+                          validForm = validForm && (await trigger("abstract"));
+                          if (!validForm) setFileUploadColor("red");
+                        } else if (currentPage == 7) {
+                          validForm =
+                            validForm && (await trigger("productDescription"));
+                          if (!validForm) setFileUploadColor("red");
+                        }
+                      });
+
+                      await Promise.all(validationPromises);
+
+                      const totalCookies = await getTotalCookies();
+                      setFilled(totalCookies);
+
+                      if (validForm) {
+                        setCurrentPage(currentPage + 1);
+                      } else {
+                        toast({
+                          title: TextConstants.en.uncompleteFormTitleError,
+                          description:
+                            TextConstants.en.uncompleteFormDescriptionError,
+                          variant: "destructive",
+                          action: (
+                            <ToastAction altText="Close">
+                              {TextConstants.en.close}
+                            </ToastAction>
+                          ),
+                        });
+                      }
+                    }}
+                    className="w-40 rounded-xl h-14"
+                  >
+                    Next
+                  </Button>
+                )}
+              </div>
+            ) : null}
           </div>
         </div>
       </div>

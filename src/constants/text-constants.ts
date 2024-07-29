@@ -23,6 +23,13 @@ const uploadFileDescriptionError = "Failed to upload the file, please make sure 
 const eventDetail = "Event Details";
 const location = "Universitas Muhammadiyah Surakarta";
 const locationAddress = "Jl. A. Yani, Mendungan, Pabelan, Kec. Kartasura, Kabupaten Sukoharjo, Jawa Tengah 57162";
+const confirmationTitleError = "Please fill in the checkbox"
+const confirmationDescriptionError = "Make sure that you have agreed by filling in the checkbox available on the registration form."
+const uncompleteFormTitleError = "Please complete the form"
+const uncompleteFormDescriptionError = "Please fill the available fields before continuing."
+const remove = "Remove"
+const unsupportFileTypeTitleError = "Please upload a correct file type"
+const unsupportFileTypeDescriptionError = "Double check your file and try again to upload the correct file type."
 export const TextConstants = {
   en: {
     registrationSuccessTitle,
@@ -45,5 +52,12 @@ export const TextConstants = {
     eventDetail,
     location,
     locationAddress,
+    confirmationTitleError,
+    confirmationDescriptionError,
+    uncompleteFormTitleError,
+    uncompleteFormDescriptionError,
+    remove,
+    unsupportFileTypeTitleError,
+    unsupportFileTypeDescriptionError,
   },
 };

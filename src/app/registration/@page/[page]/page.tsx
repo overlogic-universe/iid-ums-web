@@ -43,7 +43,7 @@ import Confirmation from "@/components/registraion/confirmation/confirmation";
 import Image from "next/image";
 import { SvgConstants } from "@/constants/svg-constants";
 import { Textarea } from "@/components/ui/textarea";
-import { getCookies, setCookies } from "@/lib/action/cookie-action";
+import { getCookies, setCookies } from "@/lib/action/cookies/cookie-action";
 import { useEffect, useState } from "react";
 import FormLoading from "@/components/registraion/form/form-loading";
 
@@ -261,10 +261,10 @@ const Page: NextPage<Props> = ({ params }) => {
                   }
                 })}
                 {currentPage == 5 ? (
-                  <FileUpload title="Abstract of Invention" url={()=>{}} accept="images/*"/>
+                  <FileUpload title="Abstract of Invention" accept="images/*"/>
                 ) : null}
                 {currentPage == 6 ? (
-                  <FileUpload title="Design of Invention" url={()=>{}} accept="images/*"/>
+                  <FileUpload title="Design of Invention" accept="images/*"/>
                 ) : null}
                 {currentPage == 7 ? <Confirmation /> : null}
               </form>
