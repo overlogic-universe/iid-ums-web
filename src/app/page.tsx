@@ -1,7 +1,7 @@
 "use client";
 import Footer from "@/components/common/footer";
-import { Navbar } from "@/components/common/navbar";
-import EventDetailSection from "@/components/home/eventDetail/page";
+import Navbar from "@/components/common/navbar/navbar";
+import EventDetailsSection from "@/components/home/eventDetails/page";
 import EventRecapSection from "@/components/home/eventRecap/page";
 import EventRegistrationSection from "@/components/home/eventRegistration/page";
 import HeaderSection from "@/components/home/header/page";
@@ -23,7 +23,7 @@ const HomePage = () => {
       <Navbar />
       <HeaderSection />
       <EventRegistrationSection />
-      <EventDetailSection />
+      <EventDetailsSection />
       <EventRecapSection />
       <div className="min-h-screen">h</div>
       {/* Another Components */}

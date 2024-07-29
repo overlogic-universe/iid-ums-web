@@ -8,7 +8,7 @@ interface Props {}
 
 const EventRecapSection: NextPage<Props> = ({}) => {
   return (
-    <div className=" text-center flex-col section">
+    <div id="event-recap" className=" text-center flex-col section">
       <div className="bg-white section-box pb-10 bg-cover bg-center relative shadow-lg " style={{ backgroundImage: `url(${SvgConstants.registerFormBackground.src})`, border: "1px solid #e0e8ff" }} data-aos="fade-up">
         <h1 className="title-section" data-aos="fade-up">
           <span className="title-section-span text-center">{TextConstants.en.eventRecap}</span>

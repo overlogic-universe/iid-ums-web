@@ -8,7 +8,7 @@ import { SvgConstants } from "@/constants/svg-constants";
 
 interface Props {}
 
-const EventDetailSection: NextPage<Props> = ({}) => {
+const EventDetailsSection: NextPage<Props> = ({}) => {
   const Map = useMemo(
     () =>
       dynamic(() => import("./map"), {
@@ -24,7 +24,7 @@ const EventDetailSection: NextPage<Props> = ({}) => {
     { icon: IconConstants.countDown, text: "Coming Soon" },
   ];
   return (
-    <div className="section flex-col relative bg-main-secondary">
+    <div id="event-details" className="section flex-col relative bg-main-secondary">
       <div className="section-box bg-white pb-5 px-5">
         <div className="title-section" data-aos="fade-up">
           <span className="title-section-span">{TextConstants.en.eventDetail}</span>
@@ -67,4 +67,4 @@ const EventDetailSection: NextPage<Props> = ({}) => {
   );
 };
 
-export default EventDetailSection;
+export default EventDetailsSection;

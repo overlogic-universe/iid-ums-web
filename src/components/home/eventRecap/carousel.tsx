@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Navigation, Pagination, EffectCoverflow } from "swiper/modules";
+import { Navigation, Pagination, EffectCoverflow, Autoplay } from "swiper/modules";
 import Image from "next/image";
 import { recapOfImages } from "./carouselImages";
 
@@ -22,7 +22,10 @@ export default function RecapCarousel() {
         effect={"coverflow"}
         centeredSlides
         loop
-        autoplay
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
         slidesPerView={"auto"}
         spaceBetween={0}
         breakpoints={{
@@ -50,17 +53,11 @@ export default function RecapCarousel() {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         }}
-        modules={[EffectCoverflow, Pagination, Navigation]}
+        modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
       >
         {carouselItems.map((item) => (
           <SwiperSlide key={item.id} className="object-cover  rounded-3xl border-2 border-white overflow-hidden text-center">
-              <Image
-                className="w-full object-cover"
-                width={600}
-                height={400}
-                src={item.imageUrl.src}
-                alt={`slide ${item.id}`}
-              />
+            <Image className="w-full object-cover" width={600} height={400} src={item.imageUrl.src} alt={`slide ${item.id}`} />
           </SwiperSlide>
         ))}
         <div className="swiper-button-prev"></div>

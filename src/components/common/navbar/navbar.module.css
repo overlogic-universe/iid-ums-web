@@ -1,0 +1,114 @@
+.title-navbar {
+  font-size: 30px;
+  margin: auto;
+  letter-spacing: 1px;
+  cursor: default;
+  color: white;
+}
+
+.li-navbar-text {
+  color: white;
+  font-size: 0.89rem;
+  text-decoration: none;
+  font-weight: 100;
+  position: relative;
+}
+
+ul.visible {
+  left: 0;
+  height: 1000vh;
+  flex: 1;
+  box-sizing: border-box;
+}
+
+ul.hidden {
+  left: -100%;
+}
+
+/* =============================================================================== */
+
+/* responsive */
+
+/* Tablet */
+
+@media (max-width: 1024px) {
+  .nav-box {
+    padding: 90px 0px 0px 40px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 60%;
+    transition: 0.5s;
+    position: absolute;
+    top: 80;
+    left: 0;
+    height: 100vh;
+  }
+
+  .li-navbar-text {
+    color: white;
+    font-size: 16px;
+  }
+
+  .li-navbar-text:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* ============================ */
+  /* menu */
+
+  .top-menu {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    height: 100px;
+    left: 0;
+    z-index: -1;
+  }
+
+  .burger-menu {
+    height: 50%;
+    width: 4em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+  }
+
+  .burger-bar {
+    width: 2.5em;
+    height: 0.3em;
+    margin: 3px 0px 3px 0px;
+    background-color: #0000cb;
+    border-radius: 0.5em;
+  }
+
+  .burger-bar.clicked:nth-child(1) {
+    transform: rotate(44deg) translate(0.4em, 0.5em);
+    transition: ease-out 0.5s;
+  }
+  .burger-bar.clicked:nth-child(2) {
+    transform: scale(0.1);
+    transition: ease-out 0.5s;
+  }
+  .burger-bar.clicked:nth-child(3) {
+    transform: rotate(135deg) translate(-0.5em, 0.5em);
+    transition: ease-out 0.5s;
+  }
+
+  .burger-bar.unclicked {
+    transform: rotate(0) translate(0);
+    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .nav-box {
+    padding: 90px 0px 0px 15px;
+    width: 70%;
+  }
+}

@@ -4,7 +4,7 @@ interface Props {}
 
 const AboutPage: NextPage<Props> = ({}) => {
   return (
-    <div className="flex w-full items-center justify-center">AboutPage</div>
+    <div id="about-us" className="flex w-full items-center justify-center">AboutPage</div>
   );
 };
 

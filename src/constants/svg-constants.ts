@@ -6,6 +6,7 @@ import logo from "@/assets/svgs/logo.svg";
 import registerFormBackground from "@/assets/svgs/bg-register-form.svg";
 import cloudUploadIcon from "@/assets/svgs/ic-cloud-upload.svg";
 import headerImage from "@/assets/svgs/header.svg";
+import headerImageMobile from "@/assets/svgs/header-mobile.svg";
 import headerBoxDecoration from "@/assets/svgs/header-box-decoration.svg";
 import cubeDecoration from "@/assets/svgs/cube-decoration.svg";
 import cubeDecoration2 from "@/assets/svgs/cube-decoration2.svg";
@@ -23,6 +24,7 @@ export const SvgConstants = {
   registerFormBackground,
   cloudUploadIcon,
   headerImage,
+  headerImageMobile,
   headerBoxDecoration,
   cubeDecoration,
   cubeDecoration2,
