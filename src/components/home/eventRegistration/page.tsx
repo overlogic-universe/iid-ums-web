@@ -19,28 +19,28 @@ const EventRegistrationSection: NextPage<Props> = ({}) => {
             <span className="me-2">
               <Image src={IconConstants.countDown} alt="count-down-icon" height={18} />
             </span>
-            1 NOV 2024, 23:59 WIB
+            Cooming Soon
           </p>
           <div className="rounded-2xl px-5 md:mx-10 flex items-center justify-center text-center text-white">
             <div className="flex flex-col items-center mx-2 bg-white text-main-primary px-4 py-3 rounded-2xl">
-              <span className="md:text-5xl text-3xl">03</span>
+              <span className="md:text-5xl text-3xl">00</span>
               <span className="md:text-md text-sm">Days</span>
             </div>
             <span className="md:text-5xl text-3xl mx-2">:</span>
             <div className="flex flex-col items-center mx-2 bg-white text-main-primary px-4 py-3 rounded-2xl">
-              <span className="md:text-5xl text-3xl">22</span>
+              <span className="md:text-5xl text-3xl">00</span>
               <span className="md:text-md text-sm">Hours</span>
             </div>
             <span className="md:text-5xl text-3xl mx-2">:</span>
             <div className="flex flex-col items-center mx-2 bg-white text-main-primary px-4 py-3 rounded-2xl">
-              <span className="md:text-5xl text-3xl">53</span>
+              <span className="md:text-5xl text-3xl">00</span>
               <span className="md:text-md text-sm">Minutes</span>
             </div>
           </div>
-          <Button className="bg-white hover:translate-y-[-4px] text-main-primary text-xl py-8 px-10 rounded-3xl md:mt-14 mt-12 transition-all duration-300 white-shadow hover:bg-white">{TextConstants.en.registerNow}</Button>
+          <Button className="bg-white hover:translate-y-[-4px] text-main-primary text-xl py-8 px-10 rounded-3xl md:mt-14 mt-12 transition-all duration-300 white-shadow hover:bg-white" data-aos="fade-up">{TextConstants.en.registerNow}</Button>
         </div>
         <div className="hidden bg-main-secondary lg:w-1/2 w-full p-4 h-full bg-cover bg-center lg:flex items-center justify-center text-center" style={{ backgroundImage: `url(${SvgConstants.registrationDecoration.src})` }}>
-          <h1 className="text-4xl m-10 font-bold bg-clip-text text-transparent bg-gradient-to-r to-[#121251]  from-[#2828B7]">{TextConstants.en.eventRegistrationTitle}</h1>
+          <h1 className="text-4xl m-10 font-bold bg-clip-text text-transparent bg-gradient-to-r to-[#121251]  from-[#2828B7]" data-aos="fade-up">{TextConstants.en.eventRegistrationTitle}</h1>
         </div>
       </div>
     </div>

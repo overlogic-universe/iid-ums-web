@@ -83,12 +83,12 @@
 }
 
 .title-section {
-  font-size: 3rem;
+  font-size: 2.8rem;
   line-height: 1;
   text-decoration: underline;
   font-weight: bold;
   color: #0000cb;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   margin-top: 20px;
   padding: 10px;
   text-align: center;
@@ -115,8 +115,17 @@
 
 .swiper-button-prev::after,
 .swiper-button-next::after {
-  font-size: 20px;
   color: white;
+}
+
+.map-style {
+  height: 400px;
+  width: 800px;
+  z-index: 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 768px) {
@@ -128,5 +137,10 @@
   }
   .title-section {
     font-size: 2.25rem;
+    margin-bottom: 20px;
+  }
+  .map-style {
+    height: 200px;
+    width: 400px;
   }
 }

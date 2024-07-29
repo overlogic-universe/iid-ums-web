@@ -13,10 +13,6 @@ const carouselItems = [
   { id: 4, imageUrl: recapOfImages.image4 },
   { id: 5, imageUrl: recapOfImages.image5 },
   { id: 6, imageUrl: recapOfImages.image6 },
-  { id: 7, imageUrl: recapOfImages.image7 },
-  { id: 8, imageUrl: recapOfImages.image8 },
-  { id: 9, imageUrl: recapOfImages.image9 },
-  { id: 10, imageUrl: recapOfImages.image10 },
 ];
 
 export default function RecapCarousel() {
@@ -28,6 +24,7 @@ export default function RecapCarousel() {
         loop
         autoplay
         slidesPerView={"auto"}
+        spaceBetween={0}
         breakpoints={{
           640: {
             slidesPerView: 1,
@@ -52,13 +49,11 @@ export default function RecapCarousel() {
         navigation={{
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
-          hideOnClick: true,
         }}
         modules={[EffectCoverflow, Pagination, Navigation]}
       >
         {carouselItems.map((item) => (
-          <SwiperSlide key={item.id}>
-            <div className="rounded-3xl border-2 border-white overflow-hidden text-center">
+          <SwiperSlide key={item.id} className="object-cover  rounded-3xl border-2 border-white overflow-hidden text-center">
               <Image
                 className="w-full object-cover"
                 width={600}
@@ -66,7 +61,6 @@ export default function RecapCarousel() {
                 src={item.imageUrl.src}
                 alt={`slide ${item.id}`}
               />
-            </div>
           </SwiperSlide>
         ))}
         <div className="swiper-button-prev"></div>

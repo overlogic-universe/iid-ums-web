@@ -11,6 +11,7 @@ import cubeDecoration from "@/assets/svgs/cube-decoration.svg";
 import cubeDecoration2 from "@/assets/svgs/cube-decoration2.svg";
 import registrationDecoration from "@/assets/svgs/registration-decoration.svg";
 import registrationDecoration2 from "@/assets/svgs/registration-decoration2.svg";
+import nutricomBackground from "@/assets/svgs/nutricom-bg.svg";
 import warningLineIcon from "@/assets/svgs/ic-warning-line.svg";
 import cancelOutlineIcon from "@/assets/svgs/ic-cancel-outline.svg";
 import fileOutlineIcon from "@/assets/svgs/ic-file-outline.svg";
@@ -27,6 +28,7 @@ export const SvgConstants = {
   cubeDecoration2,
   registrationDecoration,
   registrationDecoration2,
+  nutricomBackground,
   warningLineIcon,
   cancelOutlineIcon,
   fileOutlineIcon,

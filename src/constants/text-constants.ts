@@ -11,15 +11,18 @@ const headerTitle1 = "What is UMS International ";
 const headerTitle2 = "Innovation ";
 const headerTitle3 = "Day?";
 const headerDescription =
-"UMS International Innovation Day is an annual event hosted by Universitas Muhammadiyah Surakarta (UMS) to celebrate creativity and technological advancements. It brings together students, researchers, entrepreneurs, and industry professionals to showcase innovative projects, exchange ideas, and foster collaborations.";
+  "UMS International Innovation Day is an annual event hosted by Universitas Muhammadiyah Surakarta (UMS) to celebrate creativity and technological advancements. It brings together students, researchers, entrepreneurs, and industry professionals to showcase innovative projects, exchange ideas, and foster collaborations.";
 const eventRegistrationTitle = "YOU ARE THE NEXT SPECIAL PERSON";
 const close = "Close";
 const submit = "Submit";
 const registration = "Register";
 const registerNow = "REGISTER NOW";
-const eventRecap =  "Event Recap";
+const eventRecap = "Event Recap";
 const fileUploadError = "Failed to upload the file";
 const uploadFileDescriptionError = "Failed to upload the file, please make sure the file is not too large or the file type is supported.";
+const eventDetail = "Event Details";
+const location = "Universitas Muhammadiyah Surakarta";
+const locationAddress = "Jl. A. Yani, Mendungan, Pabelan, Kec. Kartasura, Kabupaten Sukoharjo, Jawa Tengah 57162";
 export const TextConstants = {
   en: {
     registrationSuccessTitle,
@@ -29,7 +32,7 @@ export const TextConstants = {
     close,
     submit,
     registration,
-    registerNow, 
+    registerNow,
     header,
     headerTitle1,
     headerTitle2,
@@ -38,6 +41,9 @@ export const TextConstants = {
     eventRegistrationTitle,
     eventRecap,
     fileUploadError,
-    uploadFileDescriptionError
+    uploadFileDescriptionError,
+    eventDetail,
+    location,
+    locationAddress,
   },
 };
