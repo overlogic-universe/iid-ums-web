@@ -1,3 +1,4 @@
+import { ImageConstants } from "@/constants/image-constants";
 import { SvgConstants } from "@/constants/svg-constants";
 import { NextPage } from "next";
 import Image from "next/image";
@@ -11,7 +12,7 @@ const RegistrationLayout: NextPage<Props> = ({ children }) => {
   return (
     <div className="relative">
       <Image
-        src={SvgConstants.registerFormBackground}
+        src={ImageConstants.bgRegistration}
         alt="Wave"
         className="absolute w-screen h-screen"
         style={{ objectFit: "cover" }}

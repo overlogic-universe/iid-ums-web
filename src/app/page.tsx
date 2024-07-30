@@ -2,6 +2,7 @@
 import Footer from "@/components/common/footer";
 import Navbar from "@/components/common/navbar/navbar";
 import AboutSection from "@/components/home/about/page";
+import { WhatsAppIcon } from "@/components/home/common/whatsAppIcon";
 import EventDetailsSection from "@/components/home/eventDetails/page";
 import EventRecapSection from "@/components/home/eventRecap/page";
 import EventRegistrationSection from "@/components/home/eventRegistration/page";
@@ -22,6 +23,7 @@ const HomePage = () => {
   return (
     <>
       <Navbar />
+      <WhatsAppIcon />
       <HeaderSection />
       <EventRegistrationSection />
       <EventDetailsSection />

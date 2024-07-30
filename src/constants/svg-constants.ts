@@ -3,7 +3,6 @@
  */
 
 import logo from "@/assets/svgs/logo.svg";
-import registerFormBackground from "@/assets/svgs/bg-register-form.svg";
 import cloudUploadIcon from "@/assets/svgs/ic-cloud-upload.svg";
 import headerImage from "@/assets/svgs/header.svg";
 import headerImageMobile from "@/assets/svgs/header-mobile.svg";
@@ -12,7 +11,6 @@ import cubeDecoration from "@/assets/svgs/cube-decoration.svg";
 import cubeDecoration2 from "@/assets/svgs/cube-decoration2.svg";
 import registrationDecoration from "@/assets/svgs/registration-decoration.svg";
 import registrationDecoration2 from "@/assets/svgs/registration-decoration2.svg";
-import nutricomBackground from "@/assets/svgs/nutricom-bg.svg";
 import warningLineIcon from "@/assets/svgs/ic-warning-line.svg";
 import cancelOutlineIcon from "@/assets/svgs/ic-cancel-outline.svg";
 import fileOutlineIcon from "@/assets/svgs/ic-file-outline.svg";
@@ -22,7 +20,6 @@ import doneIcon from "@/assets/svgs/ic-done-line.svg";
 // SVG constants for use in the app.
 export const SvgConstants = {
   logo,
-  registerFormBackground,
   cloudUploadIcon,
   headerImage,
   headerImageMobile,
@@ -31,7 +28,6 @@ export const SvgConstants = {
   cubeDecoration2,
   registrationDecoration,
   registrationDecoration2,
-  nutricomBackground,
   warningLineIcon,
   cancelOutlineIcon,
   fileOutlineIcon,

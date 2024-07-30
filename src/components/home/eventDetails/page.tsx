@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { useMemo } from "react";
 import Image from "next/image";
 import { SvgConstants } from "@/constants/svg-constants";
+import { ImageConstants } from "@/constants/image-constants";
 
 interface Props {}
 
@@ -25,7 +26,7 @@ const EventDetailsSection: NextPage<Props> = ({}) => {
   ];
   return (
     <div id="event-details" className="section flex-col relative bg-main-secondary">
-      <div className="section-box bg-white pb-5 px-5 bg-center bg-cover" style={{ backgroundImage: `url(${SvgConstants.registerFormBackground.src})`}}>
+      <div className="section-box bg-white pb-5 px-5 bg-center bg-cover" style={{ backgroundImage: `url(${ImageConstants.bgEventDetails.src})`}}>
         <div className="title-section" data-aos="fade-up">
           <span className="title-section-span">{TextConstants.en.eventDetail}</span>
         </div>
@@ -33,7 +34,7 @@ const EventDetailsSection: NextPage<Props> = ({}) => {
           <div className="lg:w-1/3 w-full p-3">
             {items.map((item, index) => (
               <div key={index} className="flex items-start mb-5" data-aos="fade-up">
-                <div className=" flex items-center justify-center me-2 bg-[#307FE2] p-2 rounded-full" style={{ height: "30px", width: "30px" }}>
+                <div className=" flex items-center justify-center me-2 bg-[#307FE2] p-2 rounded-full h-[30px] w-[30px]" >
                   <Image src={item.icon} alt={`icon-${index}`} height={18} />
                 </div>
                 <p className="w-full font-light text-sm">{item.text}</p>
@@ -43,8 +44,8 @@ const EventDetailsSection: NextPage<Props> = ({}) => {
             <h3 className="text-sm" data-aos="fade-up">
               Contact Us:
             </h3>
-            <a className="mt-2 cursor-pointer flex items-center justify-center me-2 bg-[#307FE2] p-2 rounded-full" style={{ height: "30px", width: "30px" }} data-aos="fade-up">
-              <Image src={IconConstants.whatsapp} alt={`icon-whatsapp`} height={18} />
+            <a href="/whatsapp" className="mt-3 cursor-pointer flex items-center justify-center me-2 bg-[#307FE2] p-2 rounded-full h-[40px] w-[40px]"  data-aos="fade-up">
+              <Image src={IconConstants.whatsapp} alt={`icon-whatsapp`} height={30} />
             </a>
           </div>
           <div className="rounded-xl overflow-hidden h-full relative" style={{ border: "1px solid #307FE2" }}>

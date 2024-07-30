@@ -9,7 +9,6 @@ import { recapOfImages } from "./carouselImages";
 const carouselItems = [
   { id: 1, imageUrl: recapOfImages.image1 },
   { id: 2, imageUrl: recapOfImages.image2 },
-  { id: 3, imageUrl: recapOfImages.image3 },
   { id: 4, imageUrl: recapOfImages.image4 },
   { id: 5, imageUrl: recapOfImages.image5 },
   { id: 6, imageUrl: recapOfImages.image6 },

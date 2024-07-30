@@ -156,12 +156,32 @@
   color: #333;
 }
 
-.about-us-box{
-   padding: 0px 80px;
+.about-us-box {
+  padding: 0px 80px;
 }
 
-.about-us-inner-box{
+.about-us-inner-box {
   padding: 40px 80px;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #307fe2;
+  border-radius: 20px;
+  border: 3px solid #f1f1f1;
+}
+
+::-webkit-scrollbar-corner {
+  background: #f1f1f1;
 }
 
 @media (max-width: 768px) {
@@ -180,11 +200,11 @@
     width: 450px;
   }
 
-  .about-us-box{
+  .about-us-box {
     padding: 0px 20px;
- }
- 
- .about-us-inner-box{
-   padding: 20px 40px;
- }
+  }
+
+  .about-us-inner-box {
+    padding: 20px 40px;
+  }
 }

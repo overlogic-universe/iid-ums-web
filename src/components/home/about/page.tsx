@@ -44,7 +44,7 @@ const PaginationBar: React.FC<PaginationBarProps> = ({ currentSlide, totalSlides
         <div className="h-full bg-blue-500 transition-width duration-300" style={{ width: `${percentage}%` }}></div>
       </div>
       <p className="relative text-center text-sm font-normal mt-1 text-gray-800">
-        {currentSlide} of {totalSlides} Slide
+        {currentSlide} of {totalSlides} Slides
       </p>
     </div>
   );
@@ -54,9 +54,9 @@ const AboutSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   return (
-    <div className=" bg-main-secondary flex justify-center items-center relative" style={{ padding: "40px 0px 40px 0px" }}>
+    <div id="about-us" className="bg-main-secondary flex justify-center items-center relative" style={{ padding: "40px 0px 40px 0px" }}>
       <Image className="lg:w-38 md:w-32 w-[100px] md:-top-24 -top-10 md:right-10 -right-0 absolute z-20" src={SvgConstants.cubeDecoration2} alt="cubeDecorationRecap2" data-aos="fade-left" />
-      <Image className="lg:w-40 md:w-32 w-16 bottom-0 left-3 absolute z-20" src={SvgConstants.cubeDecoration} alt="cubeDecoration" data-aos="fade-right" />
+      <Image className="lg:w-40 md:w-32 w-[100px] bottom-0 left-3 absolute z-20" src={SvgConstants.cubeDecoration} alt="cubeDecoration" data-aos="fade-right" />
       <Swiper
         centeredSlides
         autoplay={{
@@ -66,10 +66,6 @@ const AboutSection = () => {
         slidesPerView={1}
         slidesPerGroup={1}
         pagination={false}
-        navigation={{
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        }}
         modules={[Pagination, Navigation, Autoplay]}
         onSlideChange={(swiper) => setCurrentSlide(swiper.realIndex)}
       >
@@ -84,8 +80,6 @@ const AboutSection = () => {
           </SwiperSlide>
         ))}
         <PaginationBar currentSlide={currentSlide + 1} totalSlides={carouselItems.length} />
-        <div className="ms-3 swiper-button-prev"></div>
-        <div className="me-3 swiper-button-next"></div>
       </Swiper>
     </div>
   );
