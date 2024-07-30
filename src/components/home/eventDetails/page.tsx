@@ -1,4 +1,4 @@
-import { IconConstants } from "@/constants/icon-down-constants";
+import { IconConstants } from "@/constants/icon-constants";
 import { TextConstants } from "@/constants/text-constants";
 import { NextPage } from "next";
 import dynamic from "next/dynamic";
@@ -25,11 +25,11 @@ const EventDetailsSection: NextPage<Props> = ({}) => {
   ];
   return (
     <div id="event-details" className="section flex-col relative bg-main-secondary">
-      <div className="section-box bg-white pb-5 px-5">
+      <div className="section-box bg-white pb-5 px-5 bg-center bg-cover" style={{ backgroundImage: `url(${SvgConstants.registerFormBackground.src})`}}>
         <div className="title-section" data-aos="fade-up">
           <span className="title-section-span">{TextConstants.en.eventDetail}</span>
         </div>
-        <div className="flex lg:flex-row flex-col-reverse justify-between">
+        <div className="flex lg:flex-row flex-col justify-between">
           <div className="lg:w-1/3 w-full p-3">
             {items.map((item, index) => (
               <div key={index} className="flex items-start mb-5" data-aos="fade-up">
@@ -49,7 +49,7 @@ const EventDetailsSection: NextPage<Props> = ({}) => {
           </div>
           <div className="rounded-xl overflow-hidden h-full relative" style={{ border: "1px solid #307FE2" }}>
             <Map />
-            <div className="m-3 bg-white absolute px-2 py-1 h-24 lg:w-2/5 w-3/5 top-0 right-0 shadow-lg">
+            <div className="m-3 bg-white absolute px-2 py-1 h-28 lg:w-2/5 w-3/5 top-0 right-0 shadow-lg">
               <h1 className="font-bold lg:text-sm text-xs">{TextConstants.en.location}</h1> <p className="text-xs text-gray-600 line-clamp-2">{TextConstants.en.locationAddress}</p>
               <a
                 target="blank"
@@ -62,7 +62,7 @@ const EventDetailsSection: NextPage<Props> = ({}) => {
           </div>
         </div>
       </div>
-      <Image className="lg:w-40 md:w-32 w-16 lg:-top-10 -top-0 lg:left-5 left-2 absolute" src={SvgConstants.cubeDecoration} alt="cubeDecoration-detail" data-aos="fade-right" />
+      <Image className="lg:w-40 md:w-32 w-[100px] lg:-top-10 -top-0 lg:left-5 left-2 absolute" src={SvgConstants.cubeDecoration} alt="cubeDecoration-detail" data-aos="fade-right" />
     </div>
   );
 };

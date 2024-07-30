@@ -23,13 +23,16 @@ const uploadFileDescriptionError = "Failed to upload the file, please make sure 
 const eventDetail = "Event Details";
 const location = "Universitas Muhammadiyah Surakarta";
 const locationAddress = "Jl. A. Yani, Mendungan, Pabelan, Kec. Kartasura, Kabupaten Sukoharjo, Jawa Tengah 57162";
-const confirmationTitleError = "Please fill in the checkbox"
-const confirmationDescriptionError = "Make sure that you have agreed by filling in the checkbox available on the registration form."
-const uncompleteFormTitleError = "Please complete the form"
-const uncompleteFormDescriptionError = "Please fill the available fields before continuing."
-const remove = "Remove"
-const unsupportFileTypeTitleError = "Please upload a correct file type"
-const unsupportFileTypeDescriptionError = "Double check your file and try again to upload the correct file type."
+const confirmationTitleError = "Please fill in the checkbox";
+const confirmationDescriptionError = "Make sure that you have agreed by filling in the checkbox available on the registration form.";
+const uncompleteFormTitleError = "Please complete the form";
+const uncompleteFormDescriptionError = "Please fill the available fields before continuing.";
+const remove = "Remove";
+const unsupportFileTypeTitleError = "Please upload a correct file type";
+const unsupportFileTypeDescriptionError = "Double check your file and try again to upload the correct file type.";
+const innopaDescription = "Indonesian Invention and Innovation Promotion Association (INNOPA) is an association that concerns in the development and promotion of innovation in Indonesia. Our aim is to build an innovative climate for inventors and link Indonesian innovators to show their innovative projects through International invention expo. In addition, within the networking established since 2011, INNOPA brings  and introduces Indonesian’ innovators to the International innovation ecosystem."
+const nutricomDescription =
+  "Nutrition Community is a platform for students to develop their potential, this community is dedicated to creating a research-based knowledge endowment center focused on the nutritional resources necessary for a healthy life. We embrace brilliant thinkers, talented academic writers, dedicated researchers, and bold nutripreneurs who challenge boundaries, synergize diverse ideas, and foster collaborations that benefit everyone.";
 export const TextConstants = {
   en: {
     registrationSuccessTitle,
@@ -59,5 +62,7 @@ export const TextConstants = {
     remove,
     unsupportFileTypeTitleError,
     unsupportFileTypeDescriptionError,
+    nutricomDescription,
+    innopaDescription
   },
 };

@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -86,9 +84,9 @@ export default function Navbar() {
             <div className={navigationMenuTriggerStyle()}>About Us</div>
           </Link>
         </li>
-        <div className="flex justify-center py-4">
+        <Link className="flex justify-center py-4" href="/registration" passHref>
           <Button className="hover:translate-y-[-4px] rounded-2xl w-40 h-12 text-base bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700 transition-all duration-300 blue-shadow">{TextConstants.en.registration}</Button>
-        </div>
+        </Link>
       </ul>
       <NavigationMenu className="hidden lg:block z-20">
         <NavigationMenuList>
@@ -134,7 +132,9 @@ export default function Navbar() {
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
-      <Button className="hidden lg:block rounded-2xl w-40 h-12 text-base bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700 transition-all duration-300 blue-shadow">{TextConstants.en.registration}</Button>
+      <Link className="hidden lg:block" href="/registration" passHref>
+        <Button className="rounded-2xl w-40 h-12 text-base bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700 transition-all duration-300 blue-shadow">{TextConstants.en.registration}</Button>
+      </Link>
     </nav>
   );
 }

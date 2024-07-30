@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { IconConstants } from "@/constants/icon-down-constants";
+import { IconConstants } from "@/constants/icon-constants";
 import { SvgConstants } from "@/constants/svg-constants";
 import { TextConstants } from "@/constants/text-constants";
 import { NextPage } from "next";

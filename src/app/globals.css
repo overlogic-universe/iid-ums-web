@@ -98,7 +98,7 @@
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  background-image: linear-gradient(to right, #0000cb, #6eacda, #0000cb);
+  background-image: linear-gradient(to right, #0000cb, #62bbff, #0000cb);
 }
 
 .blue-shadow:hover {
@@ -119,13 +119,49 @@
 }
 
 .map-style {
-  height: 400px;
-  width: 800px;
+  height: 380px;
+  width: 680px;
   z-index: 0;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #e4f3ff;
+}
+
+.pagination-bar {
+  width: 300px;
+  height: 10px;
+  border-radius: 20px;
+  background-color: #e0e0e0;
+  margin-top: 20px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.pagination-fill {
+  height: 100%;
+  background-color: #007bff;
+  transition: width 0.3s ease;
+}
+
+.pagination-text {
+  position: absolute;
+  top: -25px;
+  right: 0;
+  left: 0;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+.about-us-box{
+   padding: 0px 80px;
+}
+
+.about-us-inner-box{
+  padding: 40px 80px;
 }
 
 @media (max-width: 768px) {
@@ -143,4 +179,12 @@
     height: 200px;
     width: 450px;
   }
+
+  .about-us-box{
+    padding: 0px 20px;
+ }
+ 
+ .about-us-inner-box{
+   padding: 20px 40px;
+ }
 }
