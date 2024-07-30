@@ -1,3 +1,8 @@
+/**
+ * Below are the content categorylist that are used in the category form field.
+ */
+
+
 // Define the selectContent object with the specified keys
 const selectContent: Record<SelectContentKeys, string[]> = {
   competitionCategory: [

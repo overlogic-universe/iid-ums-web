@@ -117,7 +117,7 @@ const RegistrationPage: NextPage<Props> = () => {
             </SelectTrigger>
             <SelectContent className="w-3">
               {selectContent[key as SelectContentKeys].map((item) => (
-                <SelectItem className="w-full" key={item} value={item}>
+                <SelectItem key={item} value={item}>
                   {item}
                 </SelectItem>
               ))}
