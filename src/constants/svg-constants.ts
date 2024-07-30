@@ -7,8 +7,6 @@ import cloudUploadIcon from "@/assets/svgs/ic-cloud-upload.svg";
 import headerImage from "@/assets/svgs/header.svg";
 import headerImageMobile from "@/assets/svgs/header-mobile.svg";
 import headerBoxDecoration from "@/assets/svgs/header-box-decoration.svg";
-import cubeDecoration from "@/assets/svgs/cube-decoration.svg";
-import cubeDecoration2 from "@/assets/svgs/cube-decoration2.svg";
 import registrationDecoration from "@/assets/svgs/registration-decoration.svg";
 import registrationDecoration2 from "@/assets/svgs/registration-decoration2.svg";
 import warningLineIcon from "@/assets/svgs/ic-warning-line.svg";
@@ -24,8 +22,6 @@ export const SvgConstants = {
   headerImage,
   headerImageMobile,
   headerBoxDecoration,
-  cubeDecoration,
-  cubeDecoration2,
   registrationDecoration,
   registrationDecoration2,
   warningLineIcon,

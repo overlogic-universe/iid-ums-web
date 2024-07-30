@@ -2,6 +2,7 @@
 import Footer from "@/components/common/footer";
 import Navbar from "@/components/common/navbar/navbar";
 import AboutSection from "@/components/home/about/page";
+import PartnerSection from "@/components/home/about/partners";
 import { WhatsAppIcon } from "@/components/home/common/whatsAppIcon";
 import EventDetailsSection from "@/components/home/eventDetails/page";
 import EventRecapSection from "@/components/home/eventRecap/page";
@@ -23,15 +24,14 @@ const HomePage = () => {
   return (
     <>
       <Navbar />
-      <WhatsAppIcon />
       <HeaderSection />
       <EventRegistrationSection />
       <EventDetailsSection />
       <EventRecapSection />
       <AboutSection />
-      <div className="min-h-screen">h</div>
-      {/* Another Components */}
-      {/* <Footer /> */}
+      <PartnerSection />
+      <Footer />
+      <WhatsAppIcon />
     </>
   );
 };

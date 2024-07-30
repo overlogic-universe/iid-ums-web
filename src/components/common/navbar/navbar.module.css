@@ -16,9 +16,8 @@
 
 ul.visible {
   left: 0;
-  height: 1000vh;
-  flex: 1;
-  box-sizing: border-box;
+  height: 160vh;
+  top: 0;
 }
 
 ul.hidden {
@@ -32,6 +31,7 @@ ul.hidden {
 /* Tablet */
 
 @media (max-width: 1024px) {
+  
   .nav-box {
     padding: 90px 0px 0px 40px;
     background-color: white;
@@ -41,7 +41,7 @@ ul.hidden {
     width: 60%;
     transition: 0.5s;
     position: absolute;
-    top: 80;
+    top: 0;
     left: 0;
     height: 100vh;
   }

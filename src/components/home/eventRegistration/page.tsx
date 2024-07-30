@@ -5,6 +5,7 @@ import { SvgConstants } from "@/constants/svg-constants";
 import { TextConstants } from "@/constants/text-constants";
 import { NextPage } from "next";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Props {}
 
@@ -38,10 +39,14 @@ const EventRegistrationSection: NextPage<Props> = ({}) => {
               <span className="md:text-md text-sm">Minutes</span>
             </div>
           </div>
-          <Button className="bg-white hover:translate-y-[-4px] text-main-primary text-xl py-8 px-10 rounded-3xl md:mt-14 mt-12 transition-all duration-300 white-shadow hover:bg-white" >{TextConstants.en.registerNow}</Button>
+          <Link href="/registration" passHref>
+            <Button className="bg-white hover:translate-y-[-4px] text-main-primary text-xl py-8 px-10 rounded-3xl md:mt-14 mt-12 transition-all duration-300 white-shadow hover:bg-white">{TextConstants.en.registerNow}</Button>
+          </Link>
         </div>
         <div className="hidden bg-main-secondary lg:w-1/2 w-full p-4 h-full bg-cover bg-center lg:flex items-center justify-center text-center" style={{ backgroundImage: `url(${ImageConstants.bgEventRegistration2.src})` }}>
-          <h1 className="text-4xl m-10 font-bold bg-clip-text text-transparent bg-gradient-to-r to-[#121251]  from-[#2828B7]" data-aos="fade-up">{TextConstants.en.eventRegistrationTitle}</h1>
+          <h1 className="text-4xl m-10 font-bold bg-clip-text text-transparent bg-gradient-to-r to-[#121251]  from-[#2828B7]" data-aos="fade-up">
+            {TextConstants.en.eventRegistrationTitle}
+          </h1>
         </div>
       </div>
     </div>

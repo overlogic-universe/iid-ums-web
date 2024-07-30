@@ -15,7 +15,7 @@ const EventRecapSection: NextPage<Props> = ({}) => {
           <span className="title-section-span text-center">{TextConstants.en.eventRecap}</span>
         </h1>
         <RecapCarousel />
-        <Image className="lg:w-38 md:w-32 w-[100px] md:-top-10 -top-5 -left-6 absolute" src={SvgConstants.cubeDecoration2} alt="cubeDecorationRecap22" data-aos="fade-right" />
+        <Image className="lg:w-38 md:w-32 w-[100px] md:-top-10 -top-5 -left-6 absolute" src={ImageConstants.cubeDecoration2} alt="cubeDecorationRecap22" data-aos="fade-right" />
       </div>
     </div>
   );
