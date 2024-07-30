@@ -6,7 +6,7 @@ interface Props {
 
 const Confirmation: NextPage<Props> = ({ onChange }) => {
   return (
-    <div className="w-full bg-main-100 p-20 mt-5 border-2 border-main rounded-2xl text-center">
+    <div className="w-full bg-main-100 p-3 md:p-20 mt-5 border-2 border-blue-700 rounded-2xl text-center">
       <p>
         I agree to switch from on-site participation to online competition if
         government regulations tighten activities or travel around the event

@@ -5,9 +5,10 @@ import { cookies } from "next/headers";
 const setCookies = (key: string, data: string) => {
   try {
     cookies().set({
+      sameSite:false,
       name: key,
       value: data,
-      secure: true,
+      // secure: true,
     });
   } catch (error) {
     throw new Error(error as string);

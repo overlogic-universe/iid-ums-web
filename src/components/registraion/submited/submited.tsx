@@ -8,11 +8,11 @@ interface Props {}
 
 const SubmitedPage: NextPage<Props> = ({}) => {
   return (
-    <div className="w-full p-10">
-      <div className="w-full h-[380px] bg-main-200 flex items-center justify-center rounded-2xl text-white flex-col">
-        <Image src={SvgConstants.doneIcon} alt="Done" />
-        <p className="text-5xl">Form Submitted Successfully</p>
-        <p className="py-5 text-xl">
+    <div className="w-full p-3 md:p-10 text-center">
+      <div className="w-full h-[380px] bg-main-300 flex items-center justify-center rounded-2xl text-white flex-col">
+        <Image src={SvgConstants.doneIcon} className="max-sm:w-20" alt="Done" />
+        <p className="text-lg md:text-3xl">Form Submitted Successfully</p>
+        <p className="py-5 text-sm md:text-xl">
           Thank you for registering for the International Innovation day 2024
           event
         </p>

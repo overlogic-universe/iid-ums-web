@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { TextConstants } from "@/constants/text-constants";
 import { ToastAction } from "@/components/ui/toast";
 import { toast } from "@/components/ui/use-toast";
+import PdfViewer from "../pdf-viewer/pdf-viewer";
 
 interface Props {
   title: string;
@@ -66,12 +67,17 @@ const FileUpload: NextPage<Props> = ({
             setFileName(filename);
             setNewFileUrl(url);
             onChange(url);
-          },
-          (error: string) => {
-            console.log(error);
           }
         );
       } catch (error) {
+        toast({
+          title: TextConstants.en.unsupportFileTypeTitleError,
+          description: TextConstants.en.uploadFileDescriptionError,
+          variant: "destructive",
+          action: (
+            <ToastAction altText="Close">{TextConstants.en.close}</ToastAction>
+          ),
+        });
       } finally {
         setLoading(false);
       }
@@ -114,10 +120,10 @@ const FileUpload: NextPage<Props> = ({
 
   return (
     <div className="w-full relative flex items-center justify-center flex-col">
-      <b className="py-5">{title}</b>
+      <b className="py-5 text-center">{title}</b>
       {!loading ? (
         <div
-          className={`border-2 border-dashed border-${fileUploadColor}-400 file-upload-container top-0 p-5 w-full bg-${fileUploadColor}-100 flex items-center justify-center flex-col rounded-2xl h-[380px] z-10`}
+          className={`border-2 border-dashed border-${fileUploadColor}-700 file-upload-container top-0 p-5 w-full bg-${fileUploadColor}-100 flex items-center justify-center flex-col rounded-2xl h-[380px] z-10`}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
@@ -133,7 +139,7 @@ const FileUpload: NextPage<Props> = ({
                   height={1080}
                 />
                 <div
-                  className={`absolute rounded-lg hover:bg-main-300 hover:bg-opacity-25 w-full h-full`}
+                  className={`absolute cursor-pointer rounded-lg hover:bg-main-primary hover:bg-opacity-25 w-full h-full`}
                 >
                   <div
                     className="items-center justify-center w-full h-full flex text-transparent hover:text-white"
@@ -147,25 +153,11 @@ const FileUpload: NextPage<Props> = ({
                 </div>
               </div>
             ) : (
-              <div className="relative h-full w-full">
-                <embed
-                  src={newFileUrl == "" ? fileUrl : newFileUrl}
-                  className="rounded-lg no-scrollbar w-full h-full absolute"
-                />
-                <div
-                  className={`absolute rounded-lg hover:bg-main-300 hover:bg-opacity-25 w-full h-full`}
-                >
-                  <div
-                    className="items-center justify-center w-full h-full flex text-transparent hover:text-white"
-                    onClick={() => {
-                      onChange("");
-                      setNewFileUrl("");
-                    }}
-                  >
-                    <p className="">Click to remove</p>
-                  </div>
-                </div>
-              </div>
+              <PdfViewer
+                onChange={() => onChange("")}
+                setNewFileUrl={() => setNewFileUrl("")}
+                file={newFileUrl == "" ? fileUrl : newFileUrl}
+              />
             )
           ) : (
             <div className="w-full flex items-center justify-center flex-col">
@@ -178,14 +170,14 @@ const FileUpload: NextPage<Props> = ({
                 alt="Cloud Upload"
               />
               <div
-                className={`w-1/2 text-center flex items-center justify-center flex-col ${
+                className={`md:w-1/2 text-center flex items-center justify-center flex-col ${
                   fileUploadColor == "red" ? "text-red-500" : "text-main-200"
                 }`}
               >
-                <p className={`text-3xl align-middle`}>
+                <p className={`md:text-3xl align-middle`}>
                   Drag & Drop your files here
                 </p>
-                <p className={`text-4xl align-middle`}>or</p>
+                <p className={`md:text-3xl align-middle`}>or</p>
               </div>
               <Input
                 id="file"
@@ -210,10 +202,10 @@ const FileUpload: NextPage<Props> = ({
         </div>
       ) : (
         <div
-          className={`w-full h-[380px] border-2 border-dashed border-${fileUploadColor}-400 bg-main-100 flex items-center justify-center flex-col rounded-2xl p-28 border-2`}
+          className={`w-full h-[380px] border-2 border-dashed border-${fileUploadColor}-primary bg-main-100 flex items-center justify-center flex-col rounded-2xl p-3 md:p-28 border-2`}
         >
           <div
-            className={`relative w-full rounded-2xl p-5 bg-main-200 text-white flex items-center justify-center`}
+            className={`relative w-full rounded-2xl p-5 bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700 text-white flex items-center justify-between`}
           >
             <div>
               <Image
@@ -224,14 +216,14 @@ const FileUpload: NextPage<Props> = ({
             </div>
             <div className="w-full">
               <div className="w-full px-2">
-                <div className="w-full flex items-center justify-between">
-                  <p>{fileName}</p>
+                <div className="w-full flex items-center justify-end">
+                  <p className="overflow-hidden hidden md:block">{fileName}</p>
                   <p>{Math.round(progress)}%</p>
                 </div>
                 <div className="w-full">
-                  <div className="w-full h-2 px-[0.5px] border-2 rounded-2xl">
+                  <div className="w-full h-2 border-2 rounded-2xl">
                     <div
-                      className={`h-1 bg-main rounded-2xl delay-100 animate-in`}
+                      className={`h-[5px] bg-main-100 rounded-2xl delay-100 animate-in`}
                       style={{ width: `${progress}%` }}
                     ></div>
                   </div>

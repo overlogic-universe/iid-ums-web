@@ -4,7 +4,7 @@ interface Props {}
 
 const FormLoading: NextPage<Props> = ({}) => {
   return (
-    <div className="top-0 left-0 h-screen w-screen fixed z-50 rounded-2xl bg-main-100 bg-opacity-70 flex items-center justify-center">
+    <div className="top-0 left-0 h-screen w-screen fixed z-50 bg-main-100 bg-opacity-70 flex items-center justify-center">
       <div role="status">
         <svg
           aria-hidden="true"

@@ -45,7 +45,6 @@ import {
   getCookies,
   getTotalCookies,
   removeAllCookies,
-  removeCookies,
   setCookies,
 } from "@/lib/action/cookies/cookie-action";
 import { useEffect, useState } from "react";
@@ -91,7 +90,6 @@ const RegistrationPage: NextPage<Props> = () => {
 
     setFileUploadColor("main");
     const cookies = await getCookies();
-    console.log(cookies);
 
     await Promise.all(cookies);
     if (cookies) {
@@ -103,7 +101,6 @@ const RegistrationPage: NextPage<Props> = () => {
           );
         }
       });
-      console.log(form.getValues());
     }
     setLoading(false);
   };
@@ -128,12 +125,12 @@ const RegistrationPage: NextPage<Props> = () => {
               form.setValue(key as keyof z.infer<typeof formSchema>, e);
             }}
           >
-            <SelectTrigger className="border-2 border-[#9F9F9F] h-16 rounded-xl focus:border-main focus:outline-none focus-visible:ring-main">
+            <SelectTrigger className="border-2 border-[#9F9F9F] h-16 rounded-xl focus:border-main-300 focus:outline-none focus-visible:ring-main-300">
               <SelectValue placeholder={label} />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="w-full">
               {selectContent[key as SelectContentKeys].map((item) => (
-                <SelectItem key={item} value={item}>
+                <SelectItem className="w-full" key={item} value={item}>
                   {item}
                 </SelectItem>
               ))}
@@ -143,7 +140,7 @@ const RegistrationPage: NextPage<Props> = () => {
       default:
         return (
           <Input
-            className="border-2 border-[#9F9F9F] h-16 rounded-xl focus:border-main focus:outline-none focus-visible:ring-main"
+            className="border-2 border-[#9F9F9F] h-16 rounded-xl focus:border-main-300 focus:outline-none focus-visible:ring-main-300"
             placeholder={label}
             {...field}
           />
@@ -181,11 +178,11 @@ const RegistrationPage: NextPage<Props> = () => {
       {loading ? <FormLoading /> : null}
       <div className="relative">
         <div className="absolute top-0 right-0">
-          <p className="p-2 text-main font-light">{filled}/13</p>
+          <p className="p-2 text-blue-700 font-light">{filled}/13</p>
         </div>
       </div>
-      <div className="w-full px-28 bg-white rounded-2xl">
-        <p className="rows-span-1 text-main-600 font-bold text-2xl pt-4 text-center underline">
+      <div className="w-full px-3 md:px-28 bg-white rounded-2xl">
+        <p className="rows-span-1 bg-gradient-to-r bg-clip-text text-transparent from-blue-700 via-blue-400 to-blue-700 font-bold text-2xl pt-4 text-center underline">
           Registration Form
         </p>
         <div>
@@ -196,6 +193,7 @@ const RegistrationPage: NextPage<Props> = () => {
                   const label = key
                     .replace(/([A-Z])/g, " $1")
                     .replace(/^./, (str) => str.toUpperCase());
+                    
                   const formLocation = currentPage * 3;
                   if (
                     index >= formLocation - 3 &&
@@ -215,7 +213,7 @@ const RegistrationPage: NextPage<Props> = () => {
                               setCookies(key, e.target.value);
                             }}
                           >
-                            <FormLabel>{label}</FormLabel>
+                            <FormLabel>{label.includes("Patent") ? "Patent Number" : label}</FormLabel>
                             <FormControl>
                               {renderInput(index, label, key, { ...field })}
                             </FormControl>
@@ -318,8 +316,8 @@ const RegistrationPage: NextPage<Props> = () => {
                       </Button>
                     )}
 
-                    <DialogContent className="bg-main-200 border-2 border-white flex items-center justify-center flex-col">
-                      <div className="flex justify-center items-center flex-col text-white">
+                    <DialogContent className="bg-main-200 border-0 md:border-2 border-white flex items-center justify-center flex-col">
+                      <div className="flex justify-center items-center flex-col text-white text-center">
                         <Image
                           src={SvgConstants.warningLineIcon}
                           alt="Warning Line"
@@ -327,7 +325,7 @@ const RegistrationPage: NextPage<Props> = () => {
                         <p className="text-4xl">Are you sure ?</p>
                         <p>Data that has been sent cannot be changed</p>
                       </div>
-                      <DialogFooter className="sm:justify-start">
+                      <DialogFooter className="justify-between flex flex-row w-full">
                         <DialogClose asChild>
                           <Button
                             type="button"
