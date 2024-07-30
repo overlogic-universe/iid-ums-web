@@ -5,7 +5,6 @@ import Image from "next/image";
 
 interface Props {
   children: React.ReactNode;
-  page: React.ReactNode;
 }
 
 const RegistrationLayout: NextPage<Props> = ({ children }) => {
@@ -17,7 +16,7 @@ const RegistrationLayout: NextPage<Props> = ({ children }) => {
         className="absolute w-screen h-screen"
         style={{ objectFit: "cover" }}
       />
-      <div className="p-3 md:pb-20 md:px-56 h-screen w-screen absolute flex flex-col items-center justify-center overflow-hidden">
+      <div className="p-3 pb-20 md:px-26 lg:px-36 xl:px-56 h-screen w-screen absolute flex flex-col items-center justify-center overflow-hidden">
         <Image src={SvgConstants.logo} alt="Logo" className="my-5"/>
         <div className="w-full h-full flex justify-center z-20">
           {children}

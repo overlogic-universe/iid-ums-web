@@ -43,11 +43,11 @@ const FileUpload: NextPage<Props> = ({
     } else {
       setFileUploadColor(color);
     }
-  }, [color]);
+  }, [color, newFileUrl]);
 
   useEffect(() => {
     if (fileUrl) setNewFileUrl(fileUrl);
-  }, []);
+  }, [setNewFileUrl]);
 
   const handleFileChange = async (files: File) => {
     const file = files;
@@ -216,7 +216,7 @@ const FileUpload: NextPage<Props> = ({
             </div>
             <div className="w-full">
               <div className="w-full px-2">
-                <div className="w-full flex items-center justify-end">
+                <div className="w-full flex items-center justify-between">
                   <p className="overflow-hidden hidden md:block">{fileName}</p>
                   <p>{Math.round(progress)}%</p>
                 </div>

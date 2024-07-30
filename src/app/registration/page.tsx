@@ -34,6 +34,7 @@ import { toast } from "@/components/ui/use-toast";
 import { ToastAction } from "@/components/ui/toast";
 import { TextConstants } from "@/constants/text-constants";
 import { ZodConstants } from "@/constants/zod-constants";
+import {selectContent} from "@/constants/competition-category-constants"
 import { NextPage } from "next";
 
 const formSchema = ZodConstants.formSchema;
@@ -57,20 +58,6 @@ interface Props {
   };
 }
 
-// Define the selectContent object with the specified keys
-const selectContent: Record<SelectContentKeys, string[]> = {
-  competitionCategory: [
-    "Health, Pharmacy, Beauty and Personal Care Products, Functional Food",
-    "Education, Technology Information and Communication, Teaching Tools Materials, IoT and Apps",
-    "Health Technology and Promotion Based IoT & Apss, and Applied Science",
-  ],
-  formOfInvention: [
-    "Prototype",
-    "Models",
-    "Ready-Made Product",
-    "Commercialized Product",
-  ],
-};
 
 const RegistrationPage: NextPage<Props> = () => {
   const [loading, setLoading] = useState(true);
@@ -128,7 +115,7 @@ const RegistrationPage: NextPage<Props> = () => {
             <SelectTrigger className="border-2 border-[#9F9F9F] h-16 rounded-xl focus:border-main-300 focus:outline-none focus-visible:ring-main-300">
               <SelectValue placeholder={label} />
             </SelectTrigger>
-            <SelectContent className="w-full">
+            <SelectContent className="w-3">
               {selectContent[key as SelectContentKeys].map((item) => (
                 <SelectItem className="w-full" key={item} value={item}>
                   {item}
@@ -213,7 +200,7 @@ const RegistrationPage: NextPage<Props> = () => {
                               setCookies(key, e.target.value);
                             }}
                           >
-                            <FormLabel>{label.includes("Patent") ? "Patent Number" : label}</FormLabel>
+                            <FormLabel>{label.includes("Patent") ? "Patent Number (Optional)" : label}</FormLabel>
                             <FormControl>
                               {renderInput(index, label, key, { ...field })}
                             </FormControl>
@@ -231,7 +218,7 @@ const RegistrationPage: NextPage<Props> = () => {
                       setCookies("scanStudentId", url);
                       fetchCookies();
                     }}
-                    title="Scan Student ID Card (PNG/JPEG/JPG)"
+                    title="Scan Student ID Card (PNG/JPEG/JPG) - Max 1MB"
                     accept=".png, .jpg, .jpeg"
                     bucket="student_id"
                     contentType=""
@@ -245,7 +232,7 @@ const RegistrationPage: NextPage<Props> = () => {
                       setCookies("abstract", url);
                       fetchCookies();
                     }}
-                    title="Abstract (PDF)"
+                    title="Abstract (PDF) - Max 5MB"
                     accept=".pdf"
                     bucket="abstract"
                     contentType="application/pdf"
@@ -259,7 +246,7 @@ const RegistrationPage: NextPage<Props> = () => {
                       setCookies("productDescription", url);
                       fetchCookies();
                     }}
-                    title="Description (PDF)"
+                    title="Description (PDF) - Max 5MB"
                     accept=".pdf"
                     bucket="description"
                     contentType="application/pdf"
