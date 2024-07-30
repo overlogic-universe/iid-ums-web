@@ -55,7 +55,7 @@ const AboutSection = () => {
   return (
     <div id="about-us" className="bg-main-secondary flex justify-center items-center relative" style={{ padding: "40px 0px 40px 0px" }}>
       <Image className="lg:w-38 md:w-32 w-[100px] md:-top-24 -top-10 md:right-10 -right-0 absolute z-20" src={ImageConstants.cubeDecoration2} alt="cubeDecorationRecap2" data-aos="fade-left" />
-      <Image className="lg:w-40 md:w-32 w-[100px] bottom-0 left-3 absolute z-20" src={ImageConstants.cubeDecoration} alt="cubeDecoration" data-aos="fade-right" />
+      <Image className="lg:w-40 md:w-32 w-[100px] bottom-0 md:left-3 -left-1 absolute z-20" src={ImageConstants.cubeDecoration} alt="cubeDecoration" data-aos="fade-right" />
       <Swiper
         centeredSlides
         autoplay={{
