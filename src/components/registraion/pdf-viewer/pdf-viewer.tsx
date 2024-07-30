@@ -19,7 +19,7 @@ const PdfViewer: NextPage<Props> = ({ onChange, setNewFileUrl, file }) => {
       >
         <div className="w-full h-full z-20 bg-main-300 text-white absolute flex items-center justify-center cursor-pointer">
           <p>
-            Cannot preview PDF file because your web browser doesn't have a PDF
+            Cannot preview PDF file because your web browser doesn&apos;t have a PDF
             plugin.{" "}
             <span>
               <a className="underline" href={file} target="_blank">
