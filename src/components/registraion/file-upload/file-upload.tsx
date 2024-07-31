@@ -123,7 +123,7 @@ const FileUpload: NextPage<Props> = ({
       <b className="py-5 text-center">{title}</b>
       {!loading ? (
         <div
-          className={`border-2 border-dashed border-${fileUploadColor}-700 file-upload-container top-0 p-5 w-full bg-${fileUploadColor}-100 flex items-center justify-center flex-col rounded-2xl h-[380px] z-10`}
+          className={`border-2 border-dashed ${fileUploadColor == "main" ? "border-main-primary" : "border-red-500"} file-upload-container top-0 p-5 w-full bg-${fileUploadColor}-100 flex items-center justify-center flex-col rounded-2xl h-[380px] z-10`}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
@@ -171,7 +171,7 @@ const FileUpload: NextPage<Props> = ({
               />
               <div
                 className={`md:w-1/2 text-center flex items-center justify-center flex-col ${
-                  fileUploadColor == "red" ? "text-red-500" : "text-main-200"
+                  fileUploadColor == "red" ? "text-red-500" : "text-main-primary"
                 }`}
               >
                 <p className={`md:text-3xl align-middle`}>
@@ -192,7 +192,7 @@ const FileUpload: NextPage<Props> = ({
                   document.getElementById("file")?.click();
                 }}
                 className={`m-5 rounded-2xl ${
-                  fileUploadColor == "red" ? "bg-red-500" : "bg-main-200"
+                  fileUploadColor == "red" ? "bg-red-500" : "bg-main-primary"
                 } hover:bg-${fileUploadColor}-300`}
               >
                 Select Files
@@ -216,7 +216,7 @@ const FileUpload: NextPage<Props> = ({
             </div>
             <div className="w-full">
               <div className="w-full px-2">
-                <div className="w-full flex items-center justify-between">
+                <div className="w-full flex items-center justify-end sm:justify-between">
                   <p className="overflow-hidden hidden md:block">{fileName}</p>
                   <p>{Math.round(progress)}%</p>
                 </div>
@@ -234,7 +234,7 @@ const FileUpload: NextPage<Props> = ({
               <Image
                 id="cancel-button"
                 src={SvgConstants.cancelOutlineIcon}
-                className="w-6 h-6 cursor-pointer"
+                className="w-10 h-10 cursor-pointer"
                 alt="Cancel"
               />
             </div>
@@ -242,7 +242,7 @@ const FileUpload: NextPage<Props> = ({
         </div>
       )}
       {isDragging ? (
-        <div className="h-screen w-screen bg-black bg-opacity-40 absolute z-0" />
+        <div className="h-[9999px] w-screen bg-black bg-opacity-40 absolute z-0" />
       ) : null}
     </div>
   );

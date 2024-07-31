@@ -10,11 +10,18 @@ const fileUploadAction = async (
   onProgress: (progress: number) => void,
   onSuccess: (filename: string, url: string) => void
 ) => {
+  const fileSize = file.size / 1000;
+
+  if (contentType == "" && fileSize > 1000) {
+    throw new Error(TextConstants.en.unsupportFileTypeTitleError);
+  } else if (fileSize > 5000) {
+    throw new Error(TextConstants.en.unsupportFileTypeTitleError);
+  }
   const types =
     contentType == ""
       ? ["image/jpg", "image/jpeg", "image/png"]
       : [contentType];
-      
+
   // handleUpload;
   for (let i = 0; i < types.length; i++) {
     if (file.type.includes(types[i])) {
@@ -50,11 +57,25 @@ const fileUploadAction = async (
             resolve();
           },
         });
-    
+
         const previousUploads = await upload.findPreviousUploads();
         if (previousUploads.length) {
           upload.resumeFromPreviousUpload(previousUploads[0]);
         }
+        const cancelButton = document.getElementById("cancel-button");
+        cancelButton?.addEventListener("click", () => {
+          upload
+            .abort(true)
+            .then(function () {
+              // Upload has been aborted and terminated
+              resolve()
+            })
+            .catch(function (error: Error) {
+              // An error occurred during the termination
+              throw new Error(TextConstants.en.fileUploadError)
+            });
+        });
+        const terminate = () => {};
         upload.start();
       });
     }

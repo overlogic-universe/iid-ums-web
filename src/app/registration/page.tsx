@@ -164,7 +164,7 @@ const RegistrationPage: NextPage<Props> = () => {
       {loading ? <FormLoading /> : null}
       <div className="relative">
         <div className="absolute top-0 right-0">
-          <p className="p-2 text-blue-700 font-light">{filled}/13</p>
+          <p className="p-2 text-blue-500 font-light">{filled}/13</p>
         </div>
       </div>
       <div className="w-full px-3 md:px-28 bg-white rounded-2xl">
