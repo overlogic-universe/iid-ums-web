@@ -1,9 +1,11 @@
-import { keywordConstants } from "./keyword-metadata-constants";
-import { authorsConstants } from "./author-metadata-constants";
-
 /**
  * Below are the metadata list that are used in the app to increase SEO performance.
  */
+
+import { keywordConstants } from "./keyword-metadata-constants";
+import { authorsConstants } from "./author-metadata-constants";
+import { openGraphConstant } from "./open-graph-metadat-constants";
+
 const metadataConstant = {
   title: "IID 2024 - UMS",
   description:
@@ -12,6 +14,7 @@ const metadataConstant = {
   authors: authorsConstants,
   abstract: "UMS International Innovation Day 2024",
   publisher: "Overlogic Universe",
+  openGraph: openGraphConstant,
 };
 
 export { metadataConstant };
