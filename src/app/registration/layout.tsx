@@ -1,21 +1,10 @@
 import { ImageConstants } from "@/constants/image-constants";
-import { keywordConstants } from "@/constants/keyword-metadata-constants";
-import { openGraphConstant } from "@/constants/open-graph-metadat-constants";
 import { SvgConstants } from "@/constants/svg-constants";
-import { Metadata, NextPage } from "next";
+import { NextPage } from "next";
 import Image from "next/image";
-
 interface Props {
   children: React.ReactNode;
 }
-
-export const metadata: Metadata = {
-  title: "Register UMS IID 2024",
-  description:
-    "Registration International Innovation Day 2024, The Creative Synergy of Young Investors Encourage Innovation for Human Life and Well-being - International Innovation Day 2024 - UMS",
-  keywords: keywordConstants,
-  // openGraph: openGraphConstant,
-};
 
 const RegistrationLayout: NextPage<Props> = ({ children }) => {
   return (

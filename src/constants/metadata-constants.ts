@@ -5,8 +5,10 @@
 import { keywordConstants } from "./keyword-metadata-constants";
 import { authorsConstants } from "./author-metadata-constants";
 import { openGraphConstant } from "./open-graph-metadat-constants";
+import IconImage from "@/assets/metadata/icon.png";
+import { Metadata } from "next";
 
-const metadataConstant = {
+const metadataConstant:Metadata = {
   title: "IID 2024 - UMS",
   description:
     "UMS International Innovation Day is an annual event hosted by Universitas Muhammadiyah Surakarta (UMS) to celebrate creativity and technological advancements. It brings together students, researchers, entrepreneurs, and industry professionals to showcase innovative projects, exchange ideas, and foster collaborations. ",
@@ -14,7 +16,11 @@ const metadataConstant = {
   authors: authorsConstants,
   abstract: "UMS International Innovation Day 2024",
   publisher: "Overlogic Universe",
-  // openGraph: openGraphConstant,
+  openGraph: openGraphConstant,
+  icons: {
+    icon: IconImage.src,
+    apple: IconImage.src,
+  },
 };
 
 export { metadataConstant };
