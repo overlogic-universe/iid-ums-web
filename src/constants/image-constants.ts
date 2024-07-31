@@ -7,6 +7,9 @@ import nutricomLogo from "@/assets/images/logo/nutricom-logo.png";
 import innopaLogo from "@/assets/images/logo/innopa-logo.png";
 import overlogicLogo from "@/assets/images/logo/overlogic-logo.png";
 import gdscUMSLogo from "@/assets/images/logo/gdsc-ums-logo.png";
+import header from "@/assets/images/header.webp";
+import headerMobile from "@/assets/images/header-mobile.webp";
+import bgHeaderBox from "@/assets/images/bg-header-box.png";
 import bgNutricom from "@/assets/images/bg-nutricom.webp";
 import bgInnopa from "@/assets/images/bg-innopa.webp";
 import bgEventRecap from "@/assets/images/bg-event-recap.webp";
@@ -26,6 +29,9 @@ export const ImageConstants = {
   innopaLogo,
   overlogicLogo,
   gdscUMSLogo,
+  header,
+  headerMobile,
+  bgHeaderBox,
   bgInnopa,
   bgEventRegistration,
   bgEventRegistration2,

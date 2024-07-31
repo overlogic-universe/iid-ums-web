@@ -19,7 +19,7 @@ const openGraphConstant = {
       height: 630,
     },
     {
-      url: SvgConstants.headerImage.src,
+      url: ImageConstants.headerMobile.src,
       width: 1200,
       height: 630,
     },

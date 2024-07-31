@@ -26,7 +26,7 @@ const config = {
           400: "#7d7cfe",
           DEFAULT: "#4b00fc",
           600: "#4500cc",
-          primary: '#0000CB',
+          primary: '#1337AA',
           secondary: '#e0e8ff',
           white: '#FFFFFF',
         },

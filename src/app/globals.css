@@ -89,7 +89,7 @@
   line-height: 1;
   text-decoration: underline;
   font-weight: bold;
-  color: #0000cb;
+  color: #1337aa;
   margin-bottom: 30px;
   margin-top: 20px;
   padding: 10px;
@@ -100,7 +100,7 @@
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  background-image: linear-gradient(to right, #0000cb, #62bbff, #0000cb);
+  background-image: linear-gradient(to right, #1337aa, #62bbff, #1337aa);
 }
 
 .blue-shadow:hover {
