@@ -25,7 +25,13 @@ const getCookies = async () => {
 
 const getTotalCookies = async () => {
   try {
-    return cookies().getAll().length;
+    let total = 0
+    cookies().getAll().map((cookie)=>{
+      if(cookie.value.length > 1) {
+        total++;
+      }
+    });
+    return total;
   } catch (error) {
     throw new Error(error as string);
   }

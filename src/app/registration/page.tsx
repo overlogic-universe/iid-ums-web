@@ -34,7 +34,7 @@ import { toast } from "@/components/ui/use-toast";
 import { ToastAction } from "@/components/ui/toast";
 import { TextConstants } from "@/constants/text-constants";
 import { ZodConstants } from "@/constants/zod-constants";
-import {selectContent} from "@/constants/competition-category-constants"
+import { selectContent } from "@/constants/competition-category-constants";
 import { NextPage } from "next";
 
 const formSchema = ZodConstants.formSchema;
@@ -57,7 +57,6 @@ interface Props {
     page: string;
   };
 }
-
 
 const RegistrationPage: NextPage<Props> = () => {
   const [loading, setLoading] = useState(true);
@@ -115,9 +114,9 @@ const RegistrationPage: NextPage<Props> = () => {
             <SelectTrigger className="border-2 border-[#9F9F9F] h-16 rounded-xl focus:border-main-300 focus:outline-none focus-visible:ring-main-300">
               <SelectValue placeholder={label} />
             </SelectTrigger>
-            <SelectContent className="w-3">
+            <SelectContent className="min-w-0 fixed">
               {selectContent[key as SelectContentKeys].map((item) => (
-                <SelectItem key={item} value={item}>
+                <SelectItem key={item} value={item} className="">
                   {item}
                 </SelectItem>
               ))}
@@ -180,7 +179,7 @@ const RegistrationPage: NextPage<Props> = () => {
                   const label = key
                     .replace(/([A-Z])/g, " $1")
                     .replace(/^./, (str) => str.toUpperCase());
-                    
+
                   const formLocation = currentPage * 3;
                   if (
                     index >= formLocation - 3 &&
@@ -200,7 +199,11 @@ const RegistrationPage: NextPage<Props> = () => {
                               setCookies(key, e.target.value);
                             }}
                           >
-                            <FormLabel>{label.includes("Patent") ? "Patent Number (Optional)" : label}</FormLabel>
+                            <FormLabel>
+                              {label.includes("Patent")
+                                ? "Patent Number (Optional)"
+                                : label}
+                            </FormLabel>
                             <FormControl>
                               {renderInput(index, label, key, { ...field })}
                             </FormControl>
@@ -324,8 +327,11 @@ const RegistrationPage: NextPage<Props> = () => {
                         </DialogClose>
                         <DialogClose>
                           <Button
-                            onClick={() => {
-                              onSubmit(form.getValues());
+                            onClick={async () => {
+                              const isFilled = await trigger();
+                              if (isFilled) {
+                                onSubmit(form.getValues());
+                              }
                             }}
                             type="button"
                             variant="secondary"
@@ -351,11 +357,11 @@ const RegistrationPage: NextPage<Props> = () => {
                           index < formLocation &&
                           index <= 9
                         ) {
-                          validForm =
-                            validForm &&
-                            (await trigger(
-                              key as keyof z.infer<typeof formSchema>
-                            ));
+                          await trigger(
+                            key as keyof z.infer<typeof formSchema>
+                          ).then((e)=>{
+                            if(!e) validForm = false
+                          });
                         } else if (currentPage == 5) {
                           validForm =
                             validForm && (await trigger("scanStudentId"));

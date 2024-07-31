@@ -232,8 +232,9 @@ const FileUpload: NextPage<Props> = ({
             </div>
             <div>
               <Image
-                onClick={() => {}}
+                id="cancel-button"
                 src={SvgConstants.cancelOutlineIcon}
+                className="w-6 h-6 cursor-pointer"
                 alt="Cancel"
               />
             </div>
