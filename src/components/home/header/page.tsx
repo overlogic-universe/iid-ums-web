@@ -8,7 +8,7 @@ interface Props {}
 
 const HeaderSection: NextPage<Props> = ({}) => {
   return (
-    <div id="home" className="flex-col min-w-full items-center justify-center">
+    <div id="home" className="mt-[80px] flex-col min-w-full items-center justify-center">
       <Image className="w-full md:hidden block" src={ImageConstants.headerMobile} alt={`${TextConstants.en.header}-mobile`} />
       <Image className="w-full md:block hidden" src={ImageConstants.header} alt={TextConstants.en.header} />
       <div className="bg-main-secondary section relative">

@@ -59,7 +59,7 @@ const AboutSection = () => {
       <Swiper
         centeredSlides
         autoplay={{
-          delay: 5000,
+          delay: 10000,
           disableOnInteraction: false,
         }}
         slidesPerView={1}
