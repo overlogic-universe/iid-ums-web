@@ -55,7 +55,7 @@ const AboutSection = () => {
   return (
     <div id="about-us" className="bg-main-secondary flex justify-center items-center relative" style={{ padding: "40px 0px 40px 0px" }}>
       <Image className="lg:w-38 md:w-32 w-[100px] md:-top-24 -top-10 md:right-10 -right-0 absolute z-20" src={ImageConstants.cubeDecoration2} alt="cubeDecorationRecap2" data-aos="fade-left" />
-      <Image className="lg:w-40 md:w-32 w-[100px] bottom-0 md:left-3 -left-1 absolute z-20" src={ImageConstants.cubeDecoration} alt="cubeDecoration" data-aos="fade-right" />
+      <Image className="lg:w-40 md:w-32 w-[100px] -bottom-3 md:left-3 -left-1 absolute z-20" src={ImageConstants.cubeDecoration} alt="cubeDecoration" data-aos="fade-right" />
       <Swiper
         centeredSlides
         autoplay={{
@@ -72,7 +72,7 @@ const AboutSection = () => {
           <SwiperSlide key={item.id} className="w-full object-cover text-center flex flex-col items-center justify-center about-us-box">
             <div className="rounded-3xl border-2 border-white overflow-hidden section-box bg-white bg-center bg-cover about-us-inner-box" style={{ backgroundImage: `url(${item.imageUrl})` }}>
               <Image className="mx-auto mb-2 " src={item.logo} alt={`slide ${item.id} logo`} height={150} width={270} />
-              <p className="md:text-2xl text-md font-light text-center lg:mx-6 mt-5" data-aos="fade-up">
+              <p className="md:text-2xl text-md font-light text-center lg:mx-6 md:mt-5 mt-2" data-aos="fade-up">
                 {item.description}
               </p>
             </div>

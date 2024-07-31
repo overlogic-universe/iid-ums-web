@@ -16,7 +16,6 @@ const carouselItems = [
 
 export default function RecapCarousel() {
   return (
-    <div>
       <Swiper
         effect={"coverflow"}
         centeredSlides
@@ -62,6 +61,5 @@ export default function RecapCarousel() {
         <div className="swiper-button-prev"></div>
         <div className="swiper-button-next"></div>
       </Swiper>
-    </div>
   );
 }

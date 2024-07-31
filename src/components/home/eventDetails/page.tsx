@@ -24,6 +24,12 @@ const EventDetailsSection: NextPage<Props> = ({}) => {
     { icon: IconConstants.building, text: "Coming Soon" },
     { icon: IconConstants.countDown, text: "Coming Soon" },
   ];
+
+  const contactItems = [
+    { icon: IconConstants.whatsapp, link: "/whatsapp" },
+    { icon: IconConstants.instagram, link: "https://www.instagram.com/innovationday.official" },
+  ];
+
   return (
     <div id="event-details" className="section flex-col relative bg-main-secondary">
       <div className="section-box bg-white pb-5 px-5 bg-center bg-cover" style={{ backgroundImage: `url(${ImageConstants.bgEventDetails.src})` }}>
@@ -44,9 +50,13 @@ const EventDetailsSection: NextPage<Props> = ({}) => {
             <h3 className="text-sm" data-aos="fade-up">
               Contact Us:
             </h3>
-            <a href="/whatsapp" className="mt-3 cursor-pointer flex items-center justify-center me-2 bg-[#307FE2] p-2 rounded-full h-[40px] w-[40px]" data-aos="fade-up">
-              <Image src={IconConstants.whatsapp} alt={`icon-whatsapp`} height={30} />
-            </a>
+            <div className="flex gap-3">
+              {contactItems.map((item, index) => (
+                <a key={index} href={item.link} className="mt-3 cursor-pointer flex items-center justify-center me-2 bg-[#307FE2] p-2 rounded-full h-[40px] w-[40px]" data-aos="fade-up">
+                  <Image src={item.icon} alt={`icon-${index}`} height={30} />
+                </a>
+              ))}
+            </div>
           </div>
           <div className="rounded-xl overflow-hidden h-full relative" style={{ border: "1px solid #307FE2" }}>
             <Map />
@@ -63,7 +73,7 @@ const EventDetailsSection: NextPage<Props> = ({}) => {
           </div>
         </div>
       </div>
-      <Image className="lg:w-40 md:w-32 w-[100px] lg:-top-10 -top-0 lg:left-5 left-2 absolute" src={ImageConstants.cubeDecoration} alt="cubeDecoration-detail" data-aos="fade-right" />
+      <Image className="lg:w-40 md:w-32 w-[90px] lg:-top-10 -top-7 lg:left-5 left-0 absolute" src={ImageConstants.cubeDecoration} alt="cubeDecoration-detail" data-aos="fade-right" />
     </div>
   );
 };

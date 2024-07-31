@@ -1,8 +1,8 @@
-import image1 from "@/assets/svgs/carouselEventRecap/1.svg";
-import image2 from "@/assets/svgs/carouselEventRecap/2.svg";
-import image4 from "@/assets/svgs/carouselEventRecap/4.svg";
-import image5 from "@/assets/svgs/carouselEventRecap/5.svg";
-import image6 from "@/assets/svgs/carouselEventRecap/6.svg";
+import image1 from "@/assets/images/carouselEventRecap/1.jpg";
+import image2 from "@/assets/images/carouselEventRecap/2.jpg";
+import image4 from "@/assets/images/carouselEventRecap/4.jpg";
+import image5 from "@/assets/images/carouselEventRecap/5.jpg";
+import image6 from "@/assets/images/carouselEventRecap/6.jpg";
 
 export const recapOfImages = {
   image1,

@@ -50,7 +50,7 @@ export default function Navbar() {
 
   return (
     <nav className={`sticky top-0 z-50 w-full h-20 bg-blue-400 bg-opacity-15 backdrop-filter backdrop-blur-3xl p-2 border-blue-300 border-b flex justify-between items-center md:px-10 px-3`}>
-      <Image className="z-10" src={SvgConstants.logo} alt={TextConstants.en.registration} height={70} />
+      <Image className="z-10 md:w-[250px] w-[180px]" src={SvgConstants.logo} alt={TextConstants.en.registration} />
       <div className="lg:hidden" onClick={updateMenu}>
         <div className={`${styles["burger-menu"]} ${isMenuClicked ? styles.clicked : styles.unclicked}`}>
           <div className={`${styles["burger-bar"]} ${isMenuClicked ? styles.clicked : styles.unclicked}`}></div>
