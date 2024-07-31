@@ -22,7 +22,7 @@ const HomePage = () => {
     });
   }, []);
   return (
-    <>
+    <div className="overflow-x-hidden">
       <Navbar />
       <HeaderSection />
       <EventRegistrationSection />
@@ -32,7 +32,7 @@ const HomePage = () => {
       <PartnerSection />
       <Footer />
       <WhatsAppIcon />
-    </>
+    </div>
   );
 };
 
