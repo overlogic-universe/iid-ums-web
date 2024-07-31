@@ -51,6 +51,9 @@ import {
 import { useEffect, useState } from "react";
 import FormLoading from "@/components/registraion/form/form-loading";
 import SubmitedPage from "@/components/registraion/submited/submited";
+import { DialogDescription, DialogTitle } from "@radix-ui/react-dialog";
+import { ImageConstants } from "@/constants/image-constants";
+import AOS from "aos";
 
 interface Props {
   params: {
@@ -92,6 +95,12 @@ const RegistrationPage: NextPage<Props> = () => {
   };
 
   useEffect(() => {
+    AOS.init({
+      duration: 1500,
+      disable: function () {
+        return /bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent);
+      },
+    });
     fetchCookies();
   }, []);
 
@@ -160,7 +169,7 @@ const RegistrationPage: NextPage<Props> = () => {
     }
   };
   return (
-    <div className="w-full relative">
+    <div className="w-full relative" data-aos="fade-up">
       {loading ? <FormLoading /> : null}
       <div className="relative">
         <div className="absolute top-0 right-0">
@@ -306,16 +315,19 @@ const RegistrationPage: NextPage<Props> = () => {
                       </Button>
                     )}
 
-                    <DialogContent className="bg-main-200 border-0 md:border-2 border-white flex items-center justify-center flex-col">
-                      <div className="flex justify-center items-center flex-col text-white text-center">
+                    <DialogContent className="bg-main-300 border-0 md:border-2 border-white flex items-center justify-center flex-col">
+                      <DialogTitle  className="flex justify-center items-center flex-col text-white text-center">
                         <Image
                           src={SvgConstants.warningLineIcon}
                           alt="Warning Line"
                         />
                         <p className="text-4xl">Are you sure ?</p>
-                        <p>Data that has been sent cannot be changed</p>
-                      </div>
-                      <DialogFooter className="justify-between flex flex-row w-full">
+
+                      </DialogTitle>
+                      <DialogDescription>
+                          <p className="text-white">Data that has been sent cannot be changed</p>
+                      </DialogDescription>
+                      <DialogFooter className="!justify-between items-center flex-row w-full">
                         <DialogClose asChild>
                           <Button
                             type="button"
@@ -325,7 +337,7 @@ const RegistrationPage: NextPage<Props> = () => {
                             Cancel
                           </Button>
                         </DialogClose>
-                        <DialogClose>
+                        <DialogClose asChild>
                           <Button
                             onClick={async () => {
                               const isFilled = await trigger();
@@ -404,6 +416,7 @@ const RegistrationPage: NextPage<Props> = () => {
                 )}
               </div>
             ) : null}
+              <Image src={ImageConstants.cubeDecoration2} alt="Cube" className="absolute -translate-x-44 -translate-y-16" data-aos="fade-left"/>
           </div>
         </div>
       </div>

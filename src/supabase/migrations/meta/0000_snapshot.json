@@ -1,5 +1,5 @@
 {
-  "id": "61cb6037-2db4-4c60-ad7e-f5327c57776b",
+  "id": "c1fc5199-f421-44bb-96da-344b0ddd11f4",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -14,83 +14,97 @@
           "primaryKey": true,
           "notNull": true
         },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
         "email": {
           "name": "email",
           "type": "varchar(64)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "leader_name": {
           "name": "leader_name",
           "type": "varchar(64)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "members_name": {
           "name": "members_name",
-          "type": "varchar(256)",
+          "type": "varchar(512)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "supervisor_name": {
           "name": "supervisor_name",
-          "type": "varchar(64)",
+          "type": "varchar(128)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "university_origin": {
           "name": "university_origin",
-          "type": "varchar(64)",
+          "type": "varchar(256)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "whatsapp_number": {
           "name": "whatsapp_number",
           "type": "varchar(14)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "competition_category": {
           "name": "competition_category",
-          "type": "varchar(64)",
+          "type": "varchar(256)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "form_of_invention": {
           "name": "form_of_invention",
-          "type": "varchar(64)",
+          "type": "varchar(256)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "title_of_innovation": {
           "name": "title_of_innovation",
-          "type": "varchar(64)",
+          "type": "varchar(256)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "patent_number": {
           "name": "patent_number",
-          "type": "varchar(64)",
+          "type": "varchar(128)",
           "primaryKey": false,
           "notNull": false
         },
         "scan_student_id": {
           "name": "scan_student_id",
-          "type": "varchar(64)",
+          "type": "varchar(256)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "abstract": {
           "name": "abstract",
-          "type": "varchar",
+          "type": "varchar(256)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "product_description": {
           "name": "product_description",
-          "type": "varchar",
+          "type": "varchar(256)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
+        },
+        "competition_batch": {
+          "name": "competition_batch",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'1'"
         }
       },
       "indexes": {},

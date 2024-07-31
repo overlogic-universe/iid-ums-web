@@ -5,22 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1722168797208,
-      "tag": "0000_bumpy_khan",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1722194864014,
-      "tag": "0001_concerned_lockjaw",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1722196757354,
-      "tag": "0002_sparkling_gunslinger",
+      "when": 1722437362026,
+      "tag": "0000_sudden_freak",
       "breakpoints": true
     }
   ]
