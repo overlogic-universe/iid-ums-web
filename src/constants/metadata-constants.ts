@@ -14,7 +14,7 @@ const metadataConstant = {
   authors: authorsConstants,
   abstract: "UMS International Innovation Day 2024",
   publisher: "Overlogic Universe",
-  openGraph: openGraphConstant,
+  // openGraph: openGraphConstant,
 };
 
 export { metadataConstant };

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description:
     "Registration International Innovation Day 2024, The Creative Synergy of Young Investors Encourage Innovation for Human Life and Well-being - International Innovation Day 2024 - UMS",
   keywords: keywordConstants,
-  openGraph: openGraphConstant,
+  // openGraph: openGraphConstant,
 };
 
 const RegistrationLayout: NextPage<Props> = ({ children }) => {
