@@ -30,9 +30,9 @@ const uncompleteFormDescriptionError = "Please fill the available fields before 
 const remove = "Remove";
 const unsupportFileTypeTitleError = "Please upload a correct file type";
 const unsupportFileTypeDescriptionError = "Double check your file and try again to upload the correct file type.";
-const innopaDescription = "Indonesian Invention and Innovation Promotion Association (INNOPA) is an association that concerns in the development and promotion of innovation in Indonesia. Our aim is to build an innovative climate for inventors and link Indonesian innovators to show their innovative projects through International invention expo. In addition, within the networking established since 2011, INNOPA brings  and introduces Indonesian’ innovators to the International innovation ecosystem."
+const innopaDescription = "The Indonesian Invention and Innovation Promotion Association (INNOPA) is an association focused on the development and promotion of innovation in Indonesia. The aim of INNOPA is to build an innovative climate for inventors and link Indonesian innovators to international invention expos to showcase their innovative projects. Since its establishment in 2011, INNOPA has been dedicated to connecting and introducing Indonesian innovators to the international innovation ecosystem."
 const nutricomDescription =
-  "Nutrition Community is a platform for students to develop their potential, this community is dedicated to creating a research-based knowledge endowment center focused on the nutritional resources necessary for a healthy life. We embrace brilliant thinkers, talented academic writers, dedicated researchers, and bold nutripreneurs who challenge boundaries, synergize diverse ideas, and foster collaborations that benefit everyone.";
+  "The Nutrition Community is a platform for students to develop their potential, dedicated to creating a research-based knowledge endowment center focused on the nutritional resources necessary for a healthy life. This community embraces brilliant thinkers, talented academic writers, dedicated researchers, and bold nutripreneurs who challenge boundaries, synergize diverse ideas, and foster collaborations that benefit everyone.";
 export const TextConstants = {
   en: {
     registrationSuccessTitle,
