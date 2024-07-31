@@ -52,7 +52,7 @@ const EventDetailsSection: NextPage<Props> = ({}) => {
             </h3>
             <div className="flex gap-3">
               {contactItems.map((item, index) => (
-                <a key={index} href={item.link} className="mt-3 cursor-pointer flex items-center justify-center me-2 bg-[#307FE2] p-2 rounded-full h-[40px] w-[40px]" data-aos="fade-up">
+                <a target="blank" key={index} href={item.link} className="mt-3 cursor-pointer flex items-center justify-center me-2 bg-[#307FE2] p-2 rounded-full h-[40px] w-[40px]" data-aos="fade-up">
                   <Image src={item.icon} alt={`icon-${index}`} height={30} />
                 </a>
               ))}

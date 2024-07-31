@@ -7,40 +7,7 @@ import styles from "./navbar.module.css";
 import { TextConstants } from "@/constants/text-constants";
 import { SvgConstants } from "@/constants/svg-constants";
 import { Button } from "../../ui/button";
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
-
-const components = [
-  {
-    title: "Alert Dialog",
-    href: "/docs/primitives/alert-dialog",
-    description: "A modal dialog that interrupts the user with important content and expects a response.",
-  },
-  {
-    title: "Hover Card",
-    href: "/docs/primitives/hover-card",
-    description: "For sighted users to preview content available behind a link.",
-  },
-  {
-    title: "Progress",
-    href: "/docs/primitives/progress",
-    description: "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-  },
-  {
-    title: "Scroll-area",
-    href: "/docs/primitives/scroll-area",
-    description: "Visually or semantically separates content.",
-  },
-  {
-    title: "Tabs",
-    href: "/docs/primitives/tabs",
-    description: "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-  },
-  {
-    title: "Tooltip",
-    href: "/docs/primitives/tooltip",
-    description: "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  },
-];
+import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 
 export default function Navbar() {
   const [isMenuClicked, setIsMenuClicked] = useState(false);
@@ -49,7 +16,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className={`sticky top-0 z-50 w-full h-20 bg-blue-400 bg-opacity-15 backdrop-filter backdrop-blur-3xl p-2 border-blue-300 border-b flex justify-between items-center md:px-10 px-3`}>
+    <nav className={`fixed top-0 z-50 w-full h-20 bg-blue-400 bg-opacity-15 backdrop-filter backdrop-blur-3xl p-2 border-blue-300 border-b flex justify-between items-center md:px-10 px-3`}>
       <Image className="z-10 md:w-[250px] w-[180px]" src={SvgConstants.logo} alt={TextConstants.en.registration} />
       <div className="lg:hidden" onClick={updateMenu}>
         <div className={`${styles["burger-menu"]} ${isMenuClicked ? styles.clicked : styles.unclicked}`}>
@@ -91,24 +58,9 @@ export default function Navbar() {
       <NavigationMenu className="hidden lg:block z-20">
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="rounded-3xl">Home</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                <li className="row-span-3">
-                  <NavigationMenuLink asChild href="/">
-                    <a className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md" href="/">
-                      <div className="mb-2 mt-4 text-lg font-medium">IID/UMS</div>
-                      <p className="text-sm leading-tight text-muted-foreground">&ldquo;The Creative Synergy of Young Investors Encourage Innovation for Human Life and Well-being - International Innovation Day 2024 - UMS&ldquo;</p>
-                    </a>
-                  </NavigationMenuLink>
-                </li>
-                {components.map((component, index) => (
-                  <ListItem key={index} href={component.href} title={component.title}>
-                    {component.description}
-                  </ListItem>
-                ))}
-              </ul>
-            </NavigationMenuContent>
+            <Link href="/" legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>Home</NavigationMenuLink>
+            </Link>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <Link href="#event-registration" legacyBehavior passHref>
