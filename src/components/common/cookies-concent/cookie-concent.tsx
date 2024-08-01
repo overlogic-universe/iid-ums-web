@@ -36,7 +36,7 @@ const CookiesConcent = () => {
   return (
     <Drawer>
       <DrawerTrigger asChild>
-        <Button variant="outline" className="hiddesn" id="cookie-concent" />
+        <Button variant="outline" className="hidden" id="cookie-concent" />
       </DrawerTrigger>
       <DrawerContent>
         <div className="mx-auto w-full max-w-sm">
