@@ -1,17 +1,19 @@
+import { TextConstants } from "@/constants/text-constants";
 import { NextPage } from "next";
+import { useEffect } from "react";
 
 interface Props {
   onChange: (agree: boolean) => void;
 }
 
 const Confirmation: NextPage<Props> = ({ onChange }) => {
+  useEffect(()=>{
+    onChange(false);
+  },[])
   return (
     <div className="w-full bg-main-100 p-3 md:p-20 mt-5 border-2 border-blue-700 rounded-2xl text-center">
       <p>
-        I agree to switch from on-site participation to online competition if
-        government regulations tighten activities or travel around the event
-        date. I will cancel my participation, and an adjusted refund may be
-        processed after the event. (Please check the box) and upload.
+        {TextConstants.en.agreement}
       </p>
       <div className="items-center justify-center flex pt-5">
         <input

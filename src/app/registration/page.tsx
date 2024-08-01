@@ -1,6 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useDebouncedCallback } from "use-debounce";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import {
@@ -43,12 +44,14 @@ import Confirmation from "@/components/registraion/confirmation/confirmation";
 import Image from "next/image";
 import { SvgConstants } from "@/constants/svg-constants";
 import {
+  getCookie,
   getCookies,
   getTotalCookies,
   removeAllCookies,
+  setAllCookies,
   setCookies,
 } from "@/lib/action/cookies/cookie-action";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import FormLoading from "@/components/registraion/form/form-loading";
 import SubmitedPage from "@/components/registraion/submited/submited";
 import { DialogDescription, DialogTitle } from "@radix-ui/react-dialog";
@@ -63,10 +66,14 @@ interface Props {
 
 const RegistrationPage: NextPage<Props> = () => {
   const [loading, setLoading] = useState(true);
+  const [uploading, setUploading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [fileUploadColor, setFileUploadColor] = useState("main");
   const [isAgree, setIsAgree] = useState(false);
   const [filled, setFilled] = useState(0);
+  const [filledList, setFilledList] = useState<string[]>([]);
+  const [forms, setForms] = useState<{ [key: string]: string }>({});
+  const [acceptCookie, setAcceptCookie] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -79,6 +86,10 @@ const RegistrationPage: NextPage<Props> = () => {
 
     setFileUploadColor("main");
     const cookies = await getCookies();
+    const agreement = await getCookie("cookie");
+    if (agreement != undefined && agreement.value == "true") {
+      setAcceptCookie(true);
+    }
 
     await Promise.all(cookies);
     if (cookies) {
@@ -94,14 +105,21 @@ const RegistrationPage: NextPage<Props> = () => {
     setLoading(false);
   };
 
+  const fetchTotalCookies = async () => {
+    const cookie = await getTotalCookies();
+    setFilled(cookie);
+  };
   useEffect(() => {
     AOS.init({
       duration: 1500,
       disable: function () {
-        return /bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent);
+        return /bot|googlebot|crawler|spider|robot|crawling/i.test(
+          navigator.userAgent
+        );
       },
     });
     fetchCookies();
+    fetchTotalCookies();
   }, []);
 
   const renderInput = (
@@ -168,12 +186,36 @@ const RegistrationPage: NextPage<Props> = () => {
       setLoading(false);
     }
   };
+
+  const handleFileUploadChange = (key: string, url: string) =>{
+    if(acceptCookie){
+      setCookies(key, url)
+      fetchCookies();
+      } else {
+        form.setValue(key as keyof z.infer<typeof formSchema>, url)
+        setFilledList(prevList => {
+          if (!prevList.includes(key)) {
+            return [...prevList, key];
+          }
+          return prevList;
+        });
+      }
+  }
+
+  const debounced = useDebouncedCallback(() => {
+    const cookieData: CookieType[] = Object.keys(forms).map((key) => ({
+      key,
+      value: forms[key],
+    }));
+    setAllCookies(cookieData);
+  }, 3000);
+
   return (
     <div className="w-full relative" data-aos="fade-up">
       {loading ? <FormLoading /> : null}
       <div className="relative">
         <div className="absolute top-0 right-0">
-          <p className="p-2 text-blue-500 font-light">{filled}/13</p>
+          <p className="p-2 text-blue-500 font-light">{acceptCookie ? filled : filledList.length}/13</p>
         </div>
       </div>
       <div className="w-full px-3 md:px-28 bg-white rounded-2xl">
@@ -205,7 +247,29 @@ const RegistrationPage: NextPage<Props> = () => {
                             onChange={async (
                               e: React.ChangeEvent<HTMLInputElement>
                             ) => {
-                              setCookies(key, e.target.value);
+                              const tg = await trigger(key as  keyof z.infer<typeof formSchema>)
+                              if (acceptCookie) {
+                                const { value } = e.target;
+                                setForms((prevForm) => ({
+                                  ...prevForm,
+                                  [key]: value,
+                                }));
+
+                                debounced();
+                              } else {
+                                setFilledList(prevList => {
+                                  if (tg) {
+                                    // Add the key if it's not already in the list
+                                    if (!prevList.includes(key)) {
+                                      return [...prevList, key];
+                                    }
+                                  } else {
+                                    // Remove the key if it's in the list
+                                    return prevList.filter(item => item !== key);
+                                  }
+                                  return prevList;
+                                });
+                              }
                             }}
                           >
                             <FormLabel>
@@ -225,44 +289,62 @@ const RegistrationPage: NextPage<Props> = () => {
                 })}
                 {currentPage == 5 ? (
                   <FileUpload
+                    onLoading={(upload: boolean)=>setUploading(upload)}
                     color={fileUploadColor}
                     onChange={(url: string) => {
-                      setCookies("scanStudentId", url);
-                      fetchCookies();
+                      if(acceptCookie){
+                        setCookies("scanStudentId", url);
+                        fetchCookies();
+                      } else {
+                        form.setValue("scanStudentId",url)
+                        handleFileUploadChange("scanStudentId", url);
+                      }
                     }}
                     title="Scan Student ID Card (PNG/JPEG/JPG) - Max 1MB"
                     accept=".png, .jpg, .jpeg"
                     bucket="student_id"
                     contentType=""
-                    fileUrl={getValues("scanStudentId")}
+                    fileUrl={getValues("scanStudentId") ?? form.getValues("scanStudentId")}
                   />
                 ) : null}
                 {currentPage == 6 ? (
                   <FileUpload
+                    onLoading={(upload: boolean)=>setUploading(upload)}
                     color={fileUploadColor}
                     onChange={(url: string) => {
+                      if(acceptCookie){
                       setCookies("abstract", url);
                       fetchCookies();
+                      } else {
+                        form.setValue("abstract", url)
+                        handleFileUploadChange("abstract", url);
+                      }
                     }}
                     title="Abstract (PDF) - Max 5MB"
                     accept=".pdf"
                     bucket="abstract"
                     contentType="application/pdf"
-                    fileUrl={getValues("abstract")}
+                    fileUrl={getValues("abstract") ?? form.getValues("abstract")}
                   />
                 ) : null}
                 {currentPage == 7 ? (
                   <FileUpload
+                    onLoading={(upload: boolean)=>setUploading(upload)}
                     color={fileUploadColor}
                     onChange={(url: string) => {
-                      setCookies("productDescription", url);
-                      fetchCookies();
+                      if(acceptCookie){
+                        setCookies("productDescription", url);
+                        fetchCookies();
+                      } else {
+                        form.setValue("productDescription", url)
+                        handleFileUploadChange("productDescription", url);
+                      }
                     }}
                     title="Description (PDF) - Max 5MB"
                     accept=".pdf"
                     bucket="description"
                     contentType="application/pdf"
-                    fileUrl={getValues("productDescription")}
+                    fileUrl={getValues("productDescription") ?? form.getValues("productDescription")}
                   />
                 ) : null}
                 {currentPage == 8 ? (
@@ -281,11 +363,16 @@ const RegistrationPage: NextPage<Props> = () => {
               >
                 {currentPage == 1 ? null : (
                   <Button
-                    onClick={() => setCurrentPage(currentPage - 1)}
+                    onClick={async () => {
+                      const totalCookies = await getTotalCookies();
+                      setFilled(totalCookies);
+                      setCurrentPage(currentPage - 1);
+                    }}
+                    disabled={uploading}
                     className="border-2 border-black w-40 rounded-xl h-14"
                     variant={"outline"}
                   >
-                    Back
+                    {TextConstants.en.back}
                   </Button>
                 )}
                 {currentPage == 8 ? (
@@ -311,21 +398,24 @@ const RegistrationPage: NextPage<Props> = () => {
                         }}
                         className="w-40 rounded-xl h-14"
                       >
-                        Submit
+                        {TextConstants.en.submit}
                       </Button>
                     )}
 
                     <DialogContent className="bg-main-300 border-0 md:border-2 border-white flex items-center justify-center flex-col">
-                      <DialogTitle  className="flex justify-center items-center flex-col text-white text-center">
+                      <DialogTitle className="flex justify-center items-center flex-col text-white text-center">
                         <Image
                           src={SvgConstants.warningLineIcon}
                           alt="Warning Line"
                         />
-                        <p className="text-4xl">Are you sure ?</p>
-
+                        <p className="text-4xl">
+                          {TextConstants.en.confirmationTitle}
+                        </p>
                       </DialogTitle>
                       <DialogDescription>
-                          <p className="text-white">Data that has been sent cannot be changed</p>
+                        <p className="text-white">
+                          {TextConstants.en.confirmationDescription}
+                        </p>
                       </DialogDescription>
                       <DialogFooter className="!justify-between items-center flex-row w-full">
                         <DialogClose asChild>
@@ -334,7 +424,7 @@ const RegistrationPage: NextPage<Props> = () => {
                             variant="secondary"
                             className="border-2 rounded-2xl text-red-500 w-32 hover:bg-red-500 hover:bg-opacity-30 border-red-500 bg-transparent"
                           >
-                            Cancel
+                            {TextConstants.en.cancel}
                           </Button>
                         </DialogClose>
                         <DialogClose asChild>
@@ -371,8 +461,8 @@ const RegistrationPage: NextPage<Props> = () => {
                         ) {
                           await trigger(
                             key as keyof z.infer<typeof formSchema>
-                          ).then((e)=>{
-                            if(!e) validForm = false
+                          ).then((e) => {
+                            if (!e) validForm = false;
                           });
                         } else if (currentPage == 5) {
                           validForm =
@@ -416,7 +506,12 @@ const RegistrationPage: NextPage<Props> = () => {
                 )}
               </div>
             ) : null}
-              <Image src={ImageConstants.cubeDecoration2} alt="Cube" className="absolute -translate-x-44 -translate-y-16" data-aos="fade-left"/>
+            <Image
+              src={ImageConstants.cubeDecoration2}
+              alt="Cube"
+              className="absolute -translate-x-44 -translate-y-16 hidden lg:block"
+              data-aos="fade-left"
+            />
           </div>
         </div>
       </div>
