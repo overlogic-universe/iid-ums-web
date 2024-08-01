@@ -61,7 +61,7 @@ const CookiesConcent = () => {
                 {TextConstants.en.accept}
                 </Button>
             </DrawerClose>
-            <DrawerClose>
+            {/* <DrawerClose>
                 <Button
                 className="w-full"
                 onClick={() => {
@@ -71,7 +71,7 @@ const CookiesConcent = () => {
                 >
                 {TextConstants.en.reject}
                 </Button>
-            </DrawerClose>
+            </DrawerClose> */}
             <Link
               className="w-full"
               href={"https://www.google.com/search?q=What+is+cookies+%3F&"}
