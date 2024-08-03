@@ -88,21 +88,15 @@ const SettingsDrawerDialog: NextPage<Props> = ({}) => {
   return (
     <Drawer open={open}>
       <DrawerTrigger asChild>
-        <Button variant="outline">Edit Profile</Button>
+        <Button variant="outline" className="hidden">Edit Profile</Button>
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader className="text-left">
-          <DrawerTitle>Edit profile</DrawerTitle>
+          <DrawerTitle>UMS IID 2024</DrawerTitle>
           <DrawerDescription>
-            Make changes to your profile here. Click save when you're done.
+          {TextConstants.en.copyright}
           </DrawerDescription>
         </DrawerHeader>
-        {/* <Settings className="px-4" /> */}
-        <DrawerFooter className="pt-2">
-          <DrawerClose asChild>
-            <Button variant="outline">Cancel</Button>
-          </DrawerClose>
-        </DrawerFooter>
       </DrawerContent>
     </Drawer>
   );
