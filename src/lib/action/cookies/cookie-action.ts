@@ -20,7 +20,6 @@ const setCookies = (key: string, data: string) => {
 const setAllCookies = (cookieData: CookieType[]) => {
   try {
     cookieData.forEach((cookie) => {
-      console.log(cookie.value);
       
       if(cookie.value != undefined && cookie.value != ""){
         setCookies(cookie.key, cookie.value);
