@@ -1,8 +1,12 @@
 import { ImageConstants } from "@/constants/image-constants";
 import { NextPage } from "next";
 import Image from "next/image";
-import Lottie from "lottie-react";
+import dynamic from "next/dynamic";
 import { LottieConstants } from "@/constants/lottie-constants";
+import { useInView } from "react-intersection-observer";
+import { memo } from "react";
+
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 interface Props {}
 
@@ -24,6 +28,23 @@ const categories = [
   },
 ];
 
+const CategoryCard = memo(({ category }: { category: (typeof categories)[0] }) => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  return (
+    <div ref={ref} className="transition-all duration-300 hover:translate-y-[-5px] border-blue-500 border-[1px] flex flex-col card-blue-shadow items-center bg-white rounded-xl overflow-hidden">
+      <div className="w-full md:h-48 h-36 flex lg:justify-start justify-center">{inView && <Lottie animationData={category.animation} height={100} width={100} />}</div>
+      <div className="p-4">
+        <h2 className="text-lg font-semibold">{category.title}</h2>
+        <p className="font-light">{category.description}</p>
+      </div>
+    </div>
+  );
+});
+
 const CompetitionCategoriesSection: NextPage<Props> = () => {
   return (
     <div id="competition-categories" className="relative bg-white lg:pb-10 pb-5 pt-1 lg:px-10 px-5 min-h-screen">
@@ -32,17 +53,9 @@ const CompetitionCategoriesSection: NextPage<Props> = () => {
       <h1 className="title-section" data-aos="fade-up">
         <span className="title-section-span">Competition Categories</span>
       </h1>
-      <div className=" grid gap-4 lg:grid-cols-3 grid-cols-1 md:mt-[60px] mt-[40px]" data-aos="fade-up">
+      <div className="grid gap-4 lg:grid-cols-3 grid-cols-1 md:mt-[60px] mt-[40px]" data-aos="fade-up">
         {categories.map((category, index) => (
-          <div key={index} className="transition-all duration-300 hover:translate-y-[-5px] border-blue-500 border-[1px] flex flex-col card-blue-shadow items-center bg-white rounded-xl overflow-hidden">
-            <div className="w-full md:h-48 h-36 flex lg:justify-start justify-center">
-              <Lottie animationData={category.animation} height={100} width={100} />
-            </div>
-            <div className="p-4">
-              <h2 className="text-lg font-semibold">{category.title}</h2>
-              <p className="font-light">{category.description}</p>
-            </div>
-          </div>
+          <CategoryCard key={index} category={category} />
         ))}
       </div>
     </div>

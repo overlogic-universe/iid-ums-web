@@ -12,15 +12,9 @@ const SubmitedPage: NextPage<Props> = ({}) => {
       <div className="w-full h-[380px] bg-main-300 flex items-center justify-center rounded-2xl text-white flex-col">
         <Image src={SvgConstants.doneIcon} className="max-sm:w-20" alt="Done" />
         <p className="text-lg md:text-3xl">Form Submitted Successfully</p>
-        <p className="py-5 text-sm md:text-xl">
-          Thank you for registering for the International Innovation day 2024
-          event
-        </p>
+        <p className="py-5 text-sm md:text-xl">Thank you for registering for the International Innovation day 2024 event</p>
         <Link href={"/"}>
-          <Button
-            variant={"secondary"}
-            className="py-6 bg-transparent rounded-2xl px-20 text-xl text-white border-2 border-white"
-          >
+          <Button variant={"secondary"} className="py-6 bg-transparent rounded-2xl px-20 text-xl text-white border-2 border-white">
             Done
           </Button>
         </Link>

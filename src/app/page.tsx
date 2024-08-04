@@ -30,7 +30,7 @@ const HomePage = () => {
       <EventPurpose />
       <CompetitionRegistrationSection />
       <CompetitionCategoriesSection />
-      <EventDetailsSection />
+      {/* <EventDetailsSection /> */}
       <EventRecapSection />
       <AboutSection />
       <PartnerSection />

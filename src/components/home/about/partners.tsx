@@ -27,7 +27,7 @@ const PartnerSection: NextPage<Props> = ({}) => {
             </div>
           ))}
         </div>
-        <h1 className="md:text-4xl text-2xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r to-[#121251] from-[#2828B7] mt-16 mb-5" data-aos="fade-up">
+        <h1 className="md:text-4xl text-2xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r to-[#121251] from-[#2828B7] mt-14 mb-7" data-aos="fade-up">
           Organized By
         </h1>
         <div data-aos="fade-up">
@@ -37,7 +37,7 @@ const PartnerSection: NextPage<Props> = ({}) => {
             </div>
           ))}
         </div>
-        <h1 className="md:text-4xl text-2xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r to-[#121251] from-[#2828B7] mt-16 mb-5" data-aos="fade-up">
+        <h1 className="md:text-4xl text-2xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r to-[#121251] from-[#2828B7] mt-14 mb-7" data-aos="fade-up">
           In Collaboration with
         </h1>
         <div data-aos="fade-up">

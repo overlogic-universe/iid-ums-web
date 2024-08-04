@@ -36,7 +36,7 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
-          <div className={navigationMenuTriggerStyle()} onClick={() => setIsEventsDropdownOpen(!isEventsDropdownOpen)}>
+          <div className={`cursor-pointer ${navigationMenuTriggerStyle()}`} onClick={() => setIsEventsDropdownOpen(!isEventsDropdownOpen)}>
             Events
             <ChevronDownIcon className={`ml-2 h-4 w-4 transition-transform ${isEventsDropdownOpen ? "rotate-180" : ""}`} />
           </div>
@@ -59,7 +59,7 @@ export default function Navbar() {
           </ul>
         </li>
         <li>
-          <div className={navigationMenuTriggerStyle()} onClick={() => setIsCompetitionsDropdownOpen(!isCompetitionsDropdownOpen)}>
+          <div className={`cursor-pointer ${navigationMenuTriggerStyle()}`} onClick={() => setIsCompetitionsDropdownOpen(!isCompetitionsDropdownOpen)}>
             Competitions
             <ChevronDownIcon className={`ml-2 h-4 w-4 transition-transform ${isCompetitionsDropdownOpen ? "rotate-180" : ""}`} />
           </div>

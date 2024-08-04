@@ -4,29 +4,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useDebouncedCallback } from "use-debounce";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogFooter,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Dialog, DialogClose, DialogContent, DialogFooter, DialogTrigger } from "@/components/ui/dialog";
 
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -43,14 +24,7 @@ import FileUpload from "@/components/registraion/file-upload/file-upload";
 import Confirmation from "@/components/registraion/confirmation/confirmation";
 import Image from "next/image";
 import { SvgConstants } from "@/constants/svg-constants";
-import {
-  getCookie,
-  getCookies,
-  getTotalCookies,
-  removeAllCookies,
-  setAllCookies,
-  setCookies,
-} from "@/lib/action/cookies/cookie-action";
+import { getCookie, getCookies, getTotalCookies, removeAllCookies, setAllCookies, setCookies } from "@/lib/action/cookies/cookie-action";
 import { useCallback, useEffect, useState } from "react";
 import FormLoading from "@/components/registraion/form/form-loading";
 import SubmitedPage from "@/components/registraion/submited/submited";
@@ -95,10 +69,7 @@ const RegistrationPage: NextPage<Props> = () => {
     if (cookies) {
       cookies.forEach((cookie) => {
         if (Object.keys(form.getValues()).includes(cookie.name)) {
-          setValue(
-            cookie.name as keyof z.infer<typeof formSchema>,
-            cookie.value
-          );
+          setValue(cookie.name as keyof z.infer<typeof formSchema>, cookie.value);
         }
       });
     }
@@ -113,21 +84,14 @@ const RegistrationPage: NextPage<Props> = () => {
     AOS.init({
       duration: 1500,
       disable: function () {
-        return /bot|googlebot|crawler|spider|robot|crawling/i.test(
-          navigator.userAgent
-        );
+        return /bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent);
       },
     });
     fetchCookies();
     fetchTotalCookies();
   }, []);
 
-  const renderInput = (
-    index: number,
-    label: string,
-    key: string,
-    { ...field }
-  ) => {
+  const renderInput = (index: number, label: string, key: string, { ...field }) => {
     switch (index) {
       case 6:
       case 7:
@@ -151,13 +115,7 @@ const RegistrationPage: NextPage<Props> = () => {
           </Select>
         );
       default:
-        return (
-          <Input
-            className="border-2 border-[#9F9F9F] h-16 rounded-xl focus:border-main-300 focus:outline-none focus-visible:ring-main-300"
-            placeholder={label}
-            {...field}
-          />
-        );
+        return <Input className="border-2 border-[#9F9F9F] h-16 rounded-xl focus:border-main-300 focus:outline-none focus-visible:ring-main-300" placeholder={label} {...field} />;
     }
   };
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
@@ -169,38 +127,34 @@ const RegistrationPage: NextPage<Props> = () => {
       toast({
         title: TextConstants.en.registrationSuccessTitle,
         description: TextConstants.en.registrationSucessDescription,
-        action: (
-          <ToastAction altText="Close">{TextConstants.en.close}</ToastAction>
-        ),
+        action: <ToastAction altText="Close">{TextConstants.en.close}</ToastAction>,
       });
       setCurrentPage(currentPage + 1);
     } catch (error) {
       toast({
         title: TextConstants.en.registrationFailedTitle,
         description: TextConstants.en.registrationFailedDescription,
-        action: (
-          <ToastAction altText="Close">{TextConstants.en.close}</ToastAction>
-        ),
+        action: <ToastAction altText="Close">{TextConstants.en.close}</ToastAction>,
       });
     } finally {
       setLoading(false);
     }
   };
 
-  const handleFileUploadChange = (key: string, url: string) =>{
-    if(acceptCookie){
-      setCookies(key, url)
+  const handleFileUploadChange = (key: string, url: string) => {
+    if (acceptCookie) {
+      setCookies(key, url);
       fetchCookies();
-      } else {
-        form.setValue(key as keyof z.infer<typeof formSchema>, url)
-        setFilledList(prevList => {
-          if (!prevList.includes(key)) {
-            return [...prevList, key];
-          }
-          return prevList;
-        });
-      }
-  }
+    } else {
+      form.setValue(key as keyof z.infer<typeof formSchema>, url);
+      setFilledList((prevList) => {
+        if (!prevList.includes(key)) {
+          return [...prevList, key];
+        }
+        return prevList;
+      });
+    }
+  };
 
   const debounced = useDebouncedCallback(() => {
     const cookieData: CookieType[] = Object.keys(forms).map((key) => ({
@@ -219,24 +173,16 @@ const RegistrationPage: NextPage<Props> = () => {
         </div>
       </div>
       <div className="w-full px-3 md:px-28 bg-white rounded-2xl">
-        <p className="rows-span-1 bg-gradient-to-r bg-clip-text text-transparent from-blue-700 via-blue-400 to-blue-700 font-bold text-2xl pt-4 text-center underline">
-          Registration Form
-        </p>
+        <p className="rows-span-1 bg-gradient-to-r bg-clip-text text-transparent from-blue-700 via-blue-400 to-blue-700 font-bold text-2xl pt-4 text-center underline">Registration Form</p>
         <div>
           <div>
             <Form {...form}>
               <form className="space-y-8">
                 {Object.keys(formSchema.shape).map((key, index) => {
-                  const label = key
-                    .replace(/([A-Z])/g, " $1")
-                    .replace(/^./, (str) => str.toUpperCase());
+                  const label = key.replace(/([A-Z])/g, " $1").replace(/^./, (str) => str.toUpperCase());
 
                   const formLocation = currentPage * 3;
-                  if (
-                    index >= formLocation - 3 &&
-                    index < formLocation &&
-                    index < 10
-                  ) {
+                  if (index >= formLocation - 3 && index < formLocation && index < 10) {
                     return (
                       <FormField
                         key={key}
@@ -244,10 +190,8 @@ const RegistrationPage: NextPage<Props> = () => {
                         name={key as keyof z.infer<typeof formSchema>}
                         render={({ field }) => (
                           <FormItem
-                            onChange={async (
-                              e: React.ChangeEvent<HTMLInputElement>
-                            ) => {
-                              const tg = await trigger(key as  keyof z.infer<typeof formSchema>)
+                            onChange={async (e: React.ChangeEvent<HTMLInputElement>) => {
+                              const tg = await trigger(key as keyof z.infer<typeof formSchema>);
                               if (acceptCookie) {
                                 const { value } = e.target;
                                 setForms((prevForm) => ({
@@ -257,7 +201,7 @@ const RegistrationPage: NextPage<Props> = () => {
 
                                 debounced();
                               } else {
-                                setFilledList(prevList => {
+                                setFilledList((prevList) => {
                                   if (tg) {
                                     // Add the key if it's not already in the list
                                     if (!prevList.includes(key)) {
@@ -265,21 +209,15 @@ const RegistrationPage: NextPage<Props> = () => {
                                     }
                                   } else {
                                     // Remove the key if it's in the list
-                                    return prevList.filter(item => item !== key);
+                                    return prevList.filter((item) => item !== key);
                                   }
                                   return prevList;
                                 });
                               }
                             }}
                           >
-                            <FormLabel>
-                              {label.includes("Patent")
-                                ? "Patent Number (Optional)"
-                                : label}
-                            </FormLabel>
-                            <FormControl>
-                              {renderInput(index, label, key, { ...field })}
-                            </FormControl>
+                            <FormLabel>{label.includes("Patent") ? "Patent Number (Optional)" : label}</FormLabel>
+                            <FormControl>{renderInput(index, label, key, { ...field })}</FormControl>
                             <FormMessage />
                           </FormItem>
                         )}
@@ -289,14 +227,14 @@ const RegistrationPage: NextPage<Props> = () => {
                 })}
                 {currentPage == 5 ? (
                   <FileUpload
-                    onLoading={(upload: boolean)=>setUploading(upload)}
+                    onLoading={(upload: boolean) => setUploading(upload)}
                     color={fileUploadColor}
                     onChange={(url: string) => {
-                      if(acceptCookie){
+                      if (acceptCookie) {
                         setCookies("scanStudentId", url);
                         fetchCookies();
                       } else {
-                        form.setValue("scanStudentId",url)
+                        form.setValue("scanStudentId", url);
                         handleFileUploadChange("scanStudentId", url);
                       }
                     }}
@@ -309,14 +247,14 @@ const RegistrationPage: NextPage<Props> = () => {
                 ) : null}
                 {currentPage == 6 ? (
                   <FileUpload
-                    onLoading={(upload: boolean)=>setUploading(upload)}
+                    onLoading={(upload: boolean) => setUploading(upload)}
                     color={fileUploadColor}
                     onChange={(url: string) => {
-                      if(acceptCookie){
-                      setCookies("abstract", url);
-                      fetchCookies();
+                      if (acceptCookie) {
+                        setCookies("abstract", url);
+                        fetchCookies();
                       } else {
-                        form.setValue("abstract", url)
+                        form.setValue("abstract", url);
                         handleFileUploadChange("abstract", url);
                       }
                     }}
@@ -329,14 +267,14 @@ const RegistrationPage: NextPage<Props> = () => {
                 ) : null}
                 {currentPage == 7 ? (
                   <FileUpload
-                    onLoading={(upload: boolean)=>setUploading(upload)}
+                    onLoading={(upload: boolean) => setUploading(upload)}
                     color={fileUploadColor}
                     onChange={(url: string) => {
-                      if(acceptCookie){
+                      if (acceptCookie) {
                         setCookies("productDescription", url);
                         fetchCookies();
                       } else {
-                        form.setValue("productDescription", url)
+                        form.setValue("productDescription", url);
                         handleFileUploadChange("productDescription", url);
                       }
                     }}
@@ -347,20 +285,12 @@ const RegistrationPage: NextPage<Props> = () => {
                     fileUrl={getValues("productDescription") ?? form.getValues("productDescription")}
                   />
                 ) : null}
-                {currentPage == 8 ? (
-                  <Confirmation
-                    onChange={(agree: boolean) => setIsAgree(agree)}
-                  />
-                ) : null}
+                {currentPage == 8 ? <Confirmation onChange={(agree: boolean) => setIsAgree(agree)} /> : null}
                 {currentPage == 9 ? <SubmitedPage /> : null}
               </form>
             </Form>
             {currentPage >= 1 && currentPage <= 8 ? (
-              <div
-                className={`w-full flex ${
-                  currentPage == 1 ? "justify-end" : "justify-between"
-                } items-center py-5 z-10`}
-              >
+              <div className={`w-full flex ${currentPage == 1 ? "justify-end" : "justify-between"} items-center py-5 z-10`}>
                 {currentPage == 1 ? null : (
                   <Button
                     onClick={async () => {
@@ -386,14 +316,9 @@ const RegistrationPage: NextPage<Props> = () => {
                         onClick={() => {
                           toast({
                             title: TextConstants.en.confirmationTitleError,
-                            description:
-                              TextConstants.en.confirmationDescriptionError,
+                            description: TextConstants.en.confirmationDescriptionError,
                             variant: "destructive",
-                            action: (
-                              <ToastAction altText="Close">
-                                {TextConstants.en.close}
-                              </ToastAction>
-                            ),
+                            action: <ToastAction altText="Close">{TextConstants.en.close}</ToastAction>,
                           });
                         }}
                         className="w-40 rounded-xl h-14"
@@ -404,26 +329,15 @@ const RegistrationPage: NextPage<Props> = () => {
 
                     <DialogContent className="bg-main-300 border-0 md:border-2 border-white flex items-center justify-center flex-col">
                       <DialogTitle className="flex justify-center items-center flex-col text-white text-center">
-                        <Image
-                          src={SvgConstants.warningLineIcon}
-                          alt="Warning Line"
-                        />
-                        <p className="text-4xl">
-                          {TextConstants.en.confirmationTitle}
-                        </p>
+                        <Image src={SvgConstants.warningLineIcon} alt="Warning Line" />
+                        <p className="text-4xl">{TextConstants.en.confirmationTitle}</p>
                       </DialogTitle>
                       <DialogDescription>
-                        <p className="text-white">
-                          {TextConstants.en.confirmationDescription}
-                        </p>
+                        <p className="text-white">{TextConstants.en.confirmationDescription}</p>
                       </DialogDescription>
                       <DialogFooter className="!justify-between items-center flex-row w-full">
                         <DialogClose asChild>
-                          <Button
-                            type="button"
-                            variant="secondary"
-                            className="border-2 rounded-2xl text-red-500 w-32 hover:bg-red-500 hover:bg-opacity-30 border-red-500 bg-transparent"
-                          >
+                          <Button type="button" variant="secondary" className="border-2 rounded-2xl text-red-500 w-32 hover:bg-red-500 hover:bg-opacity-30 border-red-500 bg-transparent">
                             {TextConstants.en.cancel}
                           </Button>
                         </DialogClose>
@@ -451,29 +365,19 @@ const RegistrationPage: NextPage<Props> = () => {
                       let validForm = true;
                       const formLocation = currentPage * 3;
 
-                      const validationPromises = Object.keys(
-                        formSchema.shape
-                      ).map(async (key, index) => {
-                        if (
-                          index >= formLocation - 3 &&
-                          index < formLocation &&
-                          index <= 9
-                        ) {
-                          await trigger(
-                            key as keyof z.infer<typeof formSchema>
-                          ).then((e) => {
+                      const validationPromises = Object.keys(formSchema.shape).map(async (key, index) => {
+                        if (index >= formLocation - 3 && index < formLocation && index <= 9) {
+                          await trigger(key as keyof z.infer<typeof formSchema>).then((e) => {
                             if (!e) validForm = false;
                           });
                         } else if (currentPage == 5) {
-                          validForm =
-                            validForm && (await trigger("scanStudentId"));
+                          validForm = validForm && (await trigger("scanStudentId"));
                           if (!validForm) setFileUploadColor("red");
                         } else if (currentPage == 6) {
                           validForm = validForm && (await trigger("abstract"));
                           if (!validForm) setFileUploadColor("red");
                         } else if (currentPage == 7) {
-                          validForm =
-                            validForm && (await trigger("productDescription"));
+                          validForm = validForm && (await trigger("productDescription"));
                           if (!validForm) setFileUploadColor("red");
                         }
                       });
@@ -488,14 +392,9 @@ const RegistrationPage: NextPage<Props> = () => {
                       } else {
                         toast({
                           title: TextConstants.en.uncompleteFormTitleError,
-                          description:
-                            TextConstants.en.uncompleteFormDescriptionError,
+                          description: TextConstants.en.uncompleteFormDescriptionError,
                           variant: "destructive",
-                          action: (
-                            <ToastAction altText="Close">
-                              {TextConstants.en.close}
-                            </ToastAction>
-                          ),
+                          action: <ToastAction altText="Close">{TextConstants.en.close}</ToastAction>,
                         });
                       }
                     }}
@@ -506,12 +405,7 @@ const RegistrationPage: NextPage<Props> = () => {
                 )}
               </div>
             ) : null}
-            <Image
-              src={ImageConstants.cubeDecoration2}
-              alt="Cube"
-              className="absolute -translate-x-44 -translate-y-16 hidden lg:block"
-              data-aos="fade-left"
-            />
+            <Image src={ImageConstants.cubeDecoration2} alt="Cube" className="absolute -translate-x-44 -translate-y-16 hidden lg:block" data-aos="fade-left" />
           </div>
         </div>
       </div>

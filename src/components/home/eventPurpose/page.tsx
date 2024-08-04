@@ -30,7 +30,7 @@ const EventPurpose: NextPage<Props> = ({}) => {
       <h1 className="text-main-primary md:text-[2.8rem] text-3xl font-bold text-center underline mb-12" data-aos="fade-up">
         <span className="bg-clip-text text-transparent bg-gradient-to-r title-section-span">EVENT PURPOSE</span>
       </h1>
-      <div className="grid gap-8 lg:grid-cols-2 grid-cols-1" data-aos="fade-up">
+      <div className="grid md:gap-8 gap-4 lg:grid-cols-2 grid-cols-1" data-aos="fade-up">
         {purposes.map((purpose, index) => (
           <div key={index} className="relative md:mx-0 mx-2 transition-all duration-300 hover:scale-105 flex flex-col items-start bg-gradient-to-r from-white to-blue-300 shadow-lg rounded-xl p-6">
             <div className="absolute inset-0 bg-gradient-to-r from-white to-transparent opacity-25 rounded-xl"></div>
