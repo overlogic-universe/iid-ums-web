@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 import Image from "next/image";
 import { ImageConstants } from "@/constants/image-constants";
 import { TextConstants } from "@/constants/text-constants";
@@ -58,14 +58,8 @@ const AboutSection = () => {
       <Image className="lg:w-40 md:w-32 w-[100px] -bottom-3 md:left-3 -left-1 absolute z-20" src={ImageConstants.cubeDecoration} alt="cubeDecoration" data-aos="fade-right" />
       <Swiper
         centeredSlides
-        autoplay={{
-          delay: 10000,
-          disableOnInteraction: false,
-        }}
-        slidesPerView={1}
-        slidesPerGroup={1}
         pagination={false}
-        modules={[Pagination, Navigation, Autoplay]}
+        modules={[Pagination, Navigation]}
         onSlideChange={(swiper) => setCurrentSlide(swiper.realIndex)}
       >
         {carouselItems.map((item) => (

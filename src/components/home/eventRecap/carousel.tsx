@@ -25,7 +25,6 @@ export default function RecapCarousel() {
           disableOnInteraction: false,
         }}
         slidesPerView={"auto"}
-        spaceBetween={0}
         breakpoints={{
           640: {
             slidesPerView: 1,

@@ -11,7 +11,7 @@ const headerTitle1 = "What is UMS International ";
 const headerTitle2 = "Innovation ";
 const headerTitle3 = "Day?";
 const headerDescription =
-  "UMS International Innovation Day is an annual event hosted by Universitas Muhammadiyah Surakarta (UMS) to celebrate creativity and technological advancements. It brings together students, researchers, entrepreneurs, and industry professionals to showcase innovative projects, exchange ideas, and foster collaborations.";
+  "UMS International Innovation Day is an innovation competition and exhibition at Universitas Muhammadiyah Surakarta that took place over 5 days. The event encouraged the creative ideas of national and international students with the theme of SDG 3, and included an opening ceremony, exhibition, presentation, judging, innovation talk, and awarding. The event involves academics, students, and communities to create sustainable solutions and strengthen UMS' role at the international level.";
 const eventRegistrationTitle = "YOU ARE THE NEXT SPECIAL PERSON";
 const close = "Close";
 const submit = "Submit";
@@ -30,24 +30,26 @@ const uncompleteFormDescriptionError = "Please fill the available fields before 
 const remove = "Remove";
 const unsupportFileTypeTitleError = "Please upload a correct file type";
 const confirmationTitle = "Are You Sure ?";
-const clickToPreview = "Click to preview"
-const cookieTitle = "Cookies 🍪"
-const cookieConsent = "By using this website, you agree that we use cookies to enhance a more interactive user experience."
+const clickToPreview = "Click to preview";
+const cookieTitle = "Cookies 🍪";
+const cookieConsent = "By using this website, you agree that we use cookies to enhance a more interactive user experience.";
 const confirmationDescription = "Data that has been sent cannot be changed";
 const unsupportFileTypeDescriptionError = "Double check your file and try again to upload the correct file type.";
-const innopaDescription = "The Indonesian Invention and Innovation Promotion Association (INNOPA) is an association focused on the development and promotion of innovation in Indonesia. The aim of INNOPA is to build an innovative climate for inventors and link Indonesian innovators to international invention expos to showcase their innovative projects. Since its establishment in 2011, INNOPA has been dedicated to connecting and introducing Indonesian innovators to the international innovation ecosystem."
+const innopaDescription =
+  "The Indonesian Invention and Innovation Promotion Association (INNOPA) is an association focused on the development and promotion of innovation in Indonesia. The aim of INNOPA is to build an innovative climate for inventors and link Indonesian innovators to international invention expos to showcase their innovative projects. Since its establishment in 2011, INNOPA has been dedicated to connecting and introducing Indonesian innovators to the international innovation ecosystem.";
 const nutricomDescription =
   "The Nutrition Community is a platform for students to develop their potential, dedicated to creating a research-based knowledge endowment center focused on the nutritional resources necessary for a healthy life. This community embraces brilliant thinkers, talented academic writers, dedicated researchers, and bold nutripreneurs who challenge boundaries, synergize diverse ideas, and foster collaborations that benefit everyone.";
-const selectFile = "Select File"
-const cantPreview = "Cannot preview PDF file because your web browser doesn&apos;t have a PDF plugin. "
-const dragAndDropHere = "Drag & Drop your files here"
-const or = "or"
-const cancel = "Cancel"
-const agreement = "I agree to switch from on-site participation to online competition if government regulations tighten activities or travel around the event date. I will cancel my participation, and an adjusted refund may be processed after the event. (Please check the box) and upload." 
+const selectFile = "Select File";
+const cantPreview = "Cannot preview PDF file because your web browser doesn&apos;t have a PDF plugin. ";
+const dragAndDropHere = "Drag & Drop your files here";
+const or = "or";
+const cancel = "Cancel";
+const agreement =
+  "I agree to switch from on-site participation to online competition if government regulations tighten activities or travel around the event date. I will cancel my participation, and an adjusted refund may be processed after the event. (Please check the box) and upload.";
 const back = "Back";
-const copyright = "© All rights reserved - 2024 | Created by Overlogic"
-const accept = "Accept"
-const readMore = "Read More >"
+const copyright = "© All rights reserved - 2024 | Created by Overlogic";
+const accept = "Accept";
+const readMore = "Read More >";
 const reject = "Reject";
 export const TextConstants = {
   en: {

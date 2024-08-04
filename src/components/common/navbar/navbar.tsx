@@ -7,10 +7,14 @@ import styles from "./navbar.module.css";
 import { TextConstants } from "@/constants/text-constants";
 import { SvgConstants } from "@/constants/svg-constants";
 import { Button } from "../../ui/button";
-import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, NavigationMenuContent, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+import { ChevronDownIcon } from "@radix-ui/react-icons";
 
 export default function Navbar() {
   const [isMenuClicked, setIsMenuClicked] = useState(false);
+  const [isEventsDropdownOpen, setIsEventsDropdownOpen] = useState(false);
+  const [isCompetitionsDropdownOpen, setIsCompetitionsDropdownOpen] = useState(false);
+
   const updateMenu = () => {
     setIsMenuClicked(!isMenuClicked);
   };
@@ -25,26 +29,52 @@ export default function Navbar() {
           <div className={`${styles["burger-bar"]} ${isMenuClicked ? styles.clicked : styles.unclicked}`}></div>
         </div>
       </div>
-      <ul className={`${styles["nav-box"]} min-h-screen lg:hidden top-0 fw-semibold text-center gap-7 ${isMenuClicked ? styles.visible : styles.hidden}`}>
+      <ul className={`${styles["nav-box"]} min-h-screen lg:hidden top-0 fw-semibold gap-7 ${isMenuClicked ? styles.visible : styles.hidden}`}>
         <li>
           <Link className="text-decoration-none" href="/">
             <div className={navigationMenuTriggerStyle()}>Home</div>
           </Link>
         </li>
         <li>
-          <Link className="text-decoration-none" href="#event-registration">
-            <div className={navigationMenuTriggerStyle()}>Event Registration</div>
-          </Link>
+          <div className={navigationMenuTriggerStyle()} onClick={() => setIsEventsDropdownOpen(!isEventsDropdownOpen)}>
+            Events
+            <ChevronDownIcon className={`ml-2 h-4 w-4 transition-transform ${isEventsDropdownOpen ? "rotate-180" : ""}`} />
+          </div>
+          <ul className={`${styles["dropdown-menu-mobile"]} ${isEventsDropdownOpen ? styles.dropdownVisible : styles.dropdownHidden}`}>
+            <li>
+              <Link className="text-decoration-none w-full" href="#event-purpose">
+                <div className={navigationMenuTriggerStyle()}>Event Purpose</div>
+              </Link>
+            </li>
+            <li>
+              <Link className="text-decoration-none" href="#event-details">
+                <div className={navigationMenuTriggerStyle()}>Event Details</div>
+              </Link>
+            </li>
+            <li>
+              <Link className="text-decoration-none" href="#event-recap">
+                <div className={navigationMenuTriggerStyle()}>Event Recap</div>
+              </Link>
+            </li>
+          </ul>
         </li>
         <li>
-          <Link className="text-decoration-none" href="#event-details">
-            <div className={navigationMenuTriggerStyle()}>Event Details</div>
-          </Link>
-        </li>
-        <li>
-          <Link className="text-decoration-none" href="#event-recap">
-            <div className={navigationMenuTriggerStyle()}>Event Recap</div>
-          </Link>
+          <div className={navigationMenuTriggerStyle()} onClick={() => setIsCompetitionsDropdownOpen(!isCompetitionsDropdownOpen)}>
+            Competitions
+            <ChevronDownIcon className={`ml-2 h-4 w-4 transition-transform ${isCompetitionsDropdownOpen ? "rotate-180" : ""}`} />
+          </div>
+          <ul className={`${styles["dropdown-menu-mobile"]} ${isCompetitionsDropdownOpen ? styles.dropdownVisible : styles.dropdownHidden}`}>
+            <li>
+              <Link className="text-decoration-none" href="#competition-registration">
+                <div className={navigationMenuTriggerStyle()}>Competition Registration</div>
+              </Link>
+            </li>
+            <li>
+              <Link className="text-decoration-none" href="#competition-categories">
+                <div className={navigationMenuTriggerStyle()}>Competition Categories</div>
+              </Link>
+            </li>
+          </ul>
         </li>
         <li>
           <Link className="text-decoration-none" href="#about-us">
@@ -55,27 +85,51 @@ export default function Navbar() {
           <Button className="hover:translate-y-[-4px] rounded-2xl w-40 h-12 text-base bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700 transition-all duration-300 blue-shadow">{TextConstants.en.registration}</Button>
         </Link>
       </ul>
-      <NavigationMenu className="hidden lg:block z-20">
-        <NavigationMenuList>
+      <NavigationMenu className="hidden lg:flex lg:items-center lg:gap-8 z-20">
+        <NavigationMenuList className="flex gap-4">
           <NavigationMenuItem>
             <Link href="/" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>Home</NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <Link href="#event-registration" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>Event Registration</NavigationMenuLink>
-            </Link>
+            <NavigationMenuTrigger className={navigationMenuTriggerStyle()}>Events</NavigationMenuTrigger>
+            <NavigationMenuContent className={styles["dropdown-menu"]}>
+              <ul>
+                <li>
+                  <Link href="#event-purpose" legacyBehavior passHref>
+                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>Event Purpose</NavigationMenuLink>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#event-details" legacyBehavior passHref>
+                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>Event Details</NavigationMenuLink>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#event-recap" legacyBehavior passHref>
+                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>Event Recap</NavigationMenuLink>
+                  </Link>
+                </li>
+              </ul>
+            </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <Link href="#event-details" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>Event Details</NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <Link href="#event-recap" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>Event Recap</NavigationMenuLink>
-            </Link>
+            <NavigationMenuTrigger className={navigationMenuTriggerStyle()}>Competitions</NavigationMenuTrigger>
+            <NavigationMenuContent className={styles["dropdown-menu"]}>
+              <ul>
+                <li>
+                  <Link href="#competition-registration" legacyBehavior passHref>
+                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>Competition Registration</NavigationMenuLink>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#competition-categories" legacyBehavior passHref>
+                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>Competition Categories</NavigationMenuLink>
+                  </Link>
+                </li>
+              </ul>
+            </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <Link href="#about-us" legacyBehavior passHref>
