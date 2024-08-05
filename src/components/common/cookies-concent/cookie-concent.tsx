@@ -53,7 +53,7 @@ const CookiesConcent = () => {
                 className="w-full"
                 onClick={() => {
                   setCookies("cookie", "true");
-                  window.location.reload();
+                  // window.location.reload();
                 }}
               >
                 {TextConstants.en.accept}

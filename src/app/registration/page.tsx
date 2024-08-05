@@ -191,8 +191,6 @@ const RegistrationPage: NextPage<Props> = () => {
                         render={({ field }) => (
                           <FormItem
                             onChange={async (e: React.ChangeEvent<HTMLInputElement>) => {
-                              console.log(key);
-                              
                               const tg = await trigger(key as keyof z.infer<typeof formSchema>);
                               setFilledList((prevList) => {
                                 if (tg) {
