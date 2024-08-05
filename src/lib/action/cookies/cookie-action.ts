@@ -1,17 +1,22 @@
 "use server";
 import { cookies } from "next/headers";
 
-const setCookies = (key: string, data: string) => {
-  try {
-    cookies().set({
-      sameSite: true,
-      name: key,
-      value: data,
-      secure: true,
-    });
-  } catch (error) {
-    throw new Error(error as string);
-  }
+const setCookies = (key: string, data: string): Promise<void> => {
+  return new Promise((resolve, reject) => {
+    try {
+      console.log(`Setting cookie: ${key} = ${data}`);
+      cookies().set({
+        sameSite: true,
+        name: key,
+        value: data,
+        secure: true,
+      });
+      resolve();
+    } catch (error) {
+      console.error("Error setting cookie:", error);
+      reject(new Error(error as string));
+    }
+  });
 };
 
 const setAllCookies = (cookieData: CookieType[]) => {
