@@ -1,16 +1,13 @@
 "use server";
-import { ZodConstants } from "@/constants/zod-constants";
 import { cookies } from "next/headers";
-import { UseFormReturn } from "react-hook-form";
-const formSchema = ZodConstants.formSchema;
 
 const setCookies = (key: string, data: string) => {
   try {
     cookies().set({
-      sameSite: false,
+      sameSite: true,
       name: key,
       value: data,
-      // secure: true,
+      secure: true,
     });
   } catch (error) {
     throw new Error(error as string);

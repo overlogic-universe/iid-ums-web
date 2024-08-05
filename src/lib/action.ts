@@ -2,7 +2,6 @@
 import { db } from "./db";
 import {
   InsertRegistrationType,
-  SelectRegistrationType,
   registrationTable,
 } from "@/schema/schema";
 

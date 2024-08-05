@@ -1,6 +1,6 @@
 {
-  "id": "cecb68d7-490b-4947-9dc5-a83e0990ea94",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "c29d379a-cbbf-45eb-888f-29aaab6244ce",
+  "prevId": "cecb68d7-490b-4947-9dc5-a83e0990ea94",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -77,7 +77,7 @@
         },
         "patent_number": {
           "name": "patent_number",
-          "type": "varchar(128)",
+          "type": "varchar(20)",
           "primaryKey": false,
           "notNull": false
         },

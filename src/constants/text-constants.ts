@@ -40,12 +40,12 @@ const innopaDescription =
 const nutricomDescription =
   "The Nutrition Community is a platform for students to develop their potential, dedicated to creating a research-based knowledge endowment center focused on the nutritional resources necessary for a healthy life. This community embraces brilliant thinkers, talented academic writers, dedicated researchers, and bold nutripreneurs who challenge boundaries, synergize diverse ideas, and foster collaborations that benefit everyone.";
 const selectFile = "Select File";
-const cantPreview = "Cannot preview PDF file because your web browser doesn&apos;t have a PDF plugin. ";
+const cantPreview = "Cannot preview PDF file because your web browser doesn't have a PDF plugin. ";
 const dragAndDropHere = "Drag & Drop your files here";
 const or = "or";
 const cancel = "Cancel";
 const agreement =
-  "I agree to switch from on-site participation to online competition if government regulations tighten activities or travel around the event date. I will cancel my participation, and an adjusted refund may be processed after the event. (Please check the box) and upload.";
+  "By completing and submitting the registration form for UMS International Innovation Days 2024, I hereby agree to comply with all established regulations. I acknowledge that if it is discovered that I have falsified any participant data, I will voluntarily withdraw from the event.";
 const back = "Back";
 const copyright = "© All rights reserved - 2024 | Created by Overlogic";
 const accept = "Accept";
