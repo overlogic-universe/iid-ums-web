@@ -27,7 +27,7 @@ const EventPurpose: NextPage<Props> = ({}) => {
   return (
     <div id="event-purpose" className="flex flex-col section relative bg-white lg:px-10 px-5">
       <Image className="lg:w-38 md:w-32 w-16 -top-5 left-0 absolute z-20" src={ImageConstants.cubeDecoration2} alt="cubeDecorationPurpose" data-aos="fade-right" />
-      <h1 className="text-main-primary md:text-[2.8rem] text-3xl font-bold text-center underline mb-12" data-aos="fade-up">
+      <h1 className="text-main-primary md:text-[2.8rem] text-3xl font-bold text-center mb-12" data-aos="fade-up">
         <span className="bg-clip-text text-transparent bg-gradient-to-r title-section-span">EVENT PURPOSE</span>
       </h1>
       <div className="grid md:gap-8 gap-4 lg:grid-cols-2 grid-cols-1" data-aos="fade-up">

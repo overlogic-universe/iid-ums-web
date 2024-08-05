@@ -4,7 +4,6 @@ import { NextPage } from "next";
 import dynamic from "next/dynamic";
 import { useMemo } from "react";
 import Image from "next/image";
-import { SvgConstants } from "@/constants/svg-constants";
 import { ImageConstants } from "@/constants/image-constants";
 
 interface Props {}
@@ -21,8 +20,8 @@ const EventDetailsSection: NextPage<Props> = ({}) => {
 
   const items = [
     { icon: IconConstants.location, text: TextConstants.en.locationAddress },
-    { icon: IconConstants.building, text: "Coming Soon" },
-    { icon: IconConstants.countDown, text: "Coming Soon" },
+    { icon: IconConstants.building, text: "Auditorium Mohammad Djazman Universitas Muhammadiyah Surakarta" },
+    { icon: IconConstants.countDown, text: "9 - 13 December 2024" },
   ];
 
   const contactItems = [
@@ -64,7 +63,7 @@ const EventDetailsSection: NextPage<Props> = ({}) => {
               <h1 className="font-bold lg:text-sm text-xs">{TextConstants.en.location}</h1> <p className="text-xs text-gray-600 line-clamp-2">{TextConstants.en.locationAddress}</p>
               <a
                 target="blank"
-                href="https://www.google.com/maps/place/Universitas+Muhammadiyah+Surakarta/@-7.5581339,110.7716824,15z/data=!4m6!3m5!1s0x2e7a15d549589f8f:0x6786fc41534ba967!8m2!3d-7.5581339!4d110.7716824!16s%2Fm%2F0cpbtmp?entry=ttu"
+                href="https://www.google.com/maps/place/Auditorium+Mohammad+Djazman+Universitas+Muhammadiyah+Surakarta/@-7.5583941,110.7686606,15z/data=!4m6!3m5!1s0x2e7a145a516fffe9:0x6f7e5928be398bff!8m2!3d-7.5583941!4d110.7686606!16s%2Fg%2F11cssppfv0?entry=ttu"
                 className="text-main-primary text-xs mt-3 underline cursor-pointer"
               >
                 View larger map

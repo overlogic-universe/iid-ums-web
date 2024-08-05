@@ -173,7 +173,7 @@ const RegistrationPage: NextPage<Props> = () => {
         </div>
       </div>
       <div className="w-full px-3 md:px-28 bg-white rounded-2xl">
-        <p className="rows-span-1 bg-gradient-to-r bg-clip-text text-transparent from-blue-700 via-blue-400 to-blue-700 font-bold text-2xl pt-4 text-center underline">Registration Form</p>
+        <p className="rows-span-1 bg-gradient-to-r bg-clip-text text-transparent from-blue-700 via-blue-400 to-blue-700 font-bold text-2xl pt-4 text-center">Registration Form</p>
         <div>
           <div>
             <Form {...form}>
