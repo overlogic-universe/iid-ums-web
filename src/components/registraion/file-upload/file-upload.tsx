@@ -154,7 +154,7 @@ const FileUpload: NextPage<Props> = ({ title, accept, bucket, contentType, onCha
           )}
         </div>
       ) : (
-        <div className={`w-full h-[380px] border-2 border-dashed border-main-primary bg-main-100 flex items-center justify-center flex-col rounded-2xl p-3 md:p-28 border-2`}>
+        <div className={`w-full h-[380px] border-dashed border-main-primary bg-main-100 flex items-center justify-center flex-col rounded-2xl p-3 md:p-28 border-2`}>
           <div className={`relative w-full rounded-2xl p-5 bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700 text-white flex items-center justify-between`}>
             <div>
               <Image src={SvgConstants.fileOutlineIcon} alt="Cloud Upload" className="w-10 h-10" />

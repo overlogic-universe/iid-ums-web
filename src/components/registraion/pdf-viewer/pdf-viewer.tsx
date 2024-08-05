@@ -20,7 +20,12 @@ const PdfViewer: NextPage<Props> = ({ onChange, setNewFileUrl, file }) => {
       <object style={{ maxHeight: "unset" }} data={`${file}#toolbar=0&view=fitH&page=1`} type="application/pdf" className={`${styles.noScrollbar} rounded-lg no-scrollbar h-[340px] text-center w-full absolute overflow-hidden flex items-center justify-center flex-col`}>
         <div className="w-full h-full z-20 bg-main-300 text-white absolute flex items-center justify-center cursor-pointer flex-col">
           <p>
+<<<<<<< Updated upstream
             {TextConstants.en.cantPreview}
+=======
+            Cannot preview PDF file because your web browser doesn&apos;t have a PDF
+            plugin.{" "}
+>>>>>>> Stashed changes
             <span>
               <a className="underline" href={file} target="_blank">{TextConstants.en.clickToPreview}</a>
             </span>
