@@ -16,6 +16,7 @@ import bgRegistration from "@/assets/images/bg-registration.jpg";
 import bgEventDetails from "@/assets/images/bg-event-details.png";
 import cubeDecoration from "@/assets/images/cube-decoration2.png";
 import cubeDecoration2 from "@/assets/images/cube-decoration.webp";
+import innovationTalk from "@/assets/images/innovation-talk.jpg";
 
 // Image constants for use in the app.
 export const ImageConstants = {
@@ -33,4 +34,5 @@ export const ImageConstants = {
   bgEventDetails,
   cubeDecoration,
   cubeDecoration2,
+  innovationTalk
 };

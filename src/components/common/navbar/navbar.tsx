@@ -47,6 +47,11 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
+              <Link className="text-decoration-none" href="#innovation-talk">
+                <div className={navigationMenuTriggerStyle()}>Innocavation Talk</div>
+              </Link>
+            </li>
+            <li>
               <Link className="text-decoration-none" href="#event-details">
                 <div className={navigationMenuTriggerStyle()}>Event Details</div>
               </Link>
@@ -99,6 +104,11 @@ export default function Navbar() {
                 <li>
                   <Link href="#event-purpose" legacyBehavior passHref>
                     <NavigationMenuLink className={navigationMenuTriggerStyle()}>Event Purpose</NavigationMenuLink>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#innovation-talk" legacyBehavior passHref>
+                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>Innovation Talk</NavigationMenuLink>
                   </Link>
                 </li>
                 <li>

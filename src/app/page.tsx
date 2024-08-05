@@ -13,6 +13,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import CompetitionRegistrationSection from "@/components/home/competitionRegistration/page";
+import InnovationTalkSection from "@/components/home/innovationTalk/page";
+import SpeakersJudgesSection from "@/components/home/speakersJudges/page";
 
 const HomePage = () => {
   useEffect(() => {
@@ -30,7 +32,9 @@ const HomePage = () => {
       <EventPurpose />
       <CompetitionRegistrationSection />
       <CompetitionCategoriesSection />
-      {/* <EventDetailsSection /> */}
+      <InnovationTalkSection/>
+      {/* <SpeakersJudgesSection/> */}
+      <EventDetailsSection />
       <EventRecapSection />
       <AboutSection />
       <PartnerSection />
