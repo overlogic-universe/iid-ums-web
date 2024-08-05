@@ -1,4 +1,5 @@
 import { ImageConstants } from "@/constants/image-constants";
+import { TextConstants } from "@/constants/text-constants";
 import { NextPage } from "next";
 import Image from "next/image";
 
@@ -27,12 +28,12 @@ const EventPurpose: NextPage<Props> = ({}) => {
   return (
     <div id="event-purpose" className="flex flex-col section relative bg-white lg:px-10 px-5">
       <Image className="lg:w-38 md:w-32 w-16 -top-5 left-0 absolute z-20" src={ImageConstants.cubeDecoration2} alt="cubeDecorationPurpose" data-aos="fade-right" />
-      <h1 className="text-main-primary md:text-[2.8rem] text-3xl font-bold text-center mb-12" data-aos="fade-up">
-        <span className="bg-clip-text text-transparent bg-gradient-to-r title-section-span">EVENT PURPOSE</span>
+      <h1 className="text-main-primary md:text-[2.8rem] text-4xl font-bold text-center mt-4 mb-7 md:mb-12" data-aos="fade-up">
+        <span className="bg-clip-text text-transparent bg-gradient-to-r title-section-span">{TextConstants.en.eventPurposeTitle}</span>
       </h1>
-      <div className="grid md:gap-8 gap-4 lg:grid-cols-2 grid-cols-1" data-aos="fade-up">
+      <div className="grid md:gap-8 gap-4 lg:grid-cols-2 grid-cols-1">
         {purposes.map((purpose, index) => (
-          <div key={index} className="relative md:mx-0 mx-2 transition-all duration-300 hover:scale-105 flex flex-col items-start bg-gradient-to-r from-white to-blue-300 shadow-lg rounded-xl p-6">
+          <div key={index} className="relative md:mx-0 mx-2 transition-all duration-300 hover:scale-105 flex flex-col items-start bg-gradient-to-r from-white to-blue-300 shadow-lg rounded-xl p-6" data-aos="fade-up">
             <div className="absolute inset-0 bg-gradient-to-r from-white to-transparent opacity-25 rounded-xl"></div>
             <h2 className="relative md:text-lg text-base font-semibold mb-2">{purpose.title}</h2>
             <p className="relative md:text-base text-sm font-light">{purpose.description}</p>

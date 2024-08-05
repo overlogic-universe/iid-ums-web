@@ -17,7 +17,8 @@ const close = "Close";
 const submit = "Submit";
 const registration = "Register";
 const registerNow = "REGISTER NOW";
-const eventRecap = "UIID Recap 2023";
+const eventRecap = "Event Recap";
+const eventRecapTitle = "UIID Recap 2023";
 const fileUploadError = "Failed to upload the file";
 const uploadFileDescriptionError = "Failed to upload the file, please make sure the file is not too large or the file type is supported.";
 const eventDetail = "Event Details";
@@ -51,12 +52,41 @@ const copyright = "© All rights reserved - 2024 | Created by Overlogic";
 const accept = "Accept";
 const readMore = "Read More >";
 const reject = "Reject";
+const viewLargerMap = "View larger map";
+const ofText = "of";
+const slides = "Slides";
+const officialITPartners = "Official IT Partner";
+const organizedBy = "Organized By";
+const inCollaborationWith = "In Collaboration with";
+const competitionRegistrationTitle = "Competition Registration";
+const competitionCategoriesTitle = "Competition Categories";
+const categoriesTitle1 = "Health, Pharmacy, Beauty and Personal Care Products, Functional Food";
+const categoriesDesc1 = "Category of innovations covering the fields of health, pharmaceuticals, and personal care or functional foods from various source materials that are in line with the goal of human well-being.";
+const categoriesTitle2 = "Education, Technology Information and Communication, Teaching Tools Materials, IoT and Apps";
+const categoriesDesc2 = "Category of innovation on communication systems, information, technology in the field of education with a focus on human welfare and health.";
+const categoriesTitle3 = "Health Technology and Promotion Based IoT & Apps, and Applied Science";
+const categoriesDesc3 = "Category of innovation on health technology, internet-based health promotion, and applied technology in the field of human welfare and health.";
+const eventPurposeTitle = "Event Purpose";
 const innovationTalk = "Innovation Talk";
 const innovationTalkTitle = "Join Our Innovation Talk and Be Part of the Future!";
 const innovationTalkDesc =
   'is a must-attend session featuring experienced speakers who will discuss "Tips to Become an Inventor and Innovator and Socialization of International Competition Schedules," "Becoming a Global Student," and "Becoming an OutstandingStudent." This session is designed to inspire and empower students with the practical knowledge and skills needed to create sustainable solutions and achieve success on the international stage. Join us and be part of the positive change for a better future!';
+const judgesSpeakersTitle = "Judges & Speakers";
+const aboutUs = "About Us"
+const events = "Events"
+const competitions = "Competitions"
 export const TextConstants = {
   en: {
+    eventRecapTitle,
+    aboutUs,
+    events,
+    competitions,
+    competitionRegistrationTitle,
+    judgesSpeakersTitle,
+    viewLargerMap,
+    officialITPartners,
+    organizedBy,
+    inCollaborationWith,
     registrationSuccessTitle,
     registrationSucessDescription,
     registrationFailedTitle,
@@ -93,6 +123,8 @@ export const TextConstants = {
     cantPreview,
     dragAndDropHere,
     or,
+    ofText,
+    slides,
     agreement,
     back,
     cancel,
@@ -102,6 +134,14 @@ export const TextConstants = {
     accept,
     readMore,
     reject,
+    competitionCategoriesTitle,
+    categoriesTitle1,
+    categoriesDesc1,
+    categoriesTitle2,
+    categoriesDesc2,
+    categoriesTitle3,
+    categoriesDesc3,
+    eventPurposeTitle,
     innovationTalk,
     innovationTalkTitle,
     innovationTalkDesc,

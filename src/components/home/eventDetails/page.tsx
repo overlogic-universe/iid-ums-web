@@ -66,7 +66,7 @@ const EventDetailsSection: NextPage<Props> = ({}) => {
                 href="https://www.google.com/maps/place/Auditorium+Mohammad+Djazman+Universitas+Muhammadiyah+Surakarta/@-7.5583941,110.7686606,15z/data=!4m6!3m5!1s0x2e7a145a516fffe9:0x6f7e5928be398bff!8m2!3d-7.5583941!4d110.7686606!16s%2Fg%2F11cssppfv0?entry=ttu"
                 className="text-main-primary text-xs mt-3 underline cursor-pointer"
               >
-                View larger map
+                {TextConstants.en.viewLargerMap}
               </a>
             </div>
           </div>

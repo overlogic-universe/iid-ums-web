@@ -44,7 +44,7 @@ const PaginationBar: React.FC<PaginationBarProps> = ({ currentSlide, totalSlides
         <div className="h-full bg-blue-500 transition-width duration-300" style={{ width: `${percentage}%` }}></div>
       </div>
       <p className="text-center text-sm font-normal mt-1 text-gray-800">
-        {currentSlide} of {totalSlides} Slides
+        {currentSlide} {TextConstants.en.ofText} {totalSlides} {TextConstants.en.slides}
       </p>
     </div>
   );

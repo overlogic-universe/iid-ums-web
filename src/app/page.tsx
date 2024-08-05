@@ -14,7 +14,7 @@ import "aos/dist/aos.css";
 import { useEffect } from "react";
 import CompetitionRegistrationSection from "@/components/home/competitionRegistration/page";
 import InnovationTalkSection from "@/components/home/innovationTalk/page";
-import SpeakersJudgesSection from "@/components/home/speakersJudges/page";
+import JudgesSpeakersSection from "@/components/home/judgesSpeakers/page";
 
 const HomePage = () => {
   useEffect(() => {
@@ -32,8 +32,8 @@ const HomePage = () => {
       <EventPurpose />
       <CompetitionRegistrationSection />
       <CompetitionCategoriesSection />
-      <InnovationTalkSection/>
-      {/* <SpeakersJudgesSection/> */}
+      <InnovationTalkSection />
+      {/* <JudgesSpeakersSection/> */}
       <EventDetailsSection />
       <EventRecapSection />
       <AboutSection />
