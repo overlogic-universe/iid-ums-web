@@ -40,7 +40,7 @@ const innopaDescription =
 const nutricomDescription =
   "The Nutrition Community is a platform for students to develop their potential, dedicated to creating a research-based knowledge endowment center focused on the nutritional resources necessary for a healthy life. This community embraces brilliant thinkers, talented academic writers, dedicated researchers, and bold nutripreneurs who challenge boundaries, synergize diverse ideas, and foster collaborations that benefit everyone.";
 const selectFile = "Select File";
-const cantPreview = "Cannot preview PDF file because your web browser doesn&apos;t have a PDF plugin. ";
+const cantPreview = "Cannot preview PDF file because your web browser doesn't have a PDF plugin. ";
 const dragAndDropHere = "Drag & Drop your files here";
 const or = "or";
 const cancel = "Cancel";
