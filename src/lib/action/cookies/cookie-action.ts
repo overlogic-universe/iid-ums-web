@@ -10,7 +10,7 @@ const setCookies = (key: string, data: string) => {
       sameSite: false,
       name: key,
       value: data,
-      // secure: true,
+      secure: true,
     });
   } catch (error) {
     throw new Error(error as string);
