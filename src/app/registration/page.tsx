@@ -25,12 +25,11 @@ import Confirmation from "@/components/registraion/confirmation/confirmation";
 import Image from "next/image";
 import { SvgConstants } from "@/constants/svg-constants";
 import { getCookie, getCookies, getTotalCookies, removeAllCookies, setAllCookies, setCookies } from "@/lib/action/cookies/cookie-action";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import FormLoading from "@/components/registraion/form/form-loading";
 import SubmitedPage from "@/components/registraion/submited/submited";
 import { DialogDescription, DialogTitle } from "@radix-ui/react-dialog";
 import { ImageConstants } from "@/constants/image-constants";
-import AOS from "aos";
 
 interface Props {
   params: {
@@ -44,7 +43,6 @@ const RegistrationPage: NextPage<Props> = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [fileUploadColor, setFileUploadColor] = useState("main");
   const [isAgree, setIsAgree] = useState(false);
-  const [filled, setFilled] = useState(0);
   const [filledList, setFilledList] = useState<string[]>([]);
   const [forms, setForms] = useState<{ [key: string]: string }>({});
   const [acceptCookie, setAcceptCookie] = useState(false);
@@ -66,35 +64,32 @@ const RegistrationPage: NextPage<Props> = () => {
     }
 
     await Promise.all(cookies);
+    let cookieList: string[] = [];
+
     if (cookies) {
       cookies.forEach((cookie) => {
         if (Object.keys(form.getValues()).includes(cookie.name)) {
-          setValue(cookie.name as keyof z.infer<typeof formSchema>, cookie.value);
+          const cookieKey = cookie.name as keyof z.infer<typeof formSchema>
+          setValue(cookieKey, cookie.value);
+          setFilledList([...filledList, cookie.name]);
+          cookieList.push(cookieKey)
+          trigger(cookieKey)
         }
       });
     }
+    
+    setFilledList(cookieList)
     setLoading(false);
   };
-
-  const fetchTotalCookies = async () => {
-    const cookie = await getTotalCookies();
-    setFilled(cookie);
-  };
   useEffect(() => {
-    AOS.init({
-      duration: 1500,
-      disable: function () {
-        return /bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent);
-      },
-    });
     fetchCookies();
-    fetchTotalCookies();
   }, []);
 
-  const renderInput = (index: number, label: string, key: string, { ...field }) => {
+  const renderInput = (index: number, label: string, key: string, placeholder: string, { ...field }) => {
     switch (index) {
       case 6:
       case 7:
+      case 9:
         return (
           <Select
             {...field}
@@ -115,7 +110,7 @@ const RegistrationPage: NextPage<Props> = () => {
           </Select>
         );
       default:
-        return <Input className="border-2 border-[#9F9F9F] h-16 rounded-xl focus:border-main-300 focus:outline-none focus-visible:ring-main-300" placeholder={label} {...field} />;
+        return <Input className="border-2 border-[#9F9F9F] h-16 rounded-xl focus:border-main-300 focus:outline-none focus-visible:ring-main-300" placeholder={placeholder} {...field} />;
     }
   };
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
@@ -169,7 +164,7 @@ const RegistrationPage: NextPage<Props> = () => {
       {loading ? <FormLoading /> : null}
       <div className="relative">
         <div className="absolute top-0 right-0">
-          <p className="p-2 text-blue-500 font-light">{acceptCookie ? filled : filledList.length}/13</p>
+          <p className="p-2 text-blue-500 font-light">{filledList.length}/13</p>
         </div>
       </div>
       <div className="w-full px-3 md:px-28 bg-white rounded-2xl">
@@ -179,10 +174,15 @@ const RegistrationPage: NextPage<Props> = () => {
             <Form {...form}>
               <form className="space-y-8">
                 {Object.keys(formSchema.shape).map((key, index) => {
-                  const label = key.replace(/([A-Z])/g, " $1").replace(/^./, (str) => str.toUpperCase());
-
+                  const zodKey = key.replace(/([A-Z])/g, " $1").replace(/^./, (str) => str.toUpperCase());
+                  let label = zodKey
+                  if(zodKey.includes("Patent")) {
+                    label = "Patent Number (Optional)"
+                  } else if(zodKey.includes("Members")) {
+                    label = "Enter Max 5 members separated with comma (,)"
+                  }
                   const formLocation = currentPage * 3;
-                  if (index >= formLocation - 3 && index < formLocation && index < 10) {
+                  if (index >= formLocation - 3 && index < formLocation && index <= 10) {
                     return (
                       <FormField
                         key={key}
@@ -191,7 +191,21 @@ const RegistrationPage: NextPage<Props> = () => {
                         render={({ field }) => (
                           <FormItem
                             onChange={async (e: React.ChangeEvent<HTMLInputElement>) => {
+                              console.log(key);
+                              
                               const tg = await trigger(key as keyof z.infer<typeof formSchema>);
+                              setFilledList((prevList) => {
+                                if (tg) {
+                                  // Add the key if it's not already in the list
+                                  if (!prevList.includes(key)) {
+                                    return [...prevList, key];
+                                  }
+                                } else {
+                                  // Remove the key if it's in the list
+                                  return prevList.filter((item) => item !== key);
+                                }
+                                return prevList;
+                              });
                               if (acceptCookie) {
                                 const { value } = e.target;
                                 setForms((prevForm) => ({
@@ -200,24 +214,11 @@ const RegistrationPage: NextPage<Props> = () => {
                                 }));
 
                                 debounced();
-                              } else {
-                                setFilledList((prevList) => {
-                                  if (tg) {
-                                    // Add the key if it's not already in the list
-                                    if (!prevList.includes(key)) {
-                                      return [...prevList, key];
-                                    }
-                                  } else {
-                                    // Remove the key if it's in the list
-                                    return prevList.filter((item) => item !== key);
-                                  }
-                                  return prevList;
-                                });
-                              }
+                              } 
                             }}
                           >
-                            <FormLabel>{label.includes("Patent") ? "Patent Number (Optional)" : label}</FormLabel>
-                            <FormControl>{renderInput(index, label, key, { ...field })}</FormControl>
+                            <FormLabel>{label}</FormLabel>
+                            <FormControl>{renderInput(index, label, key, zodKey, { ...field })}</FormControl>
                             <FormMessage />
                           </FormItem>
                         )}
@@ -238,10 +239,10 @@ const RegistrationPage: NextPage<Props> = () => {
                         handleFileUploadChange("scanStudentId", url);
                       }
                     }}
-                    title="Scan Student ID Card (PNG/JPEG/JPG) - Max 1MB"
-                    accept=".png, .jpg, .jpeg"
+                    title="Scan Student ID Card (PDF) - Max 5MB"
+                    accept=".pdf"
                     bucket="student_id"
-                    contentType=""
+                    contentType="application/pdf"
                     fileUrl={getValues("scanStudentId") ?? form.getValues("scanStudentId")}
                   />
                 ) : null}
@@ -294,9 +295,8 @@ const RegistrationPage: NextPage<Props> = () => {
                 {currentPage == 1 ? null : (
                   <Button
                     onClick={async () => {
-                      const totalCookies = await getTotalCookies();
-                      setFilled(totalCookies);
                       setCurrentPage(currentPage - 1);
+                      setFilledList(filledList)
                     }}
                     disabled={uploading}
                     className="border-2 border-black w-40 rounded-xl h-14"
@@ -366,7 +366,7 @@ const RegistrationPage: NextPage<Props> = () => {
                       const formLocation = currentPage * 3;
 
                       const validationPromises = Object.keys(formSchema.shape).map(async (key, index) => {
-                        if (index >= formLocation - 3 && index < formLocation && index <= 9) {
+                        if (index >= formLocation - 3 && index < formLocation && index <= 10) {
                           await trigger(key as keyof z.infer<typeof formSchema>).then((e) => {
                             if (!e) validForm = false;
                           });
@@ -383,9 +383,9 @@ const RegistrationPage: NextPage<Props> = () => {
                       });
 
                       await Promise.all(validationPromises);
+                      setFilledList(filledList)
 
-                      const totalCookies = await getTotalCookies();
-                      setFilled(totalCookies);
+                      
 
                       if (validForm) {
                         setCurrentPage(currentPage + 1);
@@ -405,7 +405,7 @@ const RegistrationPage: NextPage<Props> = () => {
                 )}
               </div>
             ) : null}
-            <Image src={ImageConstants.cubeDecoration2} alt="Cube" className="absolute -translate-x-44 -translate-y-16 hidden lg:block" data-aos="fade-left" />
+            <Image src={ImageConstants.cubeDecoration2} alt="Cube" className="absolute -translate-x-44 -translate-y-16 hidden lg:block w-36"/>
           </div>
         </div>
       </div>

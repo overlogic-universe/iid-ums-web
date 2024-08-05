@@ -16,6 +16,10 @@ const selectContent: Record<SelectContentKeys, string[]> = {
     "Ready-Made Product",
     "Commercialized Product",
   ],
+  competitionBatch:[
+    '1',
+    '2',
+  ]
 };
 
 export { selectContent };

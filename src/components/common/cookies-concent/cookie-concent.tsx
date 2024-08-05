@@ -12,10 +12,7 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { TextConstants } from "@/constants/text-constants";
-import {
-    getCookie,
-  setCookies,
-} from "@/lib/action/cookies/cookie-action";
+import { getCookie, setCookies } from "@/lib/action/cookies/cookie-action";
 import Link from "next/link";
 import { useEffect } from "react";
 
@@ -52,14 +49,15 @@ const CookiesConcent = () => {
           </div>
           <DrawerFooter>
             <DrawerClose>
-                <Button
+              <Button
                 className="w-full"
                 onClick={() => {
-                    setCookies("cookie", "true");
+                  setCookies("cookie", "true");
+                  window.location.reload();
                 }}
-                >
+              >
                 {TextConstants.en.accept}
-                </Button>
+              </Button>
             </DrawerClose>
             {/* <DrawerClose>
                 <Button

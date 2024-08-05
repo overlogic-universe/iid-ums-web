@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS "registration" (
 	"id" serial PRIMARY KEY NOT NULL,
-	"created_at" timestamp DEFAULT now() NOT NULL,
+	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
 	"email" varchar(64) NOT NULL,
 	"leader_name" varchar(64) NOT NULL,
 	"members_name" varchar(512) NOT NULL,
@@ -14,5 +14,5 @@ CREATE TABLE IF NOT EXISTS "registration" (
 	"scan_student_id" varchar(256) NOT NULL,
 	"abstract" varchar(256) NOT NULL,
 	"product_description" varchar(256) NOT NULL,
-	"competition_batch" numeric DEFAULT '1' NOT NULL
+	"competition_batch" numeric NOT NULL
 );

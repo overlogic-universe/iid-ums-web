@@ -1,0 +1,1 @@
+ALTER TABLE "registration" ALTER COLUMN "patent_number" SET DATA TYPE varchar(20);
