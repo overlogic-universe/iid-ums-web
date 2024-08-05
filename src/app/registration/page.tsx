@@ -160,15 +160,15 @@ const RegistrationPage: NextPage<Props> = () => {
   }, 3000);
 
   return (
-    <div className="w-full relative" data-aos="fade-up">
+    <div className="w-full relative">
       {loading ? <FormLoading /> : null}
       <div className="relative">
         <div className="absolute top-0 right-0">
-          <p className="p-2 text-blue-500 font-light">{filledList.length}/13</p>
+          <p className="p-2 text-blue-500 font-light">Page {currentPage} / 8</p>
         </div>
       </div>
       <div className="w-full px-3 md:px-28 bg-white rounded-2xl">
-        <p className="rows-span-1 bg-gradient-to-r bg-clip-text text-transparent from-blue-700 via-blue-400 to-blue-700 font-bold text-2xl pt-4 text-center underline">Registration Form</p>
+        <p className="rows-span-1 bg-gradient-to-r bg-clip-text text-transparent from-blue-700 via-blue-400 to-blue-700 font-bold text-2xl pt-6 text-center underline">Registration Form</p>
         <div>
           <div>
             <Form {...form}>
