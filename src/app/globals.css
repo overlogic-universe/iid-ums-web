@@ -237,7 +237,7 @@ object::-webkit-scrollbar-thumb {
 @media (max-width: 1024px) {
   .header-carousel .swiper-slide img {
     width: 100%;
-    height: 40vh; 
+    height: 35vh; 
     object-fit: cover;
   }
   
