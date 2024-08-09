@@ -36,11 +36,13 @@ const CategoryCard = memo(({ category }: { category: (typeof categories)[0] }) =
   });
 
   return (
-    <div data-aos="fade-up" ref={ref} className="transition-all duration-300 hover:translate-y-[-5px] border-blue-500 border-[1px] flex flex-col card-blue-shadow items-center bg-white rounded-xl overflow-hidden">
-      <div className="w-full md:h-48 h-36 flex lg:justify-start justify-center">{inView && <Lottie animationData={category.animation} height={100} width={100} />}</div>
-      <div className="p-4">
-        <h2 className="text-lg font-semibold">{category.title}</h2>
-        <p className="font-light">{category.description}</p>
+    <div data-aos="fade-up" className="flex">
+      <div ref={ref} className="transition-all duration-300 hover:translate-y-[-5px] border-blue-500 border-[1px] flex flex-col card-blue-shadow items-center bg-white rounded-xl overflow-hidden">
+        <div className="w-full md:h-48 h-36 flex lg:justify-start justify-center">{inView && <Lottie animationData={category.animation} height={100} width={100} />}</div>
+        <div className="p-4">
+          <h2 className="text-lg font-semibold">{category.title}</h2>
+          <p className="font-light">{category.description}</p>
+        </div>
       </div>
     </div>
   );

@@ -33,12 +33,14 @@ const EventPurpose: NextPage<Props> = ({}) => {
       </h1>
       <div className="grid md:gap-8 gap-4 lg:grid-cols-2 grid-cols-1">
         {purposes.map((purpose, index) => (
-          <div key={index} className="relative md:mx-0 mx-2 transition-all duration-300 hover:scale-105 flex flex-col items-start bg-gradient-to-r from-white to-blue-300 shadow-lg rounded-xl p-6" data-aos="fade-up">
-            <div className="absolute inset-0 bg-gradient-to-r from-white to-transparent opacity-25 rounded-xl"></div>
-            <h2 className="relative md:text-lg text-base font-semibold mb-2">{purpose.title}</h2>
-            <p className="relative md:text-base text-sm font-light">{purpose.description}</p>
-            <div className="absolute bottom-2 right-2 transform rotate-12">
-              <Image src={ImageConstants.cubeDecoration} alt="cubeDecoration2Purpose" width={40} height={40} className="opacity-50" />
+          <div data-aos="fade-up" key={index}>
+            <div className="relative md:mx-0 mx-2 transition-all duration-300 hover:scale-105 flex flex-col items-start bg-gradient-to-r from-white to-blue-300 shadow-lg rounded-xl p-6">
+              <div className="absolute inset-0 bg-gradient-to-r from-white to-transparent opacity-25 rounded-xl"></div>
+              <h2 className="relative md:text-lg text-base font-semibold mb-2">{purpose.title}</h2>
+              <p className="relative md:text-base text-sm font-light">{purpose.description}</p>
+              <div className="absolute bottom-2 right-2 transform rotate-12">
+                <Image src={ImageConstants.cubeDecoration} alt="cubeDecoration2Purpose" width={40} height={40} className="opacity-50" />
+              </div>
             </div>
           </div>
         ))}
