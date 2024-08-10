@@ -62,7 +62,7 @@ const AboutSection = () => {
           <SwiperSlide key={item.id} className="w-full object-cover text-center min-h-[50px] flex flex-col items-center justify-center about-us-box">
             <LazyBackground src={item.imageUrl} className="rounded-3xl border-2 border-white overflow-hidden section-box bg-white about-us-inner-box">
               <Image className="mx-auto mb-2" src={item.logo} alt={`slide ${item.id} logo`} height={150} width={270} />
-              <p className="md:text-2xl text-md font-light text-center lg:mx-6 md:mt-5 mt-2" data-aos="fade-up">
+              <p className="md:text-xl text-sm font-light text-center lg:mx-6 md:mt-5 mt-2" data-aos="fade-up">
                 {item.description}
               </p>
             </LazyBackground>

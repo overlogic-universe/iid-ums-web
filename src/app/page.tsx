@@ -33,7 +33,7 @@ const HomePage = () => {
       <CompetitionRegistrationSection />
       <CompetitionCategoriesSection />
       <InnovationTalkSection />
-      {/* <JudgesSpeakersSection/> */}
+      <JudgesSpeakersSection/>
       <EventDetailsSection />
       <EventRecapSection />
       <AboutSection />

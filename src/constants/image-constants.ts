@@ -17,6 +17,12 @@ import bgEventDetails from "@/assets/images/bg-event-details.png";
 import cubeDecoration from "@/assets/images/cube-decoration2.png";
 import cubeDecoration2 from "@/assets/images/cube-decoration.webp";
 import innovationTalk from "@/assets/images/innovation-talk.jpg";
+import judge1 from "@/assets/images/judges/judge1.webp";
+import judge2 from "@/assets/images/judges/judge2.webp";
+import judge3 from "@/assets/images/judges/judge3.webp";
+import judge4 from "@/assets/images/judges/judge4.webp";
+import speaker2 from "@/assets/images/speakers/speaker2.webp";
+import speaker3 from "@/assets/images/speakers/speaker3.webp";
 
 // Image constants for use in the app.
 export const ImageConstants = {
@@ -34,5 +40,11 @@ export const ImageConstants = {
   bgEventDetails,
   cubeDecoration,
   cubeDecoration2,
-  innovationTalk
+  innovationTalk,
+  judge1,
+  judge2,
+  judge3,
+  judge4,
+  speaker2,
+  speaker3,
 };

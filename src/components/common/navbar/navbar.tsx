@@ -52,6 +52,11 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
+              <Link className="text-decoration-none" href="#judges-speakers">
+                <div className={navigationMenuTriggerStyle()}>{TextConstants.en.judgesSpeakers}</div>
+              </Link>
+            </li>
+            <li>
               <Link className="text-decoration-none" href="#event-details">
                 <div className={navigationMenuTriggerStyle()}>{TextConstants.en.eventDetail}</div>
               </Link>
@@ -109,6 +114,11 @@ export default function Navbar() {
                 <li>
                   <Link href="#innovation-talk" legacyBehavior passHref>
                     <NavigationMenuLink className={navigationMenuTriggerStyle()}>{TextConstants.en.innovationTalk}</NavigationMenuLink>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#judges-speakers" legacyBehavior passHref>
+                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>{TextConstants.en.judgesSpeakers}</NavigationMenuLink>
                   </Link>
                 </li>
                 <li>

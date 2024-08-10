@@ -70,8 +70,11 @@ const eventPurposeTitle = "Event Purpose";
 const innovationTalk = "Innovation Talk";
 const innovationTalkTitle = "Join Our Innovation Talk and Be Part of the Future!";
 const innovationTalkDesc =
-  'is a must-attend session featuring experienced speakers who will discuss "Tips to Become an Inventor and Innovator and Socialization of International Competition Schedules," "Becoming a Global Student," and "Becoming an OutstandingStudent." This session is designed to inspire and empower students with the practical knowledge and skills needed to create sustainable solutions and achieve success on the international stage. Join us and be part of the positive change for a better future!';
-const judgesSpeakersTitle = "Judges & Speakers";
+'is a must-attend session featuring experienced speakers who will discuss "Tips to Become an Inventor and Innovator and Socialization of International Competition Schedules," "Becoming a Global Student," and "Becoming an OutstandingStudent." This session is designed to inspire and empower students with the practical knowledge and skills needed to create sustainable solutions and achieve success on the international stage. Join us and be part of the positive change for a better future!';
+const judgesSpeakers = "Judges & Speakers";
+const judgesTitle = "Our Judges";
+const speakersTitle = "Our Innovation";
+const speakersTitle2 = "Talk Speakers";
 const aboutUs = "About Us"
 const events = "Events"
 const competitions = "Competitions"
@@ -82,7 +85,9 @@ export const TextConstants = {
     events,
     competitions,
     competitionRegistrationTitle,
-    judgesSpeakersTitle,
+    judgesTitle,
+    speakersTitle,
+    speakersTitle2,
     viewLargerMap,
     officialITPartners,
     organizedBy,
@@ -145,5 +150,6 @@ export const TextConstants = {
     innovationTalk,
     innovationTalkTitle,
     innovationTalkDesc,
+    judgesSpeakers
   },
 };

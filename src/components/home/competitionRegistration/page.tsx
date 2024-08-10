@@ -42,10 +42,10 @@ const CompetitionRegistrationSection: NextPage<Props> = ({}) => {
           </div>
           <div className="flex md:flex-row flex-col-reverse gap-4 md:mt-14 mt-12 ">
             <Link href="/registration" passHref>
-              <Button className="bg-white hover:translate-y-[-4px] mx-auto text-main-primary text-xl p-8 rounded-2xl transition-all duration-300 white-shadow hover:bg-white">{TextConstants.en.registerNow}</Button>
+              <Button className="bg-white hover:translate-y-[-4px] mx-auto text-main-primary text-lg p-7 rounded-2xl transition-all duration-300 white-shadow hover:bg-white">{TextConstants.en.registerNow}</Button>
             </Link>
             <Link href="/" passHref>
-              <Button className="bg-white hover:translate-y-[-4px] mx-auto text-main-primary text-xl p-8 rounded-2xl transition-all duration-300 white-shadow hover:bg-white">GUIDEBOOK</Button>
+              <Button className="bg-white hover:translate-y-[-4px] mx-auto text-main-primary text-lg p-7 rounded-2xl transition-all duration-300 white-shadow hover:bg-white">GUIDEBOOK</Button>
             </Link>
           </div>
         </LazyBackground>
