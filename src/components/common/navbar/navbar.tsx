@@ -1,7 +1,7 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import styles from "./navbar.module.css";
 import { TextConstants } from "@/constants/text-constants";
@@ -14,6 +14,33 @@ export default function Navbar() {
   const [isMenuClicked, setIsMenuClicked] = useState(false);
   const [isEventsDropdownOpen, setIsEventsDropdownOpen] = useState(false);
   const [isCompetitionsDropdownOpen, setIsCompetitionsDropdownOpen] = useState(false);
+  const [countdownExpired, setCountdownExpired] = useState(true);
+
+  useEffect(() => {
+    const countdownDate = new Date(process.env.NEXT_PUBLIC_COUNTDOWN_END_DATE || "").getTime();
+
+    const updateCountdown = () => {
+      const now = new Date();
+      const localTimeOffset = now.getTimezoneOffset() * 60000;
+      const indonesiaTimeOffset = 7 * 60 * 60000; // WIB is UTC+7
+      const localTime = now.getTime() + localTimeOffset;
+      const indonesiaTime = localTime + indonesiaTimeOffset;
+
+      const distance = countdownDate - indonesiaTime;
+
+      if (distance <= 0) {
+        setCountdownExpired(true);
+        return;
+      }
+      
+      setCountdownExpired(false);
+    };
+
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 60000); // Update every minute
+
+    return () => clearInterval(interval);
+  }, []);
 
   const updateMenu = () => {
     setIsMenuClicked(!isMenuClicked);
@@ -91,9 +118,11 @@ export default function Navbar() {
             <div className={navigationMenuTriggerStyle()}>About Us</div>
           </Link>
         </li>
-        <Link className="flex justify-center py-4" href="/registration" passHref>
-          <Button className="hover:translate-y-[-4px] rounded-2xl w-40 h-12 text-base bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700 transition-all duration-300 blue-shadow">{TextConstants.en.registration}</Button>
-        </Link>
+        {countdownExpired ?<div className="hidden"></div>: 
+          <Link className="flex justify-center py-4" href="/registration" passHref>
+            <Button className="hover:translate-y-[-4px] rounded-2xl w-40 h-12 text-base bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700 transition-all duration-300 blue-shadow">{TextConstants.en.registration}</Button>
+          </Link>
+        }
       </ul>
       <NavigationMenu className="hidden lg:flex lg:items-center lg:gap-8 z-20">
         <NavigationMenuList className="flex gap-4">
@@ -158,9 +187,11 @@ export default function Navbar() {
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
-      <Link className="hidden lg:block" href="/registration" passHref>
-        <Button className="rounded-2xl w-40 h-12 text-base bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700 transition-all duration-300 blue-shadow">{TextConstants.en.registration}</Button>
-      </Link>
+      {countdownExpired ?<div className="lg:block hidden w-40"></div>: 
+        <Link className="hidden lg:block" href="/registration" passHref data-aos="fade">
+          <Button className="rounded-2xl w-40 h-12 text-base bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700 transition-all duration-300 blue-shadow">{TextConstants.en.registration}</Button>
+        </Link>
+      }
     </nav>
   );
 }
