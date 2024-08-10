@@ -19,18 +19,19 @@ const PartnerSection: NextPage<Props> = ({}) => {
     <div className="flex-col min-w-full">
       <div className="section flex flex-col">
         <h1 className="md:text-4xl text-2xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r to-[#121251] from-[#2828B7] mb-5">{TextConstants.en.officialITPartners}</h1>
-        <div className="grid grid-cols-2 lg:grid-cols-2 gap-20">
-          {itPartners.map((partner, index) => (
-            <div key={index} className="flex justify-center items-center mt-5">
-              <Image width={250} height={150} src={partner.src} alt={partner.alt} />
-            </div>
-          ))}
+        <div className="flex gap-20">
+          <div  className="flex justify-center items-center mt-5">
+            <Image width={180} height={100} src={itPartners[0].src} alt={itPartners[0].alt} />
+          </div>
+            <div  className="flex justify-center items-center mt-5">
+            <Image width={250} height={150} src={itPartners[1].src} alt={itPartners[1].alt} />
+          </div>
         </div>
         <h1 className="md:text-4xl text-2xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r to-[#121251] from-[#2828B7] mt-14 mb-7">{TextConstants.en.organizedBy}</h1>
         <div>
           {organizedBy.map((partner, index) => (
             <div key={index} className="flex justify-center items-center">
-              <Image width={250} height={150} src={partner.src} alt={partner.alt} />
+              <Image width={200} height={100} src={partner.src} alt={partner.alt} />
             </div>
           ))}
         </div>
@@ -38,7 +39,7 @@ const PartnerSection: NextPage<Props> = ({}) => {
         <div>
           {inColabWith.map((partner, index) => (
             <div key={index} className="flex justify-center items-center">
-              <Image width={250} height={150} src={partner.src} alt={partner.alt} />
+              <Image width={200} height={100} src={partner.src} alt={partner.alt} />
             </div>
           ))}
         </div>

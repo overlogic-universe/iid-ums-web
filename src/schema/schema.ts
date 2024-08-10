@@ -22,7 +22,7 @@ export const registrationTable = pgTable("registration", {
   scanStudentId: varchar("scan_student_id", { length: 256 }).notNull(),
   abstract: varchar("abstract", { length: 256 }).notNull(),
   productDescription: varchar("product_description", { length: 256 }).notNull(),
-  competitionBatch: numeric("competition_batch").notNull(),
+  competitionBatch: numeric("competition_batch").default("1").notNull(),
 });
 
 export type InsertRegistrationType = typeof registrationTable.$inferInsert;

@@ -49,15 +49,17 @@ const CookiesConcent = () => {
           </div>
           <DrawerFooter>
             <DrawerClose>
-              <Button
-                className="w-full"
+              <div
+                className="w-full bg-main-300 p-2 rounded-lg text-white"
                 onClick={async () => {
                   await setCookies("cookie", "true");
                   window.location.reload();
                 }}
               >
-                {TextConstants.en.accept}
-              </Button>
+                <p>
+                  {TextConstants.en.accept}
+                </p>
+              </div>
             </DrawerClose>
             {/* <DrawerClose>
                 <Button

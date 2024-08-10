@@ -20,14 +20,14 @@ import { selectContent } from "@/constants/competition-category-constants";
 import { NextPage } from "next";
 
 const formSchema = ZodConstants.formSchema;
-import FileUpload from "@/components/registraion/file-upload/file-upload";
-import Confirmation from "@/components/registraion/confirmation/confirmation";
+import FileUpload from "@/components/registration/file-upload/file-upload";
+import Confirmation from "@/components/registration/confirmation/confirmation";
 import Image from "next/image";
 import { SvgConstants } from "@/constants/svg-constants";
 import { getCookie, getCookies, getTotalCookies, removeAllCookies, setAllCookies, setCookies } from "@/lib/action/cookies/cookie-action";
 import { useEffect, useState } from "react";
-import FormLoading from "@/components/registraion/form/form-loading";
-import SubmitedPage from "@/components/registraion/submited/submited";
+import FormLoading from "@/components/registration/form/form-loading";
+import SubmitedPage from "@/components/registration/submited/submited";
 import { DialogDescription, DialogTitle } from "@radix-ui/react-dialog";
 import { ImageConstants } from "@/constants/image-constants";
 
@@ -89,7 +89,6 @@ const RegistrationPage: NextPage<Props> = () => {
     switch (index) {
       case 6:
       case 7:
-      case 9:
         return (
           <Select
             {...field}
@@ -98,7 +97,7 @@ const RegistrationPage: NextPage<Props> = () => {
             }}
           >
             <SelectTrigger className="border-2 border-[#9F9F9F] h-16 rounded-xl focus:border-main-300 focus:outline-none focus-visible:ring-main-300">
-              <SelectValue placeholder={label} />
+              <SelectValue placeholder={label}/>
             </SelectTrigger>
             <SelectContent className="min-w-0 fixed">
               {selectContent[key as SelectContentKeys].map((item) => (
@@ -168,7 +167,7 @@ const RegistrationPage: NextPage<Props> = () => {
         </div>
       </div>
       <div className="w-full px-3 md:px-28 bg-white rounded-2xl">
-        <p className="rows-span-1 bg-gradient-to-r bg-clip-text text-transparent from-blue-700 via-blue-400 to-blue-700 font-bold text-2xl pt-4 text-center underline">Registration Form</p>
+        <p className="rows-span-1 bg-gradient-to-r bg-clip-text text-transparent from-blue-700 via-blue-400 to-blue-700 font-bold text-2xl pt-6 md:pt-4 text-center underline">Registration Form</p>
         <div>
           <div>
             <Form {...form}>
@@ -182,7 +181,7 @@ const RegistrationPage: NextPage<Props> = () => {
                     label = "Enter Max 5 members separated with comma (,)"
                   }
                   const formLocation = currentPage * 3;
-                  if (index >= formLocation - 3 && index < formLocation && index <= 10) {
+                  if (index >= formLocation - 3 && index < formLocation && index < 10) {
                     return (
                       <FormField
                         key={key}
@@ -364,7 +363,7 @@ const RegistrationPage: NextPage<Props> = () => {
                       const formLocation = currentPage * 3;
 
                       const validationPromises = Object.keys(formSchema.shape).map(async (key, index) => {
-                        if (index >= formLocation - 3 && index < formLocation && index <= 10) {
+                        if (index >= formLocation - 3 && index < formLocation && index < 10) {
                           await trigger(key as keyof z.infer<typeof formSchema>).then((e) => {
                             if (!e) validForm = false;
                           });

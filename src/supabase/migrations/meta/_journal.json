@@ -15,6 +15,13 @@
       "when": 1722855903431,
       "tag": "0001_broken_masked_marvel",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1723295312795,
+      "tag": "0002_cynical_nextwave",
+      "breakpoints": true
     }
   ]
 }
