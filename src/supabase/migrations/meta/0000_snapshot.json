@@ -1,5 +1,5 @@
 {
-  "id": "cecb68d7-490b-4947-9dc5-a83e0990ea94",
+  "id": "b847db6d-0f61-49cf-b6ff-fe8c907baf86",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -75,9 +75,15 @@
           "primaryKey": false,
           "notNull": true
         },
+        "title_of_product": {
+          "name": "title_of_product",
+          "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": true
+        },
         "patent_number": {
           "name": "patent_number",
-          "type": "varchar(128)",
+          "type": "varchar(20)",
           "primaryKey": false,
           "notNull": false
         },
@@ -103,7 +109,8 @@
           "name": "competition_batch",
           "type": "numeric",
           "primaryKey": false,
-          "notNull": true
+          "notNull": true,
+          "default": "'1'"
         }
       },
       "indexes": {},

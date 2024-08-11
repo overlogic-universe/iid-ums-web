@@ -10,9 +10,10 @@ CREATE TABLE IF NOT EXISTS "registration" (
 	"competition_category" varchar(256) NOT NULL,
 	"form_of_invention" varchar(256) NOT NULL,
 	"title_of_innovation" varchar(256) NOT NULL,
-	"patent_number" varchar(128),
+	"title_of_product" varchar(256) NOT NULL,
+	"patent_number" varchar(20),
 	"scan_student_id" varchar(256) NOT NULL,
 	"abstract" varchar(256) NOT NULL,
 	"product_description" varchar(256) NOT NULL,
-	"competition_batch" numeric NOT NULL
+	"competition_batch" numeric DEFAULT '1' NOT NULL
 );

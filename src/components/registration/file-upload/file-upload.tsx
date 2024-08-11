@@ -90,21 +90,25 @@ const FileUpload: NextPage<Props> = ({ title, accept, bucket, contentType, onCha
 
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
+    let isValidType = false;
     setIsDragging(false);
     const files = e.dataTransfer.files[0];
     const types = contentType == "" ? ["image/jpg", "image/jpeg", "image/png"] : [contentType];
     for (let i = 0; i < types.length; i++) {
       if (files.type.includes(types[i])) {
         handleFileChange(files);
+        isValidType = true;
         break;
       }
     }
-    toast({
-      title: TextConstants.en.unsupportFileTypeTitleError,
-      description: TextConstants.en.unsupportFileTypeDescriptionError,
-      variant: "destructive",
-      action: <ToastAction altText="Close">{TextConstants.en.close}</ToastAction>,
-    });
+    if(!isValidType) {
+      toast({
+        title: TextConstants.en.unsupportFileTypeTitleError,
+        description: TextConstants.en.unsupportFileTypeDescriptionError,
+        variant: "destructive",
+        action: <ToastAction altText="Close">{TextConstants.en.close}</ToastAction>,
+      });
+    }
   };
 
   const handleRemoveFile = () => {
@@ -117,9 +121,7 @@ const FileUpload: NextPage<Props> = ({ title, accept, bucket, contentType, onCha
       <b className="py-5 text-center">{title}</b>
       {!loading ? (
         <div
-          className={`border-2 border-dashed ${
-            fileUploadColor == "main" ? "border-main-primary" : "border-red-500"
-          } file-upload-container top-0 p-5 w-full bg-${fileUploadColor}-100 flex items-center justify-center flex-col rounded-2xl h-[380px] z-10`}
+          className={`border-2 border-dashed ${ fileUploadColor == "main" ? "border-main-primary" : "border-red-500"} file-upload-container top-0 p-5 w-full bg-${fileUploadColor}-100 flex items-center justify-center flex-col rounded-2xl h-[380px] z-50 bg-white`}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
@@ -134,7 +136,7 @@ const FileUpload: NextPage<Props> = ({ title, accept, bucket, contentType, onCha
               <PdfViewer onChange={() => onChange("")} setNewFileUrl={() => setNewFileUrl("")} file={newFileUrl == "" ? fileUrl : newFileUrl} />
             )
           ) : (
-            <div className="w-full flex items-center justify-center flex-col">
+            <div className="w-full flex items-center justify-center flex-col z-10">
               <Image src={fileUploadColor == "red" ? SvgConstants.cloudUploadIconDanger : SvgConstants.cloudUploadIcon} alt="Cloud Upload" />
               <div className={`md:w-1/2 text-center flex items-center justify-center flex-col ${fileUploadColor == "red" ? "text-red-500" : "text-main-primary"}`}>
                 <p className={`md:text-3xl align-middle`}>{TextConstants.en.dragAndDropHere}</p>
@@ -146,7 +148,7 @@ const FileUpload: NextPage<Props> = ({ title, accept, bucket, contentType, onCha
                 onClick={() => {
                   document.getElementById("file")?.click();
                 }}
-                className={`m-5 rounded-2xl ${fileUploadColor == "red" ? "bg-red-500" : "bg-main-primary"} hover:bg-${fileUploadColor}-300`}
+                className={`m-5 rounded-2xl ${fileUploadColor == "red" ? "bg-red-500" : "bg-main-primary"} hover:bg-${fileUploadColor}-300 z-10`}
               >
                 {TextConstants.en.selectFile}
               </Button>

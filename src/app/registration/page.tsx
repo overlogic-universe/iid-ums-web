@@ -163,7 +163,7 @@ const RegistrationPage: NextPage<Props> = () => {
       {loading ? <FormLoading /> : null}
       <div className="relative">
         <div className="absolute top-0 right-0">
-          <p className="p-2 text-blue-500 font-light">Page {currentPage} / 8</p>
+          <p className="p-2 text-blue-500 font-light">Page {currentPage == 9 ? 8 : currentPage} / 8</p>
         </div>
       </div>
       <div className="w-full px-3 md:px-28 bg-white rounded-2xl">
@@ -181,7 +181,7 @@ const RegistrationPage: NextPage<Props> = () => {
                     label = "Enter Max 5 members separated with comma (,)"
                   }
                   const formLocation = currentPage * 3;
-                  if (index >= formLocation - 3 && index < formLocation && index < 10) {
+                  if (index >= formLocation - 3 && index < formLocation && index <= 10) {
                     return (
                       <FormField
                         key={key}
@@ -363,7 +363,7 @@ const RegistrationPage: NextPage<Props> = () => {
                       const formLocation = currentPage * 3;
 
                       const validationPromises = Object.keys(formSchema.shape).map(async (key, index) => {
-                        if (index >= formLocation - 3 && index < formLocation && index < 10) {
+                        if (index >= formLocation - 3 && index < formLocation && index <= 10) {
                           await trigger(key as keyof z.infer<typeof formSchema>).then((e) => {
                             if (!e) validForm = false;
                           });

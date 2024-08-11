@@ -18,6 +18,7 @@ export const registrationTable = pgTable("registration", {
   competitionCategory: varchar("competition_category", { length: 256 }).notNull(),
   formOfInvention: varchar("form_of_invention", { length: 256 }).notNull(),
   titleOfInnovation: varchar("title_of_innovation", { length: 256 }).notNull(),
+  titleOfProduct: varchar("title_of_product", { length: 256 }).notNull(),
   patentNumber: varchar("patent_number", { length: 20 }),
   scanStudentId: varchar("scan_student_id", { length: 256 }).notNull(),
   abstract: varchar("abstract", { length: 256 }).notNull(),

@@ -5,22 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1722855362037,
-      "tag": "0000_round_tempest",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1722855903431,
-      "tag": "0001_broken_masked_marvel",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1723295312795,
-      "tag": "0002_cynical_nextwave",
+      "when": 1723369584831,
+      "tag": "0000_lethal_chimera",
       "breakpoints": true
     }
   ]
