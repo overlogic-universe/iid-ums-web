@@ -9,7 +9,7 @@ import IconImage from "@/assets/metadata/icon.png";
 import { Metadata } from "next";
 
 const metadataConstant:Metadata = {
-  title: "IID 2024 - UMS",
+  title: "UMS - IID 2024",
   description:
     "UMS International Innovation Day is an annual event hosted by Universitas Muhammadiyah Surakarta (UMS) to celebrate creativity and technological advancements. It brings together students, researchers, entrepreneurs, and industry professionals to showcase innovative projects, exchange ideas, and foster collaborations. ",
   keywords: keywordConstants,

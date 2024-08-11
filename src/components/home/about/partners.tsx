@@ -12,36 +12,51 @@ const PartnerSection: NextPage<Props> = ({}) => {
   ];
 
   const organizedBy = [{ src: ImageConstants.nutricomLogo, alt: "Nutricom" }];
-
   const inColabWith = [{ src: ImageConstants.innopaLogo, alt: "Innopa" }];
+  const supportedBy = [{ src: ImageConstants.umsLogo, alt: "UMS" }];
 
   return (
-    <div className="flex-col min-w-full">
+    <div className="flex flex-col min-w-full px-4">
       <div className="section flex flex-col">
-        <h1 className="md:text-4xl text-2xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r to-[#121251] from-[#2828B7] mb-5">{TextConstants.en.officialITPartners}</h1>
-        <div className="flex gap-20">
-          <div  className="flex justify-center items-center mt-5">
-            <Image width={180} height={100} src={itPartners[0].src} alt={itPartners[0].alt} />
-          </div>
-            <div  className="flex justify-center items-center mt-5">
-            <Image width={250} height={150} src={itPartners[1].src} alt={itPartners[1].alt} />
-          </div>
-        </div>
-        <h1 className="md:text-4xl text-2xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r to-[#121251] from-[#2828B7] mt-14 mb-7">{TextConstants.en.organizedBy}</h1>
-        <div>
-          {organizedBy.map((partner, index) => (
-            <div key={index} className="flex justify-center items-center">
-              <Image width={200} height={100} src={partner.src} alt={partner.alt} />
+        <div className="grid grid-cols-1 md:grid-cols-2 md:gap-y-10 gap-y-3">
+          
+          <div className="p-6">
+            <h1 className="text-2xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-[#2828B7] to-[#121251] mb-3">
+              {TextConstants.en.officialITPartners}
+            </h1>
+            <div className="md:flex-row flex flex-col justify-center items-center gap-10 text-center">
+              <Image width={150} height={100} src={itPartners[0].src} alt={itPartners[0].alt} />
+              <Image width={250} height={150} src={itPartners[1].src} alt={itPartners[1].alt} />
             </div>
-          ))}
-        </div>
-        <h1 className="md:text-4xl text-2xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r to-[#121251] from-[#2828B7] mt-14 mb-7">{TextConstants.en.inCollaborationWith}</h1>
-        <div>
-          {inColabWith.map((partner, index) => (
-            <div key={index} className="flex justify-center items-center">
-              <Image width={200} height={100} src={partner.src} alt={partner.alt} />
+          </div>
+          
+          <div className="p-6">
+            <h1 className="text-2xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-[#2828B7] to-[#121251] mb-3">
+              {TextConstants.en.organizedBy}
+            </h1>
+            <div className="flex justify-center items-center">
+              <Image width={250} height={100} src={organizedBy[0].src} alt={organizedBy[0].alt} />
             </div>
-          ))}
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg ">
+            <h1 className="text-2xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-[#2828B7] to-[#121251]  mb-3">
+              {TextConstants.en.inCollaborationWith}
+            </h1>
+            <div className="flex justify-center items-center">
+              <Image width={250} height={100} src={inColabWith[0].src} alt={inColabWith[0].alt} />
+            </div>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg ">
+            <h1 className="text-2xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-[#2828B7] to-[#121251]  mb-3">
+              {TextConstants.en.supportedBy}
+            </h1>
+            <div className="flex justify-center items-center">
+              <Image width={200} height={100} src={supportedBy[0].src} alt={supportedBy[0].alt} />
+            </div>
+          </div>
+          
         </div>
       </div>
     </div>

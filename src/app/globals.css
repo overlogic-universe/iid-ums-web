@@ -245,6 +245,10 @@ object::-webkit-scrollbar-thumb {
     padding: 20px 40px;
   }
 
+  .map-style {
+    width: 1280px;
+  }
+
   .about-us-box {
     padding: 20px 40px;
   }

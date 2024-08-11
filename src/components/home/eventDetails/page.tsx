@@ -57,7 +57,7 @@ const EventDetailsSection: NextPage<Props> = ({}) => {
               ))}
             </div>
           </div>
-          <div className="rounded-xl overflow-hidden h-full relative" style={{ border: "1px solid #307FE2" }}>
+          <div className="rounded-xl overflow-hidden h-full relative bg-white" style={{ border: "1px solid #307FE2"}}>
             <Map />
             <div className="m-3 bg-white absolute px-2 py-1 h-28 lg:w-2/5 w-3/5 top-0 right-0 shadow-lg">
               <h1 className="font-bold lg:text-sm text-xs">{TextConstants.en.location}</h1> <p className="text-xs text-gray-600 line-clamp-2">{TextConstants.en.locationAddress}</p>

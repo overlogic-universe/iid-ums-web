@@ -2,6 +2,7 @@
  * Below are the image that are used in the app.
  */
 
+import umsLogo from "@/assets/images/logo/ums-logo.png";
 import nutricomLogo from "@/assets/images/logo/nutricom-logo.png";
 import innopaLogo from "@/assets/images/logo/innopa-logo.png";
 import overlogicLogo from "@/assets/images/logo/overlogic-logo.png";
@@ -26,6 +27,7 @@ import speaker3 from "@/assets/images/speakers/speaker3.webp";
 
 // Image constants for use in the app.
 export const ImageConstants = {
+  umsLogo,
   bgNutricom,
   bgEventRecap,
   nutricomLogo,

@@ -57,6 +57,7 @@ const ofText = "of";
 const slides = "Slides";
 const officialITPartners = "Official IT Partner";
 const organizedBy = "Organized By";
+const supportedBy = "Supported By"
 const inCollaborationWith = "In Collaboration with";
 const competitionRegistrationTitle = "Competition Registration";
 const competitionCategoriesTitle = "Competition Categories";
@@ -80,6 +81,7 @@ const events = "Events"
 const competitions = "Competitions"
 export const TextConstants = {
   en: {
+    supportedBy,
     eventRecapTitle,
     aboutUs,
     events,

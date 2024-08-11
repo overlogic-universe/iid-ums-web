@@ -10,7 +10,7 @@ const Footer: NextPage<Props> = ({}) => {
     setCurrentYear(new Date().getFullYear());
   }, []);
 
-  return <div className="text-center mb-10 mt-20 mx-5 md:text-base text-sm">© All rights reserved - {currentYear} | Created by Overlogic</div>;
+  return <div className="text-center mb-10 mt-1 mx-5 md:text-base text-sm">© All rights reserved - {currentYear} | Created by Overlogic</div>;
 };
 
 export default Footer;
