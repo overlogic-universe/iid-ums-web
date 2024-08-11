@@ -4,8 +4,8 @@ import Image from "next/image";
 
 const InnovationTalkSection = () => {
   return (
-    <div id="innovation-talk" className="flex flex-col lg:flex-row lg:pe-8 lg:mb-[65px] md:mt-0 mt-12 justify-center items-center">
-      <div className="relative justify-center items-center flex lg:w-1/2 w-full" data-aos="fade-right">
+    <div id="innovation-talk" className="lg:container flex flex-col lg:flex-row lg:pe-8 md:mt-0 mt-12 justify-center items-center">
+      <div className="relative justify-center items-center flex lg:w-1/2 w-full lg:pe-5" data-aos="fade-right">
         <div className="absolute bottom-[-20px] lg:left-2/3 md:left-3/4 transform -translate-x-1/2 w-full">
           <div className="bg-blue-500 lg:rounded-ss-[160px] lg:rounded-ee-[160px] md:rounded-ss-[120px] md:rounded-ee-[120px] lg:h-[450px] lg:w-[450px] md:h-[350px] md:w-[350px]"></div>
         </div>

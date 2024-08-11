@@ -50,7 +50,7 @@ const CategoryCard = memo(({ category }: { category: (typeof categories)[0] }) =
 
 const CompetitionCategoriesSection: NextPage<Props> = () => {
   return (
-    <div id="competition-categories" className="relative bg-white lg:pb-10 pb-5 pt-1 lg:px-10 px-5 min-h-screen">
+    <div id="competition-categories" className="md:container relative bg-white lg:pb-10 pb-5 pt-1 lg:px-10 px-5 mb-15">
       <Image className="lg:w-40 md:w-32 w-16 lg:bottom-0 bottom-0 md:-bottom-10 right-0 absolute z-20" src={ImageConstants.cubeDecoration} alt="cubeDecorationCategories" data-aos="fade-left" />
       <Image className="lg:w-38 md:w-32 w-16 top-10 left-0 absolute z-20" src={ImageConstants.cubeDecoration2} alt="cubeDecorationCategories2" data-aos="fade-right" />
       <h1 className="title-section mt-4" data-aos="fade-up">

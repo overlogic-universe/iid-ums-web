@@ -16,7 +16,7 @@ const PartnerSection: NextPage<Props> = ({}) => {
   const supportedBy = [{ src: ImageConstants.umsLogo, alt: "UMS" }];
 
   return (
-    <div className="flex flex-col min-w-full px-4">
+    <div className="md:container flex flex-col min-w-full px-4">
       <div className="section flex flex-col">
         <div className="grid grid-cols-1 md:grid-cols-2 md:gap-y-10 gap-y-3">
           

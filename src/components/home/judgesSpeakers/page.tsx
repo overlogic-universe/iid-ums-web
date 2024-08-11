@@ -75,7 +75,7 @@ const JudgesSpeakersSection: NextPage<Props> = ({}) => {
   ];
 
   return (
-    <div id="judges-speakers" className="relative section min-h-screen flex flex-col lg:!px-[120px] ">
+    <div id="judges-speakers" className="md:container relative section flex flex-col lg:!px-[120px] ">
       <Image className="lg:w-38 md:w-32 w-16 -top-2 right-5 absolute z-20" src={ImageConstants.cubeDecoration2} alt="cubeDecorationCategories2" data-aos="fade-right" />
       <div className="section-box">
         <h1 className="title-section underline" data-aos="fade-up">

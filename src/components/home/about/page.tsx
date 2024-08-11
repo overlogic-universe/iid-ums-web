@@ -54,22 +54,24 @@ const AboutSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   return (
-    <div id="about-us" className="bg-main-secondary flex justify-center items-center relative" style={{ padding: "40px 0px 40px 0px" }}>
-      <Image className="lg:w-38 md:w-32 w-[100px] md:-top-24 -top-10 md:right-10 -right-0 absolute z-20" src={ImageConstants.cubeDecoration2} alt="cubeDecorationRecap2" data-aos="fade-left" />
-      <Image className="lg:w-40 md:w-32 w-[100px] -bottom-3 md:left-3 -left-1 absolute z-20" src={ImageConstants.cubeDecoration} alt="cubeDecoration" data-aos="fade-right" />
-      <Swiper centeredSlides pagination={false} modules={[Pagination, Navigation]} onSlideChange={(swiper) => setCurrentSlide(swiper.realIndex)}>
-        {carouselItems.map((item) => (
-          <SwiperSlide key={item.id} className="w-full object-cover text-center min-h-[50px] flex flex-col items-center justify-center about-us-box">
-            <LazyBackground src={item.imageUrl} className="rounded-3xl border-2 border-white overflow-hidden section-box bg-white about-us-inner-box">
-              <Image className="mx-auto mb-2" src={item.logo} alt={`slide ${item.id} logo`} height={150} width={270} />
-              <p className="md:text-xl text-sm font-light text-center lg:mx-6 md:mt-5 mt-2" data-aos="fade-up">
-                {item.description}
-              </p>
-            </LazyBackground>
-          </SwiperSlide>
-        ))}
-        <PaginationBar currentSlide={currentSlide + 1} totalSlides={carouselItems.length} />
-      </Swiper>
+    <div id="about-us" className=" bg-main-secondary" style={{ padding: "40px 0px 40px 0px" }}>
+      <div className="lg:container relative flex justify-center items-center ">
+        <Image className="lg:w-38 md:w-32 w-[80px] md:-top-24 -top-14 md:right-10 -right-0 absolute z-20" src={ImageConstants.cubeDecoration2} alt="cubeDecorationRecap2" data-aos="fade-left" />
+        <Image className="lg:w-40 md:w-32 w-[100px] -bottom-3 md:left-3 -left-1 absolute z-20" src={ImageConstants.cubeDecoration} alt="cubeDecoration" data-aos="fade-right" />
+        <Swiper centeredSlides pagination={false} modules={[Pagination, Navigation]} onSlideChange={(swiper) => setCurrentSlide(swiper.realIndex)}>
+          {carouselItems.map((item) => (
+            <SwiperSlide key={item.id} className="w-full object-cover text-center min-h-[50px] flex flex-col items-center justify-center about-us-box">
+              <LazyBackground src={item.imageUrl} className="rounded-3xl border-2 border-white overflow-hidden section-box bg-white about-us-inner-box">
+                <Image className="mx-auto mb-2" src={item.logo} alt={`slide ${item.id} logo`} height={150} width={270} />
+                <p className="md:text-xl text-sm font-light text-center lg:mx-6 md:mt-5 mt-2" data-aos="fade-up">
+                  {item.description}
+                </p>
+              </LazyBackground>
+            </SwiperSlide>
+          ))}
+          <PaginationBar currentSlide={currentSlide + 1} totalSlides={carouselItems.length} />
+        </Swiper>
+      </div>
     </div>
   );
 };

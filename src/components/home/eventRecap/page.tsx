@@ -9,7 +9,7 @@ interface Props {}
 
 const EventRecapSection: NextPage<Props> = () => {
   return (
-    <div id="event-recap" className="text-center flex-col section">
+    <div id="event-recap" className="md:container text-center flex-col section">
       <LazyBackground src={ImageConstants.bgEventRecap.src} className="bg-white min-h-[100px] section-box pb-10 bg-cover bg-center relative md:px-0 px-5">
         <h1 className="title-section" data-aos="fade-up">
           <span className="title-section-span text-center">{TextConstants.en.eventRecapTitle}</span>

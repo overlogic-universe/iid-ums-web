@@ -31,7 +31,7 @@ const EventDetailsSection: NextPage<Props> = ({}) => {
 
   return (
     <div id="event-details" className="section flex-col relative bg-main-secondary">
-      <div className="section-box bg-white pb-5 px-5 bg-center bg-cover" style={{ backgroundImage: `url(${ImageConstants.bgEventDetails.src})` }}>
+      <div className="md:container relative section-box bg-white pb-5 px-5 bg-center bg-cover" style={{ backgroundImage: `url(${ImageConstants.bgEventDetails.src})` }}>
         <div className="title-section" data-aos="fade-up">
           <span className="title-section-span">{TextConstants.en.eventDetail}</span>
         </div>
@@ -57,7 +57,7 @@ const EventDetailsSection: NextPage<Props> = ({}) => {
               ))}
             </div>
           </div>
-          <div className="rounded-xl overflow-hidden h-full relative bg-white" style={{ border: "1px solid #307FE2"}}>
+          <div className="rounded-xl overflow-hidden h-full relative bg-white" style={{ border: "1px solid #307FE2" }}>
             <Map />
             <div className="m-3 bg-white absolute px-2 py-1 h-28 lg:w-2/5 w-3/5 top-0 right-0 shadow-lg">
               <h1 className="font-bold lg:text-sm text-xs">{TextConstants.en.location}</h1> <p className="text-xs text-gray-600 line-clamp-2">{TextConstants.en.locationAddress}</p>
@@ -71,8 +71,8 @@ const EventDetailsSection: NextPage<Props> = ({}) => {
             </div>
           </div>
         </div>
+        <Image className="lg:w-40 md:w-32 w-[90px] md:-top-20 -top-7 lg:-left-10 -left-5 absolute" src={ImageConstants.cubeDecoration} alt="cubeDecoration-detail" data-aos="fade-right" />
       </div>
-      <Image className="lg:w-40 md:w-32 w-[90px] lg:-top-10 -top-7 lg:left-5 left-0 absolute" src={ImageConstants.cubeDecoration} alt="cubeDecoration-detail" data-aos="fade-right" />
     </div>
   );
 };
