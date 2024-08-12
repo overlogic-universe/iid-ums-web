@@ -21,7 +21,7 @@ const metadataConstant:Metadata = {
     icon: IconImage.src,
     apple: IconImage.src,
   },
-  metadataBase: new URL('https://ums-iid.vercel.app/'),
+  metadataBase: new URL('https://ums-iid.com/'),
 };
 
 export { metadataConstant };
