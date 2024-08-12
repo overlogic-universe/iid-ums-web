@@ -2,12 +2,11 @@
  * Below are the metadata list that are used in the app to increase SEO performance.
  */
 
-import { ImageConstants } from "./image-constants";
 import OpenGraphImage from "@/assets/metadata/opengraph-image.png"
 
 const openGraphConstant = {
   type: "website",
-  url: "https://ums-iid.vercel.app/",
+  url: "https://ums-iid.com/",
   title: "UMS International Innovation Day 2024",
   description:
     "International Innovation Day 2024, The Creative Synergy of Young Investors Encourage Innovation for Human Life and Well-being - International Innovation Day 2024 - UMS",
