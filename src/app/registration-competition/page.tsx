@@ -115,7 +115,7 @@ const RegistrationPage: NextPage<Props> = () => {
     try {
       setLoading(true);
       await insertCompetitionRegistrationAction(values);
-      const emailResponse = await fetch("/api/send", {
+      const emailResponse = await fetch("/api/competition", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
