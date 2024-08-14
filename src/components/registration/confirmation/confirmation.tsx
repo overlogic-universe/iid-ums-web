@@ -22,7 +22,7 @@ const Confirmation: NextPage<Props> = ({ onChange }) => {
           }}
           type="checkbox"
           name="agree"
-          className={`w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-lg mx-2`}
+          className={`w-4 h-4 text-main-primary bg-gray-100 border-gray-300 rounded-lg mx-2`}
         />
         <label className="font-semibold">Confirmation</label>
       </div>

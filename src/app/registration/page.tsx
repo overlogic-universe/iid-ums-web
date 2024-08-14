@@ -116,6 +116,22 @@ const RegistrationPage: NextPage<Props> = () => {
     try {
       setLoading(true);
       await insertRegistrationAction(values);
+      const emailResponse = await fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          leaderName: values["leaderName"],
+          email: values["email"],
+          abstractUrl: values["abstract"],
+          descriptionUrl: values["productDescription"],
+          studentIdUrl: values["scanStudentId"],
+        }),
+      });
+      if (!emailResponse.ok) {
+        throw new Error("Failed to send email");
+      }
       removeAllCookies();
       form.reset();
       toast({
@@ -324,7 +340,7 @@ const RegistrationPage: NextPage<Props> = () => {
                       </Button>
                     )}
 
-                    <DialogContent className="bg-main-300 border-0 md:border-2 border-white flex items-center justify-center flex-col">
+                    <DialogContent className="bg-main-primary border-0 md:border-2 border-white flex items-center justify-center flex-col">
                       <DialogTitle className="flex justify-center items-center flex-col text-white text-center">
                         <Image src={SvgConstants.warningLineIcon} alt="Warning Line" />
                         <p className="text-4xl">{TextConstants.en.confirmationTitle}</p>
