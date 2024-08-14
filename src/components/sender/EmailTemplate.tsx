@@ -1,6 +1,3 @@
-import { IconConstants } from "@/constants/icon-constants";
-import { ImageConstants } from "@/constants/image-constants";
-import IconImage from "@/assets/metadata/icon.png";
 import {
   Body,
   Button,
@@ -15,8 +12,7 @@ import {
   Tailwind,
 } from "@react-email/components";
 import * as React from "react";
-import { headerImages } from "../home/header/carouselImages";
-
+import image from "@/assets/images/emailSenderImage/header-2.png";
 interface EmailTemplateProps {
   leaderName?: string;
   email?: string;
@@ -46,7 +42,7 @@ export const EmailTemplate = ({
           <Container className="border border-solid border-[#eaeaea] rounded my-[40px] mx-auto p-[20px] max-w-[465px]">
             <Section className="mt-[32px]">
               <Img
-                src={`https://ums-iid.com/${headerImages.image2.src}`}
+                src={`https://ums-iid.com/${image.src}`}
                 alt="UMS International Innovation Day 2024"
                 className="my-0 mx-auto w-full"
               />
