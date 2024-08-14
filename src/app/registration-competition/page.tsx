@@ -115,6 +115,19 @@ const RegistrationPage: NextPage<Props> = () => {
     try {
       setLoading(true);
       await insertCompetitionRegistrationAction(values);
+      const emailResponse = await fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: values.leaderName,
+          email: values.email,
+        }),
+      });
+      if (!emailResponse.ok) {
+        throw new Error("Failed to send email");
+      }
       removeAllCookies(filledList);
       form.reset();
       toast({

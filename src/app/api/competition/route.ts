@@ -1,4 +1,4 @@
-import { EmailTemplate } from "@/components/sender/EmailTemplate";
+import { CompetitionEmailTemplate } from "@/components/sender/CompetitionEmailTemplate";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
@@ -13,16 +13,15 @@ export async function POST(req: Request): Promise<Response> {
   try {
     const body: PostRequestBody = await req.json();
 
-    const { name, email, payment } = body;
+    const { name, email } = body;
 
     const { data, error } = await resend.emails.send({
       from: "UMS International Innovation Day <umsinnovationday@ums-iid.com>",
       to: [email],
-      subject: "Payment Verification",
-      react: EmailTemplate({
+      subject:
+        "Thank You for Registering for UMS International Innovation Day 2024!",
+      react: CompetitionEmailTemplate({
         name,
-        email,
-        payment,
       }),
     });
 

@@ -4,10 +4,10 @@ import { useEffect } from "react";
 const WhatsAppPage = () => {
   useEffect(() => {
     const message = encodeURIComponent(
-      "Halo Kak, saya tertarik dengan acara UMS International Innovation Day dan ingin mengetahui lebih lanjut. Saya memiliki beberapa pertanyaan:\n\n*Pertanyaan:*\n...\n\nTerima kasih banyak atas bantuan dan informasinya. 😊"
+      `Hi Sis, I am interested in the UMS International Innovation Day event and would like to know more. I have a few questions:\n\n*Questions:*\n.....\n\nThank you very much for your help and information. 😊`
     );
 
-    const phoneNumber = "6287846462090";
+    const phoneNumber = "6281915689154";
 
     const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
 

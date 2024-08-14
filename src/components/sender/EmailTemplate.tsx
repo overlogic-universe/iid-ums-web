@@ -57,7 +57,7 @@ export const EmailTemplate = ({ name, email, payment }: EmailTemplateProps) => {
             <Section className="text-center mt-[32px] mb-[32px]">
               <Button
                 className="flex-1 bg-blue-700 rounded-2xl text-white text-[12px] font-semibold no-underline text-center px-5 py-3"
-                href={`https://api.whatsapp.com/send?phone=6287846462090&text=${encodedMessage}`}
+                href={`https://api.whatsapp.com/send?phone=6281915689154&text=${encodedMessage}`}
               >
                 Verify Payment
               </Button>
