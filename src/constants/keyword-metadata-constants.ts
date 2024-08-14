@@ -27,6 +27,20 @@ const keywordConstants = [
   "gdsc",
   "gdsc ums",
   "google developer - overlogic",
+  "ums iid",
+  "daftar ums iid",
+  "pendaftaran ums iid",
+  "daftar ums international innovation day",
+  "pendaftaran ums international innovation day",
+  "apa itu ums iid",
+  "ums international innovation day",
+  "ums international innovation day 2024",
+  "lomba ums iid",
+  "innovation talk",
+  "innovation talk ums iid",
+  "overlogic universe",
+  "overlogic id",
+  "ums id",
 ];
 
 export { keywordConstants };

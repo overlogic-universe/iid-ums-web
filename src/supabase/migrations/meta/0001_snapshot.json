@@ -1,6 +1,6 @@
 {
-  "id": "d59272bd-d5bc-4026-81fc-f9f7bf248cb2",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "bebad3c9-1ef7-4b3f-8ccf-2e2046965e13",
+  "prevId": "d59272bd-d5bc-4026-81fc-f9f7bf248cb2",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -148,6 +148,18 @@
         },
         "organization": {
           "name": "organization",
+          "type": "varchar(64)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "faculty": {
+          "name": "faculty",
+          "type": "varchar(128)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "payment": {
+          "name": "payment",
           "type": "varchar(128)",
           "primaryKey": false,
           "notNull": true

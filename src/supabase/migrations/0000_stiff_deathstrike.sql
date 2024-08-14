@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS "registration" (
+CREATE TABLE IF NOT EXISTS "registration_competition" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
 	"email" varchar(64) NOT NULL,
@@ -16,4 +16,12 @@ CREATE TABLE IF NOT EXISTS "registration" (
 	"abstract" varchar(256) NOT NULL,
 	"product_description" varchar(256) NOT NULL,
 	"competition_batch" numeric DEFAULT '1' NOT NULL
+);
+--> statement-breakpoint
+CREATE TABLE IF NOT EXISTS "registration_innovation_talk" (
+	"id" serial PRIMARY KEY NOT NULL,
+	"email" varchar(64) NOT NULL,
+	"name" varchar(64) NOT NULL,
+	"whatsapp_number" varchar(14) NOT NULL,
+	"organization" varchar(128) NOT NULL
 );

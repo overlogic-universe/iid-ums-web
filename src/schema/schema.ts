@@ -6,7 +6,7 @@ import {
   numeric
 } from "drizzle-orm/pg-core";
 
-export const registrationTable = pgTable("registration", {
+export const registrationCompetitionTable = pgTable("registration_competition", {
   id: serial("id").primaryKey(),
   createdAt: timestamp("created_at", {withTimezone: true}).notNull().defaultNow(),
   email: varchar("email", { length: 64 }).notNull(),
@@ -26,5 +26,17 @@ export const registrationTable = pgTable("registration", {
   competitionBatch: numeric("competition_batch").default("1").notNull(),
 });
 
-export type InsertRegistrationType = typeof registrationTable.$inferInsert;
-export type SelectRegistrationType = typeof registrationTable.$inferSelect;
+export const registrationInnovationTalk = pgTable("registration_innovation_talk", {
+  id: serial("id").primaryKey(),
+  emailUser: varchar("email", { length: 64 }).notNull(),
+  name: varchar("name", { length: 64 }).notNull(),
+  whatsappNumberUser: varchar("whatsapp_number", { length: 14 }).notNull(),
+  organization: varchar("organization", { length: 64 }).notNull(),
+  faculty: varchar("faculty", { length: 128 }).notNull(),
+  payment: varchar("payment", { length: 128 }).notNull(),
+});
+
+export type InsertRegistrationCompetitionType = typeof registrationCompetitionTable.$inferInsert;
+export type SelectRegistrationCompetitionType = typeof registrationCompetitionTable.$inferSelect;
+export type SelectRegistrationInnovationTalkType = typeof registrationInnovationTalk.$inferSelect;
+export type InsertRegistrationInnovationTalkType = typeof registrationInnovationTalk.$inferInsert

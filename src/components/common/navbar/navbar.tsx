@@ -119,7 +119,7 @@ export default function Navbar() {
           </Link>
         </li>
         {countdownExpired ?<div className="hidden"></div>: 
-          <Link className="flex justify-center py-4" href="/registration" passHref>
+          <Link className="flex justify-center py-4" href="/registration-competition" passHref>
             <Button className="hover:translate-y-[-4px] rounded-2xl w-40 h-12 text-base bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700 transition-all duration-300 blue-shadow">{TextConstants.en.registration}</Button>
           </Link>
         }
@@ -188,7 +188,7 @@ export default function Navbar() {
         </NavigationMenuList>
       </NavigationMenu>
       {countdownExpired ?<div className="lg:block hidden w-40"></div>: 
-        <Link className="hidden lg:block" href="/registration" passHref data-aos="fade">
+        <Link className="hidden lg:block" href="/registration-competition" passHref data-aos="fade">
           <Button className="rounded-2xl w-40 h-12 text-base bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700 transition-all duration-300 blue-shadow">{TextConstants.en.registration}</Button>
         </Link>
       }

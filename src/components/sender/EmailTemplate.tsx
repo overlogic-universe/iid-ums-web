@@ -14,23 +14,15 @@ import {
 import * as React from "react";
 import image from "@/assets/images/emailSenderImage/header-2.png";
 interface EmailTemplateProps {
-  leaderName?: string;
-  email?: string;
-  abstractUrl?: string;
-  studentIdUrl?: string;
-  descriptionUrl?: string;
+  name: string;
+  email: string;
+  payment: string;
 }
 
-export const EmailTemplate = ({
-  leaderName,
-  email,
-  abstractUrl,
-  studentIdUrl,
-  descriptionUrl,
-}: EmailTemplateProps) => {
-  const previewText = `Thank you ${leaderName} for filling out the registration form`;
+export const EmailTemplate = ({ name, email, payment }: EmailTemplateProps) => {
+  const previewText = `Thank you ${name} for filling out the registration form`;
   const encodedMessage = encodeURIComponent(
-    `Hii, I'm ${leaderName}\nHere is the proof of payment that I have made`
+    `Hii, I'm ${name}\nHere is the proof of payment that I have made \n ${payment}`
   );
 
   return (
@@ -42,16 +34,16 @@ export const EmailTemplate = ({
           <Container className="border border-solid border-[#eaeaea] rounded my-[40px] mx-auto p-[20px] max-w-[465px]">
             <Section className="mt-[32px]">
               <Img
-                src={`https://ums-iid.com/${image.src}`}
+                src={`https://ums-iid.com${image.src}`}
                 alt="UMS International Innovation Day 2024"
-                className="my-0 mx-auto w-full"
+                className="my-0 mx-auto w-full rounded-lg"
               />
             </Section>
             <Text className="text-black text-[14px] leading-[24px]">
-              Hii {leaderName},
+              Hii {name},
             </Text>
             <Text className="text-black text-[14px] leading-[24px]">
-              Thank you <strong>{leaderName}</strong> (
+              Thank you <strong>{name}</strong> (
               <Link
                 href={`mailto:${email}`}
                 className="text-blue-600 no-underline"
@@ -71,28 +63,14 @@ export const EmailTemplate = ({
               </Button>
             </Section>
             <Text className="text-black text-[14px] leading-[24px]">
-              See your document:{" "}
+              See your payment information:{" "}
             </Text>
-            <Link
-              href={abstractUrl}
-              className="text-blue-600 no-underline py-1"
-            >
-              Abstract
-            </Link>
-            <br></br>
-            <Link
-              href={studentIdUrl}
-              className="text-blue-600 no-underline py-1"
-            >
-              Student ID
-            </Link>
-            <br></br>
-            <Link
-              href={descriptionUrl}
-              className="text-blue-600 no-underline py-1"
-            >
-              Description
-            </Link>
+              <Link
+                href={payment}
+                className="text-blue-600 no-underline py-1"
+              >
+                Payment Information
+              </Link>
           </Container>
         </Body>
       </Tailwind>

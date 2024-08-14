@@ -4,29 +4,25 @@ import { Resend } from "resend";
 const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 
 interface PostRequestBody {
-  leaderName: string;
+  name: string;
   email: string;
-  abstractUrl: string;
-  descriptionUrl: string;
-  studentIdUrl: string;
+  payment: string;
 }
 
 export async function POST(req: Request): Promise<Response> {
   try {
     const body: PostRequestBody = await req.json();
 
-    const { leaderName, email, abstractUrl, descriptionUrl, studentIdUrl } = body;
+    const { name, email, payment } = body;
 
     const { data, error } = await resend.emails.send({
       from: "Overlogic Universe <overlogic@ums-iid.com>",
       to: [email],
       subject: "Payment Verification",
       react: EmailTemplate({
-        leaderName: leaderName,
-        email: email,
-        abstractUrl: abstractUrl,
-        descriptionUrl: descriptionUrl,
-        studentIdUrl: studentIdUrl,
+        name,
+        email,
+        payment,
       }),
     });
 

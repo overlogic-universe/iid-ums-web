@@ -71,6 +71,7 @@ const FileUpload: NextPage<Props> = ({ title, accept, bucket, contentType, onCha
           variant: "destructive",
           action: <ToastAction altText="Close">{TextConstants.en.close}</ToastAction>,
         });
+        console.log(error)
       } finally {
         setLoading(false);
         onLoading(false);

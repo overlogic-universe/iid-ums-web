@@ -1,5 +1,10 @@
 "use server";
+import { ZodConstants } from "@/constants/zod-competition-constants";
+import { InnovationTalkZodConstants } from "@/constants/zod-innovation-talk-constants";
 import { cookies } from "next/headers";
+const innovationTalkFormSchema = ZodConstants.formSchema;
+const competitionFormSchema = InnovationTalkZodConstants.formSchema;
+import {z} from "zod"
 
 const setCookies = (key: string, data: string): Promise<void> => {
   return new Promise((resolve, reject) => {
@@ -73,15 +78,11 @@ const removeCookies = async (key: string) => {
   }
 };
 
-const removeAllCookies = async () => {
+const removeAllCookies = async (values: string[]) => {
   try {
-    return cookies()
-      .getAll()
-      .forEach((key) => {
-        if(!(key.name == "cookie")){
-          cookies().delete(key.name);
-        }
-      });
+    values.forEach((value) => {
+      cookies().delete(value);
+    })
   } catch (error) {}
 };
 

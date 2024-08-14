@@ -83,7 +83,7 @@ const CompetitionRegistrationSection: NextPage<Props> = ({}) => {
               {timeRemaining.days <= 0 && timeRemaining.hours <= 0 && timeRemaining.minutes <= 0 ? (
                 <div></div>
               ) : (
-                <Link href="/registration" passHref>
+                <Link href="/registration-competition" passHref>
                   <Button className="bg-white hover:translate-y-[-4px] mx-auto text-main-primary text-lg p-7 rounded-2xl transition-all duration-300 white-shadow hover:bg-white">{TextConstants.en.registerNow}</Button>
                 </Link>
               )}
