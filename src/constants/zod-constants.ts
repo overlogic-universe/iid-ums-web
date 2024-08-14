@@ -32,6 +32,7 @@ export const ZodConstants = {
     competitionCategory: "",
     formOfInvention: "",
     titleOfInnovation: "",
+    titleOfProduct: "",
     patentNumber: "",
     scanStudentId: "",
     abstract: "",

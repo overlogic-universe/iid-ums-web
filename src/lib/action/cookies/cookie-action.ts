@@ -4,7 +4,6 @@ import { cookies } from "next/headers";
 const setCookies = (key: string, data: string): Promise<void> => {
   return new Promise((resolve, reject) => {
     try {
-      console.log(`Setting cookie: ${key} = ${data}`);
       cookies().set({
         sameSite: true,
         name: key,
