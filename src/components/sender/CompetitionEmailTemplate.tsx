@@ -35,7 +35,7 @@ import {
                 />
               </Section>
               <Text className="text-black text-[14px] leading-[24px]">
-                Halo {name},
+                Hello {name},
               </Text>
               <Text>
                 Thank you for your participation in UMS International Innovation
