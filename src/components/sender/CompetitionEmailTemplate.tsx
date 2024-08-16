@@ -13,6 +13,7 @@ import {
   } from "@react-email/components";
   import * as React from "react";
   import image from "@/assets/images/emailSenderImage/header-2.png";
+  import pamflet from "@/assets/images/pamflet.png";
   interface EmailTemplateProps {
     name: string;
   }
@@ -51,6 +52,11 @@ import {
               <Text>
                 Regards,<br></br>UMS International Innovation Day 2024 Committee
               </Text>
+              <Img
+                src={`https://ums-iid.com${pamflet.src}`}
+                alt="UMS International Innovation Day 2024"
+                className="my-0 mx-auto w-full rounded-lg"
+              />
             </Container>
           </Body>
         </Tailwind>
