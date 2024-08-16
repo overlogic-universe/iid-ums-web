@@ -87,7 +87,7 @@ const CompetitionRegistrationSection: NextPage<Props> = ({}) => {
                   <Button className="bg-white hover:translate-y-[-4px] mx-auto text-main-primary text-lg p-7 rounded-2xl transition-all duration-300 white-shadow hover:bg-white">{TextConstants.en.registerNow}</Button>
                 </Link>
               )}
-              <Link href="https://mpyoqbpkfxoyaqrfzbht.supabase.co/storage/v1/object/public/rule_book/GUIDEBOOK%20UIID%202024_20240815_192411_0000.pdf" target="_blank" passHref>
+              <Link href="/guide-book" target="_blank" passHref>
                 <Button className="bg-white hover:translate-y-[-4px] mx-auto text-main-primary text-lg p-7 rounded-2xl transition-all duration-300 white-shadow hover:bg-white">GUIDEBOOK</Button>
               </Link>
             </div>
