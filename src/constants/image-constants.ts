@@ -23,7 +23,7 @@ import judge2 from "@/assets/images/judges/judge2.webp";
 import judge3 from "@/assets/images/judges/judge3.webp";
 import judge4 from "@/assets/images/judges/judge4.webp";
 import speaker2 from "@/assets/images/speakers/speaker2.webp";
-import speaker3 from "@/assets/images/speakers/speaker3.webp";
+import speaker3 from "@/assets/images/speakers/speaker3.png";
 
 // Image constants for use in the app.
 export const ImageConstants = {

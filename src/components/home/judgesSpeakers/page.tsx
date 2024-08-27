@@ -66,8 +66,8 @@ const JudgesSpeakersSection: NextPage<Props> = ({}) => {
       bgColor: "bg-gradient-to-tr from-orange-600 via-orange-300 to-orange-600",
     },
     {
-      name: "Brian Arianto Tanuwidjaja",
-      position: `Mahasiswa Berprestasi 1 F-KKMK Universitas Gadjah Mada 2024\nCast Clash Of Championship by Ruangguru`,
+      name: "Najwa Nur Awalia",
+      position: `Juara 2 Mahasiswa Berprestasi Nasional 2024\nAwardee NUS TF-LEaRN 2024\nAwardee YLI Wave 16 by Mckinsey & Company\nCast Clash of Champions by Ruangguru 2024`,
       topic: '"Menjadi Mahasiswa Berprestasi"',
       image: ImageConstants.speaker3,
       bgColor: "bg-gradient-to-tr from-pink-600 via-pink-300 to-pink-600",
