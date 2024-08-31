@@ -20,9 +20,9 @@ const InnovationTalkSection = () => {
         <p className="text-gray-700 mt-3 text-justify md:text-base text-sm" data-aos="fade-up">
           <span className="font-bold">{TextConstants.en.innovationTalk}</span> {TextConstants.en.innovationTalkDesc}
         </p>
-        {/* <Link className="hidden lg:block" href="/registration-innovation-talk" passHref data-aos="fade">
+        <Link className="hidden lg:block" href="/registration-innovation-talk" passHref data-aos="fade">
           <Button className="rounded-2xl w-40 h-12 text-base bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700 transition-all duration-300 blue-shadow ">{TextConstants.en.registration}</Button>
-        </Link> */}
+        </Link>
       </div>
     </div>
   );
