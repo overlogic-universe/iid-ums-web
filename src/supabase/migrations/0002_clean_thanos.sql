@@ -1,0 +1,1 @@
+ALTER TABLE "registration_competition" ALTER COLUMN "competition_batch" SET DEFAULT '2';

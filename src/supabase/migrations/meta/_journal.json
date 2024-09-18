@@ -15,6 +15,13 @@
       "when": 1723629210228,
       "tag": "0001_worthless_vision",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1726633633885,
+      "tag": "0002_clean_thanos",
+      "breakpoints": true
     }
   ]
 }
