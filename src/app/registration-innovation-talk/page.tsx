@@ -111,7 +111,7 @@ const RegistrationPage: NextPage<Props> = () => {
     return (
       <Input
         className="border-2 border-[#9F9F9F] h-16 rounded-xl focus:border-main-300 focus:outline-none focus-visible:ring-main-300"
-        placeholder={placeholder  == "Organization" ? "Instances" : placeholder}
+        placeholder={ placeholder  == "Organization" ? "Instances" : placeholder }
         {...field}
       />
     );

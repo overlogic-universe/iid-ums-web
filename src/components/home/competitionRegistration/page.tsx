@@ -56,12 +56,12 @@ const CompetitionRegistrationSection: NextPage<Props> = ({}) => {
             <div className="rounded-2xl px-5 py-2 md:mx-10 bg-white lg:flex items-center justify-center text-center">
               <Image className="mx-auto" src={SvgConstants.logo} alt={TextConstants.en.registration} height={70} />
             </div>
-            <p className="font-bold mt-4 mb-2 flex text-xl justify-center items-center">Batch 1</p>
+            <p className="font-bold mt-4 mb-2 flex text-xl justify-center items-center">Batch 2</p>
             <p className="font-bold  mb-4 flex justify-center items-center">
               <span className="me-2">
                 <Image src={IconConstants.countDown} alt="count-down-icon" height={18} />
               </span>
-              15 september 2024
+              1 November 2024
             </p>
             <div className="rounded-2xl px-5 md:mx-10 flex items-center justify-center text-center text-white">
               <div className="flex flex-col items-center mx-2 bg-white text-main-primary px-4 py-3 rounded-2xl">

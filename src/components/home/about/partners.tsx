@@ -25,7 +25,7 @@ const PartnerSection: NextPage<Props> = ({}) => {
               {TextConstants.en.officialITPartners}
             </h1>
             <div className="md:flex-row flex flex-col justify-center items-center gap-10 text-center">
-              <Image width={150} height={100} src={itPartners[0].src} alt={itPartners[0].alt} />
+              <Image width={250} src={itPartners[0].src} alt={itPartners[0].alt} className="pt-5"/>
               <Image width={250} height={150} src={itPartners[1].src} alt={itPartners[1].alt} />
             </div>
           </div>
