@@ -85,12 +85,14 @@ const InnovationTalkSection = () => {
                 passHref
                 data-aos="fade"
               >
-                <Button className="rounded-2xl w-full h-12 text-base bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700 transition-all duration-300 blue-shadow ">
+                <Button className="rounded-2xl w-full h-12 text-xs md:text-base bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700 transition-all duration-300 blue-shadow ">
                   {TextConstants.en.registration} Innovation Talk
                 </Button>
               </Link>
-              <div className="h-12 flex items-center justify-center">
-                <p className="text-center mt-2">BNI: 1862000886 (Salwa Yumna Muthi'ah)</p>
+              <div className="h-12 flex items-center justify-center" 
+                data-aos="fade"
+              >
+                <p className="text-center mt-2 text-xs md:text-base">BNI: 1862000886 (Salwa Yumna Muthi'ah)</p>
               </div>
             </div>
           )}
