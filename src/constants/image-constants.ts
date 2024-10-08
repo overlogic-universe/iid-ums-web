@@ -5,6 +5,7 @@
 import umsLogo from "@/assets/images/logo/ums-logo.png";
 import nutricomLogo from "@/assets/images/logo/nutricom-logo.png";
 import innopaLogo from "@/assets/images/logo/innopa-logo.png";
+import fikLogo from "@/assets/images/logo/fik-logo.png";
 import overlogicLogo from "@/assets/images/logo/overlogic-logo.jpg";
 import gdscUMSLogo from "@/assets/images/logo/gdsc-ums-logo.png";
 import bgHeaderBox from "@/assets/images/bg-header-box.png";
@@ -32,6 +33,7 @@ export const ImageConstants = {
   bgEventRecap,
   nutricomLogo,
   innopaLogo,
+  fikLogo,
   overlogicLogo,
   gdscUMSLogo,
   bgHeaderBox,

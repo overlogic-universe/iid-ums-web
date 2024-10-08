@@ -13,7 +13,7 @@ const PartnerSection: NextPage<Props> = ({}) => {
 
   const organizedBy = [{ src: ImageConstants.nutricomLogo, alt: "Nutricom" }];
   const inColabWith = [{ src: ImageConstants.innopaLogo, alt: "Innopa" }];
-  const supportedBy = [{ src: ImageConstants.umsLogo, alt: "UMS" }];
+  const supportedBy = [{ src: ImageConstants.umsLogo, alt: "UMS" }, { src: ImageConstants.fikLogo, alt: "FIK" }];
 
   return (
     <div className="md:container flex flex-col min-w-full px-4">
@@ -52,8 +52,9 @@ const PartnerSection: NextPage<Props> = ({}) => {
             <h1 className="text-2xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-[#2828B7] to-[#121251]  mb-3">
               {TextConstants.en.supportedBy}
             </h1>
-            <div className="flex justify-center items-center">
-              <Image width={200} height={100} src={supportedBy[0].src} alt={supportedBy[0].alt} />
+            <div className="md:flex-row flex flex-col justify-center items-center md:gap-0 gap-6 text-center">
+                  <Image width={200} height={100} src={supportedBy[0].src} alt={supportedBy[0].alt} />
+                  <Image width={230} height={100} src={supportedBy[1].src} alt={supportedBy[1].alt} />
             </div>
           </div>
           
