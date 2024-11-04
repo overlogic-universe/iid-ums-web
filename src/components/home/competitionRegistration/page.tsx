@@ -61,7 +61,7 @@ const CompetitionRegistrationSection: NextPage<Props> = ({}) => {
               <span className="me-2">
                 <Image src={IconConstants.countDown} alt="count-down-icon" height={18} />
               </span>
-              1 November 2024
+              1 Desember 2024
             </p>
             <div className="rounded-2xl px-5 md:mx-10 flex items-center justify-center text-center text-white">
               <div className="flex flex-col items-center mx-2 bg-white text-main-primary px-4 py-3 rounded-2xl">
