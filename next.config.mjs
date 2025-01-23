@@ -2,8 +2,8 @@
 
 const nextConfig = {
     reactStrictMode: false,
-    unoptimized: true,
     images: {
+        unoptimized: true,
         remotePatterns: [
             {
                 hostname: "mpyoqbpkfxoyaqrfzbht.supabase.co"
